@@ -10,10 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_143435) do
+ActiveRecord::Schema.define(version: 2020_03_02_144432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "instruments", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jam_sessions", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "genre"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.string "location"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_jam_sessions_on_user_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.bigint "spot_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spot_id"], name: "index_participations_on_spot_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
+  end
+
+  create_table "spots", force: :cascade do |t|
+    t.bigint "jam_session_id"
+    t.bigint "instrument_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["instrument_id"], name: "index_spots_on_instrument_id"
+    t.index ["jam_session_id"], name: "index_spots_on_jam_session_id"
+  end
+
+  create_table "user_intruments", force: :cascade do |t|
+    t.string "level"
+    t.string "since"
+    t.bigint "instrument_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["instrument_id"], name: "index_user_intruments_on_instrument_id"
+    t.index ["user_id"], name: "index_user_intruments_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +76,11 @@ ActiveRecord::Schema.define(version: 2020_03_02_143435) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "jam_sessions", "users"
+  add_foreign_key "participations", "spots"
+  add_foreign_key "participations", "users"
+  add_foreign_key "spots", "instruments"
+  add_foreign_key "spots", "jam_sessions"
+  add_foreign_key "user_intruments", "instruments"
+  add_foreign_key "user_intruments", "users"
 end
