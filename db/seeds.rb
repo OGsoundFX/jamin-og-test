@@ -124,10 +124,21 @@ instruments = [
 puts "-- Generating instruments"
 
 # CREATING PROPERTIES WITH ATTRIBUTES
-instruments.each_with_index do |instrument, index|
+instruments.each do |instrument|
   puts "-- Generating #{instrument[:name]}\n"
   inst = Instrument.new(instrument)
   inst.save!
 end
 
 puts "-- Instruments are ready!"
+
+# PROFILES
+User.create(email:"bob@gmail.com", password:123456, first_name:"Bob", last_name:"Sponge", bio:"I live in the sea")
+User.create(email:"oliv@gmail.com", password:123456, first_name:"Olivier", last_name:"Girardot", bio:"I believe I can fly")
+
+# USER-INTRUMENTS
+UserIntrument.create(instrument_id:10, user_id:1, level:"Intermediate", since:"3")
+UserIntrument.create(instrument_id:2, user_id:1, level:"Beginner", since:"1")
+UserIntrument.create(instrument_id:5, user_id:1, level:"Expert", since:"10")
+UserIntrument.create(instrument_id:7, user_id:2, level:"Intermediate", since:"4")
+UserIntrument.create(instrument_id:8, user_id:2, level:"Beginner", since:"0")
