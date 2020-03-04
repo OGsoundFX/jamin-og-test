@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: [:show, :edit, :update]
+  resources :jam_sessions, only: [:index]
 
   namespace :user do
     root :to => "profiles#edit"
