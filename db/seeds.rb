@@ -1,7 +1,7 @@
 require_relative 'seed_users'
 require_relative 'seed_instruments'
 
-Spot.destroy_all
+Participation.destroy_all
 UserInstrument.destroy_all
 
 JamSession.destroy_all
