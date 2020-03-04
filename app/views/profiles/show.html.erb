@@ -1,10 +1,44 @@
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
-<h3><%= @user.bio %></h3>
-<br>
-<p><strong>Instruments I play:</strong></p>
+<div class="container">
+  <div id="back-button-display">
+    <%= link_to "Back", root_path, class: "glyphicon glyphicon-star" %>
+  </div>
+</div>
 
-<ul>
-  <% @instruments.each do |instrument| %>
-    <li><%= Instrument.find(instrument.instrument_id).description %> <%= Instrument.find(instrument.instrument_id).name %> - <%= instrument.level %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h3 id="profile-title-display">Profile</h3>
+</div>
+
+<div class="container card-container">
+  <div class="row">
+    <div class="user_pic">
+      <div class="col-3">
+        <img src="https://www.thefamouspeople.com/profiles/images/jimi-hendrix-14.jpg" alt="Avatar Pick" class="avatar-large">
+        <h3 id="user-name-one-line"><strong><%= @user.first_name %> <%= @user.last_name %></strong></h3>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="bio-display">
+        <h1>About me</h1>
+        <h5><%= @user.bio %></h5>
+        <br>
+        <ul>
+          <% @instruments.first(3).each do |instrument| %>
+            <li><%= Instrument.find(instrument.instrument_id).description %> <%= Instrument.find(instrument.instrument_id).name %> - <%= instrument.level %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="container card-container">
+  <h4>Reviews</h4>
+</div>
+
+<br>
+
+<div class="container card-container">
+  <h4>Past Jam Sessions</h4>
+</div>
