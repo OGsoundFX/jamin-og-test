@@ -22,8 +22,12 @@
         <h5><%= @user.bio %></h5>
         <br>
         <ul>
-          <% @instruments.first(3).each do |instrument| %>
-            <li><%= Instrument.find(instrument.instrument_id).description %> <%= Instrument.find(instrument.instrument_id).name %> - <%= instrument.level %></li>
+          <% @user.user_instruments.each do |user_instrument| %>
+            <li>
+              <p>
+              <%= user_instrument.instrument.name %> - <%= user_instrument.level %>
+              </p>
+            </li>
           <% end %>
         </ul>
       </div>
