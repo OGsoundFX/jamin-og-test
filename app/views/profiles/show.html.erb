@@ -12,7 +12,7 @@
   <div class="row">
     <div class="user_pic">
       <div class="col-3">
-        <img src="https://www.thefamouspeople.com/profiles/images/jimi-hendrix-14.jpg" alt="Avatar Pick" class="avatar-large">
+        <%= cl_image_tag @user.photo.key, height: 400, width: 400, crop: :fill, class: "avatar-large" %>
         <h3 id="user-name-one-line"><strong><%= @user.first_name %> <%= @user.last_name %></strong></h3>
       </div>
     </div>
