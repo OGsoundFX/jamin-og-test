@@ -4,6 +4,8 @@ require 'open-uri'
 
 puts '-- Deleting all users'
 User.destroy_all
+UserInstrument.destroy_all
+
 
 puts "-- Generating users"
 
@@ -58,9 +60,12 @@ users = [
   },
 ]
 
+all = Instrument.all
+
 users.each do |user|
   photo_url = user[:photo_url]
   user.delete(:photo_url)
+
   usr = User.new(user)
   # p URI.open(photo_url)
   usr.photo.attach(io: URI.open(photo_url), filename: 'photo.jpg')
@@ -68,4 +73,18 @@ users.each do |user|
 end
 
 
+User.all.each do |user|
+  p user.email
+
+  3.times do
+    UserInstrument.create!(
+      user: user,
+      instrument: all.sample,
+      level: %w(Beginner Intermediate Expert).sample,
+      since: %w(2009 2002 2019 2010 2008 2003 2005 1999 2001).sample,
+    )
+  end
+end
+
 puts "-- Users are ready!"
+

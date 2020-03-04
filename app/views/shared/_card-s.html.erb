@@ -1,10 +1,10 @@
-<div class="col-4 background-w">
-  <% @jam_sessions.each do |session| %>
-    <h6><%= session.title %></h6>
-    <p class="subtitle"><%= session.location %></p>
-    <p><%= session.description %></p>
+<% @jam_sessions.each do |jam_session| %>
+  <div class="col-4 background-w">
+    <h6><%= jam_session.title %></h6>
+    <p class="subtitle"><%= jam_session.location %></p>
+    <p><%= jam_session.description %></p>
     <%= link_to "See more", jam_sessions_path, class: "btn-sm hot-pink" %>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 
