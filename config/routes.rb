@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show, :edit, :update]
 
-  namespace :user do
-    root :to => "profiles#edit"
-  end
+  # namespace :user do
+  #   root :to => "profiles#edit"
+  # end
 end
