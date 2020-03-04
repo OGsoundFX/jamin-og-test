@@ -8,7 +8,7 @@ User.destroy_all
 puts "-- Generating users"
 
 
-photos = [
+photos_users = [
   'https://images.unsplash.com/photo-1522536421511-14c9073df899?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
   'https://cdn-soundlister.pressidium.com/wp-content/uploads/formidable/6/Photo-2017-300x300.jpeg',
   'https://images.unsplash.com/photo-1529518969858-8baa65152fc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
@@ -65,7 +65,7 @@ users = [
 
 users.each_with_index do |user, index|
   usr = User.new(user)
-  usr.photo.attach(io: URI.open(photos[index]), filename: 'photo.jpg')
+  usr.photo.attach(io: URI.open(photos_users[index]), filename: 'photo.jpg')
   usr.save!
 end
 

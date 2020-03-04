@@ -3,6 +3,38 @@
 puts 'Deleting all instruments'
 Instrument.destroy_all
 
+
+icons = [
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_accordion_172493_pwtlmo.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_bass_2122617_gblb9e.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_bass_2122617_gblb9e.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_bongos_1602012_ga8hat.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Cello_415863_sc5bbx.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Clarinet_3021845_scsjap.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583330820/icons-instrument/noun_double_bass_1601948_qpzg9h.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Drum_1181834_kcnk6r.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Flute_1928130_p4nlip.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Guitar_152262_vartmq.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Guitar_152262_vartmq.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Harmonica_2895838_etu9m0.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325860/icons-instrument/noun_oboe_737111_ecyoqe.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Piano_1704743_fojzgg.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Piano_1704743_fojzgg.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325860/icons-instrument/noun_Conga_3035793_ot7mma.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325860/icons-instrument/noun_Djembe_1373758_cop9sw.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325860/icons-instrument/noun_Conga_3035793_ot7mma.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Saxophone_1627835_mu9wwk.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Saxophone_1627835_mu9wwk.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_bongos_1602012_ga8hat.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Piano_1704743_fojzgg.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583331348/icons-instrument/noun_Trumpet_1595190_squdec.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_ukulele_644053_gs8iyj.png',
+  'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Violin_2387794_eusxo3.png',
+]
+
+
+
+
 instruments = [
   {
     name: 'Accordion',
@@ -112,8 +144,9 @@ instruments = [
 
 puts "-- Generating instruments"
 
-instruments.each do |instrument|
+instruments.each do |instrument, index|
   inst = Instrument.new(instrument)
+  usr.photo.attach(io: URI.open(icons[index]), filename: 'icon.png')
   inst.save!
 end
 
