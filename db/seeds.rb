@@ -20,7 +20,6 @@ jam = JamSession.new(
 jam.instruments = Instrument.where(name: ['Guitar', 'Bass', 'Piano'])
 jam.save!
 
-
 Instrument.where(name: ['Drums', 'Guitar']).each do |instrument|
-UserInstrument.create(instrument: instrument, user: User.first, level: "Beginner")
+  UserInstrument.create(instrument: instrument, user: User.first, level: "Beginner")
 end
