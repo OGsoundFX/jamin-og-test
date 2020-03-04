@@ -1,29 +1,25 @@
 require_relative 'seed_users'
 require_relative 'seed_instruments'
 
-# JamSessionInstrument.destroy_all
-# UserInstrument.destroy_all
+JamSessionInstrument.destroy_all
+UserInstrument.destroy_all
 
-# JamSession.destroy_all
-
-
+JamSession.destroy_all
 
 
+jam = JamSession.new(
+  title: "Rock semester",
+  description: "School is out",
+  user: User.first
+)
+
+jam.instruments = Instrument.where(name: ['Guitar', 'Bass', 'Vocal'])
+jam.save!
 
 
-# jam = JamSession.new(
-#   title: "Rock semester",
-#   description: "School is out",
-#   user: User.first
-# )
-
-# jam.instruments = Instrument.where(name: ['Guitar', 'Bass', 'Vocal'])
-# jam.save!
-
-
-# u = User.first
-# u.instruments = Instrument.where(name: ['Drums', 'Guitar'])
-# u.save!
+u = User.first
+u.instruments = Instrument.where(name: ['Drums', 'Guitar'])
+u.save!
 
 
 
