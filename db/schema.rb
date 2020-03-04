@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_121920) do
+ActiveRecord::Schema.define(version: 2020_03_04_162014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,15 +74,15 @@ ActiveRecord::Schema.define(version: 2020_03_04_121920) do
     t.index ["jam_session_id"], name: "index_spots_on_jam_session_id"
   end
 
-  create_table "user_intruments", force: :cascade do |t|
+  create_table "user_instruments", force: :cascade do |t|
     t.string "level"
     t.string "since"
     t.bigint "instrument_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["instrument_id"], name: "index_user_intruments_on_instrument_id"
-    t.index ["user_id"], name: "index_user_intruments_on_user_id"
+    t.index ["instrument_id"], name: "index_user_instruments_on_instrument_id"
+    t.index ["user_id"], name: "index_user_instruments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -106,6 +106,6 @@ ActiveRecord::Schema.define(version: 2020_03_04_121920) do
   add_foreign_key "participations", "users"
   add_foreign_key "spots", "instruments"
   add_foreign_key "spots", "jam_sessions"
-  add_foreign_key "user_intruments", "instruments"
-  add_foreign_key "user_intruments", "users"
+  add_foreign_key "user_instruments", "instruments"
+  add_foreign_key "user_instruments", "users"
 end
