@@ -1,7 +1,7 @@
 require_relative 'seed_users'
 require_relative 'seed_instruments'
 
-JamSessionInstrument.destroy_all
+Spot.destroy_all
 UserInstrument.destroy_all
 
 JamSession.destroy_all
@@ -13,7 +13,7 @@ jam = JamSession.new(
   user: User.first
 )
 
-jam.instruments = Instrument.where(name: ['Guitar', 'Bass', 'Vocal'])
+jam.instruments = Instrument.where(name: ['Guitar', 'Bass', 'Piano'])
 jam.save!
 
 
