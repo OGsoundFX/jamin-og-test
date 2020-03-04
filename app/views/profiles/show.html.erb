@@ -5,6 +5,6 @@
 
 <ul>
   <% @instruments.each do |instrument| %>
-    <li><%= Instrument.find(instrument.id).description %> <%= Instrument.find(instrument.id).name %> - <%= instrument.level %></li>
+    <li><%= Instrument.find(instrument.instrument_id).description %> <%= Instrument.find(instrument.instrument_id).name %> - <%= instrument.level %></li>
   <% end %>
 </ul>
