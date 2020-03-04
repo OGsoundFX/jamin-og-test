@@ -45,10 +45,6 @@ instruments = [
     description: ''
   },
   {
-    name: 'Glockenspiel',
-    description: ''
-  },
-  {
     name: 'Guitar',
     description: 'Electric'
   },
@@ -71,10 +67,6 @@ instruments = [
   {
     name: 'Piano',
     description: 'Electric'
-  },
-  {
-    name: 'Percussion',
-    description: 'Bongo'
   },
   {
     name: 'Percussion',
