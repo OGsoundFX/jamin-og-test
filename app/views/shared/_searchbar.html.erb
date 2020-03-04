@@ -1,0 +1,16 @@
+<div>
+  <%= form_tag jam_sessions_path, method: :get do %>
+  <%= text_field_tag :location,
+                        params[:location],
+    class: "form-control",
+    placeholder: "Search for Jams" %>
+</div>
+<div>
+  <%= select_tag :instrument_id,
+    options_from_collection_for_select(@instruments, 'id', 'name'),
+    :include_blank => true %>
+</div>
+<div class="search-buttons">
+  <%= submit_tag "Find session", class: "btn btn-primary" %>
+<% end %>
+</div>
