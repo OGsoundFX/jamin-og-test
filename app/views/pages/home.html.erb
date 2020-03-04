@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="startpage">
+    <div class="row">
+        <div class="col-8 banner">
+            <%= image_tag "pablo-friendship.png", class: "banner" %>
+        </div>
+        <div class="col-4 content">
+            <h4>Find your Whatever</h4>
+            <h1>It's easy as hell</h1>
+            <div class="search">
+            <%= render 'shared/searchbar'  %>
+            </div>
+        </div>
+    </div>
+</div>
