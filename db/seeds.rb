@@ -144,4 +144,3 @@ UserIntrument.create(instrument_id:7, user_id:2, level:"Intermediate", since:"4"
 UserIntrument.create(instrument_id:8, user_id:2, level:"Beginner", since:"0")
 
 # JamSession
-JamSession.create(title: "Fire Night", description: "Our jam-packed music sessions for children aged 4-8 are back this spring!", genre: "jazz", starts_at:)
