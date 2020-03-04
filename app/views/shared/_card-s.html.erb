@@ -1,0 +1,6 @@
+<% @jam_sessions.each do |session| %>
+  <h6><%= session.title %></h6>
+  <p class="subtitle"><%= session.location %></p>
+  <p><%= session.description %></p>
+  <%= link_to "See more", jam_sessions_path, class: "btn-sm" %>
+<% end %>
