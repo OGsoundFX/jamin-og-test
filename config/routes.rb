@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :profiles, only: [:show, :edit, :update]
+  resources :jam_sessions, only: [:index]
 
   namespace :user do
     root :to => "profiles#edit"
