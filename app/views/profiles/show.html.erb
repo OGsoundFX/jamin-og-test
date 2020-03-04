@@ -1,7 +1,10 @@
-<h1><%= @user.first_name %></h1>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<h3><%= @user.bio %></h3>
+<br>
+<p><strong>Instruments I play:</strong></p>
 
 <ul>
   <% @instruments.each do |instrument| %>
-    <li><%= instrument.id %></li>
+    <li><%= Instrument.find(instrument.id).description %> <%= Instrument.find(instrument.id).name %> - <%= instrument.level %></li>
   <% end %>
 </ul>
