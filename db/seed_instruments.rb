@@ -3,7 +3,7 @@ require 'open-uri'
 #INSTRUMENTS (array of hashes)
 
 puts '-- Deleting all instruments'
-Instrument.destroy_all
+# Instrument.destroy_all
 
 instruments = [
   {
