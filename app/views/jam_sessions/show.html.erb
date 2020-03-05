@@ -1,17 +1,17 @@
 <div class="container-fluid mb-4">
   <div class="row mt-4">
-    <div class="col-7 bg-white mx-5 shadow">
+    <div class="col-md-7 col-sm-12 bg-white mx-md-5 mx-sm-0 shadow">
       <div class="row jam-info">
-        <div class="col-9">
+        <div class="col-md-9 col-sm-12">
 
             <div class="row ">
               <div class="col-12 pt-4">
-                <h3><%= @jam_session.title %></h3>
+                <h3 class="font-weight-bold"><%= @jam_session.title %></h3>
               </div>
             </div>
 
             <div class="row mb-4">
-              <div class="col-4 py-2">
+              <div class="col-md-5 col-sm-12">
                 <div class="d-flex align-items-center">
                   <span class="fas fa-map-marker-alt mr-2"></span>
                   <span>
@@ -20,14 +20,14 @@
                 </div>
               </div>
 
-              <div class="col-3 py-2">
+              <div class="col-md-3 col-sm-6">
                 <div class="text-center">
                   <span class="far fa-calendar-alt mr-2"></span>
                   <span><%= @jam_session.starts_at.strftime('%d %B') %></span>
                 </div>
               </div>
 
-              <div class="col-3 py-2">
+              <div class="col-md-3 col-sm-6">
                 <div>
                   <span class="far fa-clock mr-2"></span>
                   <%= @jam_session.starts_at.strftime('%H:%M') %> -
@@ -49,20 +49,23 @@
             </div>
         </div>
 
-        <div class="col-3">
+        <div class="col-3 pt-4">
           <% @jam_session.spots.each do |spot| %>
             <div class="row">
               <div class="col-6 py-2 d-flex justify-content-end">
-                <img src="https://via.placeholder.com/80x80" class="rounded-circle">
+                <% if spot.participation %>
+                  <%= cl_image_tag spot.participation.user.photo.key, width: 80, height: 80, crop: :fill, class: "rounded-circle"  %>
+                <% else %>
+                  <img src="https://via.placeholder.com/80x80" class="rounded-circle">
+                <% end %>
               </div>
               <div class="col-6 d-flex align-items-center">
-                <%= cl_image_tag spot.instrument.photo.key, width: 50, height: 50, class: "rounded-circle"  %>
+                <%= cl_image_tag spot.instrument.photo.key, width: 50, height: 50, crop: :fill, class: "rounded-circle"  %>
               </div>
             </div>
           <% end %>
         </div>
       </div>
-
 
       <div class="row jam-map">
         <div class="col-12 py-3">
