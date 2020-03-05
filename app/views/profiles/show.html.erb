@@ -13,20 +13,22 @@
     <div class="user_pic">
       <div class="col-3">
         <%= cl_image_tag @user.photo.key, height: 400, width: 400, crop: :fill, class: "avatar-large" %>
-        <h3 id="user-name-one-line"><strong><%= @user.first_name %> <%= @user.last_name %></strong></h3>
+        <div>
+          <h4 id="user-name-one-line"><strong><%= @user.first_name %> <%= @user.last_name %></strong></h4>
+        </div>
       </div>
     </div>
-    <div class="col-9">
+    <div class="col-8">
       <div class="bio-display">
         <h4>About me</h4>
         <p><%= @user.bio %></p>
-        <p>Born in Seattle, Washington, Hendrix began playing guitar at age 15. In 1961, he enlisted in the US Army and trained as a paratrooper in the 101st Airborne Division, but he was discharged the following year. He moved to Clarksville, Tennessee soon after and began playing gigs on the Chitlin' Circuit, earning a place in the Isley Brothers' backing band and later with Little Richard, with whom he continued to work through mid-1965. He played with Curtis Knight and the Squires before moving to England in late 1966 after being discovered by Linda Keith, who interested bassist Chas Chandler of the Animals in becoming his first manager.[2] Within months, Hendrix earned three UK top ten hits with the Jimi Hendrix Experience: "Hey Joe", "Purple Haze", and "The Wind Cries Mary".</p>
         <br>
         <ul class="inline-list d-flex justify-content-between" style="padding: 0;">
           <% @user.user_instruments.first(3).each do |user_instrument| %>
             <li>
               <h6>
-              <%= user_instrument.instrument.name %> - <%= user_instrument.level %>
+                <%= cl_image_tag user_instrument.instrument.photo.key, class: "icon" %> - <%= user_instrument.level %>
+                <% user_instrument.instrument.name %>
               </h6>
             </li>
           <% end %>
@@ -38,11 +40,13 @@
 
 <br>
 
+<!--
 <div class="container card-container">
   <h5>Reviews</h5>
 </div>
 
 <br>
+-->
 
 <div class="container card-container">
   <h5>Past Jam Sessions</h5>

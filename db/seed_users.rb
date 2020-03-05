@@ -1,14 +1,9 @@
 require 'open-uri'
-
 #GENERATE USERS
-
 puts '-- Deleting all users'
-User.destroy_all
-UserInstrument.destroy_all
-
-
+# User.destroy_all
+# UserInstrument.destroy_all
 puts "-- Generating users"
-
 users = [
   {
     email: "bob@gmail.com",
@@ -59,22 +54,16 @@ users = [
     photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
   },
 ]
-
 all = Instrument.all
-
 users.each do |user|
   photo_url = user[:photo_url]
   user.delete(:photo_url)
-
   usr = User.new(user)
   # p URI.open(photo_url)
   usr.photo.attach(io: URI.open(photo_url), filename: 'photo.jpg')
   usr.save!
 end
-
-
 User.all.each do |user|
-
   3.times do
     UserInstrument.create!(
       user: user,
@@ -84,6 +73,4 @@ User.all.each do |user|
     )
   end
 end
-
 puts "-- Users are ready!"
-
