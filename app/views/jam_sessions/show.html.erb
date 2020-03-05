@@ -1,53 +1,83 @@
 <div class="container-fluid">
+  <div class="row mt-4">
+    <div class="col-7 bg-white mx-5 shadow border">
+      <div class="row jam-info">
+        <div class="col-9 border">
+
+            <div class="row ">
+              <div class="col-12 py-2">
+                <h3><%= @jam_session.title %></h3>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-4 border py-2">
+                <div class="d-flex align-items-center justify-content-center">
+                  <span class="fas fa-map-marker-alt mr-1"></span>
+                  <span style="font-size: 14px;">
+                    <%= @jam_session.location %>
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-4 border py-2">
+                <div>
+                  <span class="far fa-calendar-alt"></span>
+                  <span><%= @jam_session.starts_at.strftime('%d %B') %></span>
+                </div>
+              </div>
+
+              <div class="col-4 border py-2">
+                <div>
+                  <span class="far fa-clock"></span>
+                  <%= @jam_session.starts_at.strftime('%H:%M') %> -
+                  <%= @jam_session.ends_at.strftime('%H:%M') %>
+                </div>
+              </div>
+            </div>
 
 
-  <div class="row">
-    <div class="col-9">
-      <div class="jam-container">
+            <div class="row">
+              <div class="col-12 py-2">
+                <h5>Information</h5>
+                <div class="py-2">
+                  <%= @jam_session.description %>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque officiis quaerat, aliquid, expedita ullam aliquam quisquam veniam eveniet aperiam ipsam vitae molestias amet ipsum similique dolor quia nisi id voluptate.
+                </div>
+                <p class="btn btn-primary btn-sm searchbtn">Join</p>
+              </div>
+            </div>
+        </div>
 
-
-        <h3><%= @jam_session.title %></h3>
-          <div class="d-flex flex-row">
-            <i class="fas fa-map-marker-alt"></i>
-            <p ><%= @jam_session.location %></p>
-          </div>
-
-
-          <div class="d-flex flex-row">
-            <i class="far fa-calendar-alt"></i>
-            <i class="far fa-clock"></i>
-            <p><%= @jam_session.starts_at %></p> <!-- TODO: format time and date -->
-            <p><%= @jam_session.ends_at %></p>
-          </div>
-
-
-          <div>
-            <h3>Description</h3>
-            <p><%= @jam_session.description %></p>
-          </div>
-
-
-          <div class="search-buttons">
-            <%= submit_tag "Join", class: "btn btn-primary btn-sm searchbtn" %>
-          </div>
-
-       </div>
-
-
-
-      <div class="users-container">
-
-
+        <div class="col-3 border">
+          <p>second</p>
+        </div>
+      </div>
+      <div class="row jam-map border">
+        <div class="col-12 py-3">
+          <div
+            id="map"
+            style="width: 100%;
+            height: 280px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          ></div>
+        </div>
       </div>
     </div>
 
 
-    <div class="col-3">
-      <div class="jam-container">
-        <h3>Messages</h3>
-      </div>
+
+
+
+    <div class="col-4 bg-white shadow border">
+      <p>Messages</p>
     </div>
   </div>
+
+
+
+
 
 </div> <!-- end of container -->
 

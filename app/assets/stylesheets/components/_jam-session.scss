@@ -2,10 +2,13 @@
   position: relative;
   background-color: white;
   border-radius: $border;
-  box-shadow: $shadow;
   position:center;
   margin-top: 30px;
   margin-bottom: 30px;
   height: 700px;
   padding: 20px;
+}
+
+.shadow {
+  box-shadow: $shadow;
 }
