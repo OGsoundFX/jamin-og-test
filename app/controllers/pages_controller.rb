@@ -4,5 +4,6 @@ class PagesController < ApplicationController
   def home
     @instruments = Instrument.all
     @display_footer = false
+    @jam_sessions = JamSession.all
   end
 end
