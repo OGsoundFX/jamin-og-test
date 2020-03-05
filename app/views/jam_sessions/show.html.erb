@@ -1,35 +1,35 @@
-<div class="container-fluid">
+<div class="container-fluid mb-4">
   <div class="row mt-4">
-    <div class="col-7 bg-white mx-5 shadow border">
+    <div class="col-7 bg-white mx-5 shadow">
       <div class="row jam-info">
-        <div class="col-9 border">
+        <div class="col-9">
 
             <div class="row ">
-              <div class="col-12 py-2">
+              <div class="col-12 pt-4">
                 <h3><%= @jam_session.title %></h3>
               </div>
             </div>
 
-            <div class="row">
-              <div class="col-4 border py-2">
-                <div class="d-flex align-items-center justify-content-center">
-                  <span class="fas fa-map-marker-alt mr-1"></span>
-                  <span style="font-size: 14px;">
+            <div class="row mb-4">
+              <div class="col-4 py-2">
+                <div class="d-flex align-items-center">
+                  <span class="fas fa-map-marker-alt mr-2"></span>
+                  <span>
                     <%= @jam_session.location %>
                   </span>
                 </div>
               </div>
 
-              <div class="col-4 border py-2">
-                <div>
-                  <span class="far fa-calendar-alt"></span>
+              <div class="col-3 py-2">
+                <div class="text-center">
+                  <span class="far fa-calendar-alt mr-2"></span>
                   <span><%= @jam_session.starts_at.strftime('%d %B') %></span>
                 </div>
               </div>
 
-              <div class="col-4 border py-2">
+              <div class="col-3 py-2">
                 <div>
-                  <span class="far fa-clock"></span>
+                  <span class="far fa-clock mr-2"></span>
                   <%= @jam_session.starts_at.strftime('%H:%M') %> -
                   <%= @jam_session.ends_at.strftime('%H:%M') %>
                 </div>
@@ -44,16 +44,27 @@
                   <%= @jam_session.description %>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque officiis quaerat, aliquid, expedita ullam aliquam quisquam veniam eveniet aperiam ipsam vitae molestias amet ipsum similique dolor quia nisi id voluptate.
                 </div>
-                <p class="btn btn-primary btn-sm searchbtn">Join</p>
+                <p class="btn btn-primary btn-sm searchbtn mt-4">Join</p>
               </div>
             </div>
         </div>
 
-        <div class="col-3 border">
-          <p>second</p>
+        <div class="col-3">
+          <% @jam_session.spots.each do |spot| %>
+            <div class="row">
+              <div class="col-6 py-2 d-flex justify-content-end">
+                <img src="https://via.placeholder.com/80x80" class="rounded-circle">
+              </div>
+              <div class="col-6 d-flex align-items-center">
+                <%= cl_image_tag spot.instrument.photo.key, width: 50, height: 50, class: "rounded-circle"  %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
-      <div class="row jam-map border">
+
+
+      <div class="row jam-map">
         <div class="col-12 py-3">
           <div
             id="map"
@@ -70,7 +81,7 @@
 
 
 
-    <div class="col-4 bg-white shadow border">
+    <div class="col-4 bg-white shadow">
       <p>Messages</p>
     </div>
   </div>
