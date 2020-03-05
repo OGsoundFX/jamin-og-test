@@ -4,6 +4,19 @@ class JamSessionsController < ApplicationController
     @jam_sessions = JamSession.includes(:spots, :instruments)
     @jam_sessions = @jam_sessions.where(instruments: { id: params[:instrument_id] }) if params[:instrument_id].present?
     @jam_sessions = @jam_sessions.search_by_location(params[:location]) if params[:location].present?
+    # access id of instruments
+    @session_instruments_id = Instrument.all
+
+    # ------ mapbox --------
+    @jam_sessions = JamSession.geocoded #returns jam_sessions with coordinates
+
+    @markers = @jam_sessions.map do |jam_session|
+      {
+        lat: jam_session.latitude,
+        lng: jam_session.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { jam_session: jam_session })
+      }
+    end
   end
 
   def show

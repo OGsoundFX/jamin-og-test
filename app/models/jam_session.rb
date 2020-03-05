@@ -17,4 +17,6 @@ class JamSession < ApplicationRecord
   geocoded_by :location
   has_many :spots
   has_many :instruments, through: :spots
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end
