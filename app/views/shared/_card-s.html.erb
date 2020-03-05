@@ -1,17 +1,26 @@
 <% @jam_sessions.each do |jam_session| %>
   <div class="col-4 background-w">
-    <h6><%= jam_session.title %></h6>
     <div class="row">
-      <div class="col-6">
-        <p class="subtitle"><%= jam_session.location %></p>
+      <div class="col-8">
+        <h6><%= jam_session.title %></h6>
+        <div class="row">
+          <div class="col-6">
+            <p class="subtitle"><%= jam_session.location %></p>
+          </div>
+          <div class="col-6">
+            <p class="subtitle"><%= jam_session.starts_at.strftime("%b %C")%> <!-- - <%= jam_session.ends_at.strftime("%I:%M %p") %> --> </p>
+          </div>
+        </div>
+        <p><%= jam_session.description %></p>
+        <%= link_to "See more", jam_sessions_path, class: "btn-sm hot-pink" %>
+        <!-- avatar and instrument icon -->
       </div>
-      <div class="col-6">
-        <p class="subtitle"><%= jam_session.starts_at.strftime("%a, %b %C, %I:%M")    %> - <%= jam_session.ends_at.strftime("%I:%M %p") %> </p>
+      <div class="col-3">
+
       </div>
     </div>
-    <p><%= jam_session.description %></p>
-    <%= link_to "See more", jam_sessions_path, class: "btn-sm hot-pink" %>
   </div>
 <% end %>
 
 
+<!-- .strftime("%a, %b %C, %I:%M %p") -->
