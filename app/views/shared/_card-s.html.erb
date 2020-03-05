@@ -15,8 +15,14 @@
         <%= link_to "See more", jam_sessions_path, class: "btn-sm hot-pink" %>
         <!-- avatar and instrument icon -->
       </div>
-      <div class="col-3">
-
+      <div class="col-3 border-left">
+        <!-- @instruments.each do cl_image_tag -->
+        <% jam_session.spots.each do |spot| %>
+          <% instrument = Instrument.find(spot.instrument_id) %>
+          <%= instrument.photo.key %>
+          <%= cl_image_tag instrument.photo.key, width: 50 %>
+        <% end %>
+        <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
       </div>
     </div>
   </div>
