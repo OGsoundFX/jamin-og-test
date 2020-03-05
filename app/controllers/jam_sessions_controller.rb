@@ -7,8 +7,8 @@ class JamSessionsController < ApplicationController
     # access id of instruments
     @session_instruments_id = Instrument.all
 
-    # ------ mapbox --------
-    @jam_sessions = JamSession.geocoded #returns jam_sessions with coordinates
+    # # ------ mapbox --------
+    @jam_sessions = @jam_sessions.geocoded #returns jam_sessions with coordinates
 
     @markers = @jam_sessions.map do |jam_session|
       {
