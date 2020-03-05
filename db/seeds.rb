@@ -1,146 +1,92 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-# PROPERTIES
-instruments = [
+require_relative 'seed_instruments'
+require_relative 'seed_users'
+
+
+
+user_1 = User.find_by(email:'miguel@lopez.com')
+user_2 = User.find_by(email:'bob@gmail.com')
+user_3 = User.find_by(email:'lara@lara.com')
+
+
+jam_sessions = [
   {
-    name: 'Accordion',
-    description: ''
+    title: "Rock semester",
+    description: "School is out",
+    location: "Rosenthaler Str. 4, 10119 Berlin",
+    genre: "rock",
+    starts_at: "March, 15th 2020, 15:00",
+    ends_at: "March, 15th 2020, 17:00",
+    user: user_1,
+    instruments: ['Bass Guitar', 'Guitar', 'Drums'],
   },
   {
-    name: 'Bass guitar',
-    description: 'Electric'
+    title: "Trippin",
+    description: "Let us get together and experiment!",
+    location: "Torstr. 109, 10119 Berlin",
+    genre: "jazz",
+    starts_at: "March, 27th 2020, 14:00",
+    ends_at: "March, 27th 2020, 19:00",
+    user: user_1,
+    instruments: ['Flute', 'Harmonica', 'Piano'],
   },
   {
-    name: 'Bass guitar',
-    description: 'Accoustic'
+    title: "Jam marathon",
+    description: "I am planing to play 5 hours non-stop in order to get the creative juices flowing! Join me!",
+    location: "Rudi-Dutschke-Straße 36, Berlin",
+    genre: "rock",
+    starts_at: "March, 29th 2020, 10:00",
+    ends_at: "March, 29th 2020, 15:00",
+    user: user_2,
+    instruments: ['Guitar', 'Synthesizer', 'Drums', 'Bass Guitar'],
   },
   {
-    name: 'Bongo',
-    description: ''
+    title: "Jazzy jazz",
+    description: "I am mostly interested in new-wave jazz but open to try other styles too!",
+    location: "Thomasiusstraße 1, 10119 Berlin",
+    genre: "jazz",
+    starts_at: "March, 15th 2020, 12:00",
+    ends_at: "March, 15th 2020, 15:00",
+    user: user_3,
+    instruments: ['Saxophone', 'Oboe', 'Flute', 'Harmonica', 'Piano'],
   },
   {
-    name: 'Cello',
-    description: ''
-  },
-  {
-    name: 'Clarinet',
-    description: ''
-  },
-  {
-    name: 'Didgeridoo',
-    description: ''
-  },
-  {
-    name: 'Double bass',
-    description: ''
-  },
-  {
-    name: 'Drums',
-    description: ''
-  },
-  {
-    name: 'Flute',
-    description: ''
-  },
-  {
-    name: 'Glockenspiel',
-    description: ''
-  },
-  {
-    name: 'Guitar',
-    description: 'Electric'
-  },
-  {
-    name: 'Guitar',
-    description: 'Accoustic'
-  },
-  {
-    name: 'Harmonica',
-    description: ''
-  },
-  {
-    name: 'Oboe',
-    description: ''
-  },
-  {
-    name: 'Piano',
-    description: 'Accoustic'
-  },
-  {
-    name: 'Piano',
-    description: 'Electric'
-  },
-  {
-    name: 'Percussion',
-    description: 'Bongo'
-  },
-  {
-    name: 'Percussion',
-    description: 'Congas'
-  },
-  {
-    name: 'Percussion',
-    description: 'Djembe'
-  },
-  {
-    name: 'Percussion',
-    description: 'Other'
-  },
-  {
-    name: 'Saxophone',
-    description: 'Alto'
-  },
-  {
-    name: 'Saxophone',
-    description: 'Soprano'
-  },
-  {
-    name: 'Steeldrum',
-    description: ''
-  },
-  {
-    name: 'Synthesizer',
-    description: ''
-  },
-  {
-    name: 'Trumpet',
-    description: ''
-  },
-  {
-    name: 'Ukulele',
-    description: ''
-  },
-  {
-    name: 'Violin',
-    description: ''
+    title: "Another brick in the wall",
+    description: "Leave them kids alone! I would like to play good old tunes and try and modify them.",
+    location: "Thomasiusstraße 1, Berlin",
+    genre: "rock",
+    starts_at: "March, 15th 2020, 18:00",
+    ends_at: "March, 15th 2020, 21:00",
+    user: user_2,
+    instruments: ['Guitar', 'Synthesizer', 'Drums', 'Bass Guitar'],
   },
 ]
 
-puts "-- Generating instruments"
 
-# CREATING PROPERTIES WITH ATTRIBUTES
-instruments.each do |instrument|
-  puts "-- Generating #{instrument[:name]}\n"
-  inst = Instrument.new(instrument)
-  inst.save!
+puts "---- deleting all JAMS ----"
+JamSession.destroy_all
+
+
+jam_sessions.each do |jam_session|
+  instruments = jam_session[:instruments]
+  instruments = jam_session.delete(:instruments)
+  jam = JamSession.new(jam_session)
+  jam.instruments = Instrument.where(name: instruments)
+  jam.save!
 end
 
-puts "-- Instruments are ready!"
+# Instrument.where(name: ['Drums', 'Guitar']).each do |instrument|
+#   UserInstrument.create(instrument: instrument, user: user_1, level: "Beginner")
+# end
 
-# PROFILES
-User.create(email:"bob@gmail.com", password:123456, first_name:"Bob", last_name:"Sponge", bio:"I live in the sea")
-User.create(email:"oliv@gmail.com", password:123456, first_name:"Olivier", last_name:"Girardot", bio:"I believe I can fly")
 
-# USER-INTRUMENTS
-UserIntrument.create(instrument_id:10, user_id:1, level:"Intermediate", since:"3")
-UserIntrument.create(instrument_id:2, user_id:1, level:"Beginner", since:"1")
-UserIntrument.create(instrument_id:5, user_id:1, level:"Expert", since:"10")
-UserIntrument.create(instrument_id:7, user_id:2, level:"Intermediate", since:"4")
-UserIntrument.create(instrument_id:8, user_id:2, level:"Beginner", since:"0")
 
-# JamSession
+
+
+
+
+
+
+
+
+
+
