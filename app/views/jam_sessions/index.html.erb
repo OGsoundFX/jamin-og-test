@@ -1,13 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col-4">
+    <div class="col-6">
       <%= render 'shared/card-s' %>
     </div>
-    <div class="col-8">
+    <div class="col-6">
       <div
         id="map"
-        style="width: 100%;
-        height: 600px;"
+        style="height: 100vh; position: sticky; top: 0px;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
