@@ -1,5 +1,6 @@
 .startpage{
     height: 100vh;
+    background-color: white;
 }
 
 .banner{
@@ -25,5 +26,21 @@
 }
 
 .search div{  
-    padding: 20px;
+    padding: 10px;
+    
+}
+
+
+.searchbtn{
+    color: white;
+    background-color: #F9255C;
+    border-radius: 3px;
+    border: none;
+    padding: 10px;  
+    width: 100px;
+}
+
+.dropdwn{
+   border:  1px solid #ced4da;
+   width: 100%;
 }
