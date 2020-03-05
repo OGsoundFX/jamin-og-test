@@ -16,7 +16,7 @@ users = [
     first_name: "Bob",
     last_name: "Sponge",
     bio: "I live in the sea",
-    photo_url: '/Users/leoni/code/leonisperling/jamin/app/assets/images/user_1.jpg',
+    photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_1_w88pku.jpg',
   },
   {
     email: "oliv@gmail.com",
@@ -24,7 +24,7 @@ users = [
     first_name: "Olivier",
     last_name: "Girardot",
     bio: "I believe I can fly",
-    photo_url: '/Users/leoni/code/leonisperling/jamin/app/assets/images/user_2.jpg',
+    photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_2_dip4wm.jpg',
   },
   {
     email: "miguel@lopez.com",
@@ -32,7 +32,7 @@ users = [
     first_name: "Miguel",
     last_name: "Lopez",
     bio: "Let's get together and experiment. I love to broaden my horizons",
-    photo_url: '/Users/leoni/code/leonisperling/jamin/app/assets/images/user_3.jpg',
+    photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_3_lkwf5j.jpg',
   },
   {
     email: "maria@mueller.com",
@@ -40,7 +40,7 @@ users = [
     first_name: "Maria",
     last_name: "Mueller",
     bio: "I really enjoy classical and rock music! Contradicting I know, but life is full of surprices!",
-    photo_url: '/Users/leoni/code/leonisperling/jamin/app/assets/images/user_4.jpg',
+    photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_4_micpcb.jpg',
   },
   {
     email: "lara@lara.com",
@@ -48,7 +48,7 @@ users = [
     first_name: "Lara",
     last_name: "Croft",
     bio: "Recently moved here and looking to expand my network by jamming with other musicians. Singing is my passion!",
-    photo_url: '/Users/leoni/code/leonisperling/jamin/app/assets/images/user_5.jpg',
+    photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_5_gvebti.jpg',
   },
   {
     email: "amy@weinhaus.com",
@@ -56,7 +56,7 @@ users = [
     first_name: "Amy",
     last_name: "Weinhaus",
     bio: "I love to sing, not only in the shower! I also like to play the guitar!",
-    photo_url: '/Users/leoni/code/leonisperling/jamin/app/assets/images/user_6.jpg',
+    photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
   },
 ]
 
@@ -68,7 +68,7 @@ users.each do |user|
 
   usr = User.new(user)
   # p URI.open(photo_url)
-  usr.photo.attach(io: File.open(photo_url), filename: 'photo.jpg')
+  usr.photo.attach(io: URI.open(photo_url), filename: 'photo.jpg')
   usr.save!
 end
 
