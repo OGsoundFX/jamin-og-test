@@ -6,6 +6,16 @@ class JamSessionsController < ApplicationController
     @jam_sessions = @jam_sessions.search_by_location(params[:location]) if params[:location].present?
     # access id of instruments
     @session_instruments_id = Instrument.all
+
+    # mapbox --------
+    @jam_sessions = JamSession.geocoded #returns flats with coordinates
+
+    @markers = @jam_sessions.map do |jam_session|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show
