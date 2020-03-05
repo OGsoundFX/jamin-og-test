@@ -8,14 +8,19 @@
 </div>
 <div>
   <p>Instrument</p>
-
   <%= select_tag :instrument_id,
     options_from_collection_for_select(@instruments, 'id', 'name'),
     :include_blank => true, class: "btn dropdown-toggle dropdwn" %>
 </div>
-  <!-- //datepicker here please!!!!!! -->
-
+<!-- //datepicker here please!!!!!! -->
+<div>
+  <p>When</p>
+  <%= simple_form_for :search, method: "get" do |f| %>
+  <%= f.input :starts_at, as: :string, required: false, input_html: {class: "TimePicker"}  %>
+  <%= f.input :ends_at, as: :string, required: false,  input_html: {class: "TimePicker"}  %>
+  <% end  %>
+</div>
 <div class="search-buttons">
   <%= submit_tag "Search", class: "btn btn-primary btn-sm searchbtn" %>
-<% end %>
+  <% end %>
 </div>
