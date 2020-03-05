@@ -3,8 +3,8 @@ require 'open-uri'
 #GENERATE USERS
 
 puts '-- Deleting all users'
-User.destroy_all
-UserInstrument.destroy_all
+# User.destroy_all
+# UserInstrument.destroy_all
 
 
 puts "-- Generating users"
