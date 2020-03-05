@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @instruments = Instrument.all
+    @display_footer = false
   end
 end
