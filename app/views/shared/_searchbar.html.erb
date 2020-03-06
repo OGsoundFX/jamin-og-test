@@ -4,7 +4,7 @@
   <%= text_field_tag :location,
     params[:location],
     class: "form-control",
-    placeholder: "Search for Jams" %>
+    placeholder: "Search for jams" %>
 </div>
 <div>
   <p>Instrument</p>
@@ -16,11 +16,12 @@
 <div>
   <p>When</p>
   <%= simple_form_for :search, method: "get" do |f| %>
-  <%= f.input :starts_at, as: :string, required: false, input_html: {class: "TimePicker"}  %>
-  <%= f.input :ends_at, as: :string, required: false,  input_html: {class: "TimePicker"}  %>
-  <% end  %>
-</div>
-<div class="search-buttons">
-  <%= submit_tag "Search", class: "btn btn-primary btn-sm searchbtn" %>
+    <%= f.input :starts_at, as: :string, required: false, input_html: {class: "TimePicker"}  %>
+    <%= f.input :ends_at, as: :string, required: false,  input_html: {class: "TimePicker"}  %>
+    <div class="search-buttons">
+      <%= submit_tag "Search", class: "btn btn-primary btn-sm searchbtn" %>
+    </div>
+    <% end %>
+  </div>
   <% end %>
 </div>

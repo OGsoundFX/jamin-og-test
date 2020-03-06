@@ -7,8 +7,8 @@ class JamSessionsController < ApplicationController
     # access id of instruments
     @session_instruments_id = Instrument.all
 
-    # ------ mapbox --------
-    @jam_sessions = JamSession.geocoded #returns jam_sessions with coordinates
+    # # ------ mapbox --------
+    @jam_sessions = @jam_sessions.geocoded #returns jam_sessions with coordinates
 
     @markers = @jam_sessions.map do |jam_session|
       {
@@ -21,6 +21,11 @@ class JamSessionsController < ApplicationController
 
   def show
     @jam_session = JamSession.find(params[:id])
+    @markers =   [{
+        lat: @jam_session.latitude,
+        lng: @jam_session.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { jam_session: @jam_session })
+      }]
   end
 
 
