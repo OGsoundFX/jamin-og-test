@@ -24,10 +24,10 @@
           <% jam_session.spots.first(4).each do |spot| %>
             <% instrument = Instrument.find(spot.instrument_id) %>
             <div class="col-6">
-              <%= cl_image_tag instrument.photo.key, width: 50 %>
+              <img src="https://via.placeholder.com/40x40" class="rounded-circle">
             </div>
             <div class="col-6">
-              <img src="https://via.placeholder.com/40x40" class="rounded-circle">
+              <%= cl_image_tag instrument.photo.key, width: 50 %>
             </div>
           <% end %>
           <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
