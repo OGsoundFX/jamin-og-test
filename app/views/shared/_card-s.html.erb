@@ -2,14 +2,14 @@
   <div class="background-w">
     <div class="row">
       <div class="col-8">
-        <h6><%= jam_session.title %></h6>
+        <h4 class="light"><%= jam_session.title %></h4>
 
         <div class="row">
           <div class="col-6">
-            <p class="subtitle"><%= jam_session.location %></p>
+            <p class="subtitle text-secondary"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
           </div>
           <div class="col-6">
-            <p class="subtitle"><%= jam_session.starts_at.strftime("%b %C")%> <!-- - <%= jam_session.ends_at.strftime("%I:%M %p") %> --> </p>
+            <p class="subtitle text-secondary"><i class="far fa-calendar-alt mr-2"></i><%= jam_session.starts_at.strftime("%b %C")%> <!-- - <%= jam_session.ends_at.strftime("%I:%M %p") %> --> </p>
           </div>
         </div>
 
@@ -20,11 +20,18 @@
       <!-- avatar and instrument icon -->
       <div class="col-3 border-left">
         <!-- @instruments.each do cl_image_tag -->
-        <% jam_session.spots.each do |spot| %>
-          <% instrument = Instrument.find(spot.instrument_id) %>
-          <%= cl_image_tag instrument.photo.key, width: 50 %>
-        <% end %>
-        <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
+        <div class="row">
+          <% jam_session.spots.first(4).each do |spot| %>
+            <% instrument = Instrument.find(spot.instrument_id) %>
+            <div class="col-6">
+              <%= cl_image_tag instrument.photo.key, width: 50 %>
+            </div>
+            <div class="col-6">
+              <img src="https://via.placeholder.com/40x40" class="rounded-circle">
+            </div>
+          <% end %>
+          <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
+        </div>
       </div>
     </div>
   </div>
