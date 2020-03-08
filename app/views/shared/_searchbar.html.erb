@@ -17,7 +17,7 @@
   <p class="regular mb-1">When</p>
   <%= simple_form_for :search, method: "get" do |f| %>
     <%= f.input :starts_at, label: 'From', as: :string, required: false, input_html: {class: "TimePicker"}, wrapper_html: { class: 'remove-style' }  %>
-    <%= f.input :ends_at, label: 'To', as: :string, required: false,  input_html: {class: "TimePicker"}, wrapper_html: { class: 'remove-style' }  %>
+    <%= f.input :ends_at, label: 'To', as: :string, required: false,  input_html: {class: "timePicker-end"}, wrapper_html: { class: 'remove-style' }  %>
     <div class="search-buttons remove-style">
       <%= submit_tag "Search", class: "btn btn-primary btn-sm searchbtn" %>
     </div>
