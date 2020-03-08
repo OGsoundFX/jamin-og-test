@@ -1,42 +1,15 @@
-  <div>
-    <p class="regular mb-1">Instrument</p>
-    <%= select_tag :instrument_id,
-      options_from_collection_for_select(@instruments, 'id', 'name'),
-      :include_blank => true, class: "btn dropdown-toggle dropdwn" %>
+<%= simple_form_for :jam_session, url: jam_sessions_path, method: :get do |f| %>
+  <%= f.input :instrument_id, collection: Instrument.all, required: false %>
+  <%= f.input :location, required: false %>
+
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <%= f.input :starts_at, required: false, input_html: {class: "TimePicker"} %>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <%= f.input :ends_at, required: false, input_html: {class: "timePicker-end"} %>
+    </div>
   </div>
 
-
-  <div>
-    <p class="regular mb-1">Where</p>
-    <%= form_tag jam_sessions_path, method: :get do %>
-    <%= text_field_tag :location,
-      params[:location],
-      class: "form-control",
-      placeholder: "eg. Berlin" %>
-  </div>
-
-
-  <div>
-    <p class="regular mb-1">When</p>
-    <%= simple_form_for :search, method: "get" do |f| %>
-      <div class="row">
-        <div class="col-6">
-          <%= f.input :starts_at, label: 'From', as: :string, required: false, input_html: {class: "TimePicker"}, wrapper_html: { class: 'remove-style' }  %>
-        </div>
-        <div class="col-6">
-          <%= f.input :ends_at, label: 'To', as: :string, required: false,  input_html: {class: "timePicker-end"}, wrapper_html: { class: 'remove-style' }  %>
-        </div>
-      </div>
-      <div class="search-buttons remove-style">
-        <%= submit_tag "Search", class: "btn btn-primary btn-sm searchbtn" %>
-      </div>
-    <% end %>
-  </div>
-    <% end %>
-
-
-
-
-
-
-
+  <%= f.submit 'Search', class: "btn btn-primary btn-sm searchbtn" %>
+<% end %>
