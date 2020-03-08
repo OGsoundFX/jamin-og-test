@@ -109,7 +109,7 @@ Participation.create(spot_id: 5, user_id: 4)
 Participation.create(spot_id: 6, user_id: 5)
 Participation.create(spot_id: 7, user_id: 6)
 
-# Participation.create(spot_id: 8, user_id: 2)
+Participation.create(spot_id: 8, user_id: 2)
 
 # Participation.create(spot_id: 12, user_id: 3)
 

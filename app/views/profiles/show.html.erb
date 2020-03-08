@@ -81,18 +81,22 @@
                   <% jam_session.spots.first(4).each do |spot| %>
                     <% instrument = Instrument.find(spot.instrument_id) %>
                     <% participation = Participation.find_by(spot_id: spot.id) %>
+                    <% if participation %>
                     <% user = User.find(participation.user_id) %>
-                    <div class="col-4">
-                      <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
-                    </div>
-                    <div class="col-4">
-                      <%= cl_image_tag instrument.photo.key, width: 50 %>
-                    </div>
-                    <div class="col-4">
-                      <div class="mt-2">
-                        <%= link_to "Review", jam_session_path(jam_session), class: "btn-sm hot-pink" %>
+
+                      <div class="col-4">
+                        <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
                       </div>
-                    </div>
+                      <div class="col-4">
+                        <%= cl_image_tag instrument.photo.key, width: 50 %>
+                      </div>
+                      <div class="col-4">
+                        <div class="mt-2">
+                          <%= link_to "Review", jam_session_path(jam_session), class: "btn-sm hot-pink" %>
+                        </div>
+                      </div>
+                    <% else %>
+                    <% end %>
                   <% end %>
                   <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
                 </div>
