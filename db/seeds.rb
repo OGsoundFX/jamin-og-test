@@ -98,7 +98,29 @@ puts "---- Created some JAMS ----"
 
 puts "---- Creating some PARTICIPATIONS ----"
 
-Participation.create(spot_id: 1, user_id: 2)
+
+
+Participation.create(spot_id: 1, user_id: 1)
+Participation.create(spot_id: 2, user_id: 2)
+Participation.create(spot_id: 3, user_id: 3)
+
+Participation.create(spot_id: 4, user_id: 1)
+Participation.create(spot_id: 5, user_id: 4)
+Participation.create(spot_id: 6, user_id: 5)
+Participation.create(spot_id: 7, user_id: 6)
+
+# Participation.create(spot_id: 8, user_id: 2)
+
+# Participation.create(spot_id: 12, user_id: 3)
+
+# Participation.create(spot_id: 19, user_id: 2)
+
+# Participation.create(spot_id: 23, user_id: 2)
+
+# Participation.create(spot_id: 27, user_id: 1)
+
+
+puts "---- PARTICIPATIONS where created ----"
 
 # Instrument.where(name: ['Drums', 'Guitar']).each do |instrument|
 #   UserInstrument.create(instrument: instrument, user: user_1, level: "Beginner")
