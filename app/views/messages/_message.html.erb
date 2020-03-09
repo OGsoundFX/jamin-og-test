@@ -1,5 +1,5 @@
 <div class="message row px-3 mb-3">
-  <div class=" <%= message.from?(current_user) ? "right" : "" %>">
+  <div class=" <%= user_is_messages_author ? "right" : "" %>">
     <%= cl_image_tag message.user.photo.key, class: "avatar" %>
     <div> <%= message.content %></div>
   </div>
