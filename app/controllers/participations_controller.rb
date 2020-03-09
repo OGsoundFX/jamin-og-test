@@ -25,7 +25,6 @@ class ParticipationsController < ApplicationController
   # POST /participations.json
   def create
     @participation = Participation.new(participation_params)
-    update()
 
     respond_to do |format|
       if @participation.save
