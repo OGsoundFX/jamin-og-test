@@ -24,7 +24,13 @@
           <% jam_session.spots.first(4).each do |spot| %>
             <% instrument = Instrument.find(spot.instrument_id) %>
             <div class="col-6">
-              <img src="https://via.placeholder.com/40x40" class="rounded-circle">
+              <!-- <img src="https://via.placeholder.com/40x40" class="rounded-circle"> -->
+              <% participation = Participation.find_by(spot_id: spot.id) %>
+              <% if participation %>
+              <% user = User.find(participation.user_id) %>
+              <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
+              <% end %>
+
             </div>
             <div class="col-6">
               <%= cl_image_tag instrument.photo.key, width: 50 %>
