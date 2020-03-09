@@ -22,12 +22,12 @@ class JamSessionsController < ApplicationController
 
   def show
     @jam_session = JamSession.find(params[:id])
-    @messages = Message.includes(messages: :user).find(params[:id])
     @markers =   [{
         lat: @jam_session.latitude,
         lng: @jam_session.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { jam_session: @jam_session })
       }]
+    @messages = JamSession.includes(messages: :user).find(params[:id])
   end
 
 
