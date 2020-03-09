@@ -7,8 +7,8 @@ class JamSessionsController < ApplicationController
 
     # -------- access input from user ---------
     @location_input = params["location"]
-    @starts_at_input = params["search"]["starts_at"]
-    @ends_at_input = params["search"]["ends_at"]
+    @starts_at_input = params["jam_session"]["starts_at"]
+    @ends_at_input = params["jam_session"]["ends_at"]
     @instrument_input = Instrument.find(params["instrument_id"]).name if params["instrument_id"].present?
 
     # access id of instruments
