@@ -1,16 +1,13 @@
 <div class="col-4 bg-white shadow">
   <h4 class="text-center my-4">Messages</h4>
   <div class="messages-list border-bottom mb-4" style="overflow-x: scroll; height: 360px">
-    <div class="row px-3 mb-3">
       <% @jam_session.messages.each do |message| %>
-        <%= render "shared/message", message: message %>
+          <%= render "messages/message", message: message %>
       <% end %>
-    </div>
-
   </div>
 
   <div class="messages-input">
-    <%= simple_form_for([@jam_session, Message.new], remote: true)do |f| %>
+    <%= simple_form_for([@jam_session, Message.new], remote: true, method: :post )do |f| %>
       <%= f.input :content, label: false %>
       <%= f.submit 'Send', class: "btn btn-primary btn-sm searchbtn" %>
     <% end %>
