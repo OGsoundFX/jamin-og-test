@@ -9,3 +9,24 @@
 .inline-list li {
   display: inline;
 }
+
+#about-me-color, #past-jam-title-color {
+  color: $soft_blue;
+}
+
+#past-jam-title-color {
+  margin: 0px 20px 20px 20px;
+  padding-top: 20px;
+}
+
+.passed-jams {
+  margin: 20px;
+}
+
+.passed-jams-cards {
+  padding-bottom: 10px;
+  margin: 20px;
+  border-bottom: solid;
+  border-color: $grey;
+  border-bottom-width: 1px;
+}

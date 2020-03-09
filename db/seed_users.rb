@@ -10,7 +10,8 @@ users = [
     password: 123456,
     first_name: "Bob",
     last_name: "Sponge",
-    bio: "I live in the sea",
+    bio: "I am bartender recently settled in Berlin. I love to play various instruments such as guitar and percussions. I am Spanich born in Bercelona and I lived in many countries all over the world!
+Originally, hi studied litterature and worked as a librarian. However, I followed my passion and dedicated my time to music while working as a bartended or a food delivery person. Let's play some music!",
     photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_1_w88pku.jpg',
   },
   {
@@ -18,7 +19,8 @@ users = [
     password: 123456,
     first_name: "Olivier",
     last_name: "Girardot",
-    bio: "I believe I can fly",
+    bio: "I am music composer and soud designer living in Berlin. I love to play various instruments which include Drums, guitar, flute and many more. I am French born in Los Angeles and I lived in many countries all over the world!
+Originally, hi studied finance and worked as a statistician. However, I followed my passion and pursued a career as a composer and sound designer for the multimedia industry for over 10 years!",
     photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_2_dip4wm.jpg',
   },
   {
@@ -26,7 +28,8 @@ users = [
     password: 123456,
     first_name: "Miguel",
     last_name: "Lopez",
-    bio: "Let's get together and experiment. I love to broaden my horizons",
+    bio: "Let's get together and experiment. I love to broaden my horizons. I am very excited to join this amazing community of musicians and I hope I will meet plenty of interesting people who share my music tastes. Let's get together
+and rock the world !!! I can't wait for my next jam sessions. Contact me directly for any questions you may have about me, I would be happy to get in touch!",
     photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_3_lkwf5j.jpg',
   },
   {

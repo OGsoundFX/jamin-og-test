@@ -1,16 +1,17 @@
 <div class="container-fluid startpage">
-    <div class="row h-100">
-        <div class="col-8 banner">
-            <%= image_tag "pablo-friendship.png", class: "w-100" %>
-        </div>
-        <div class="col-4 content">
-            <div class="mb-3">
-              <h7 class="bold">Find your jam session</h7>
-              <h2>It's easy</h2>
-            </div>
-            <div class="search">
-              <%= render 'shared/searchbar'  %>
-            </div>
-        </div>
+  <div class="row h-100">
+    <div class="col-md-8 col-sm-12 banner d-none d-md-flex">
+      <%= image_tag "pablo-friendship.png", class: "w-100" %>
     </div>
+
+    <div class="col-md-4 mt-4 px-5">
+      <div class="">
+        <h6 class="bold mt-4">It's easy</h6>
+        <h3 class="font-weight-lighter">Find your jam session</h3>
+      </div>
+      <div class="search">
+        <%= render 'shared/searchbar'  %>
+      </div>
+    </div>
+  </div>
 </div>
