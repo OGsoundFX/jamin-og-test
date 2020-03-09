@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :jam_sessions, only: [:show, :index] do
     resources :spots, only: [:show]
   end
+  resources :participations, only: [:create, :update]
 
   resources :profiles, only: [:show, :edit, :update]
 

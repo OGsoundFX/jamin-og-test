@@ -4,77 +4,69 @@
       <div class="row jam-info">
         <div class="col-md-9 col-sm-12">
 
-            <div class="row ">
-              <div class="col-12 pt-4">
-                <h3 class="font-weight-bold"><%= @jam_session.title %></h3>
+          <div class="row ">
+            <div class="col-12 pt-4">
+              <h3 class="font-weight-bold"><%= @jam_session.title %></h3>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-md-5 col-sm-12">
+              <div class="d-flex align-items-center">
+                <span class="fas fa-map-marker-alt mr-2"></span>
+                <span>
+                  <%= @jam_session.location %>
+                </span>
               </div>
             </div>
 
-            <div class="row mb-4">
-              <div class="col-md-5 col-sm-12">
-                <div class="d-flex align-items-center">
-                  <span class="fas fa-map-marker-alt mr-2"></span>
-                  <span>
-                    <%= @jam_session.location %>
-                  </span>
-                </div>
-              </div>
-
-              <div class="col-md-3 col-sm-6">
-                <div class="text-center">
-                  <span class="far fa-calendar-alt mr-2"></span>
-                  <span><%= @jam_session.starts_at.strftime('%d %B') %></span>
-                </div>
-              </div>
-
-              <div class="col-md-4 col-sm-6">
-                <div>
-                  <span class="far fa-clock mr-2"></span>
-                  <%= @jam_session.starts_at.strftime('%H:%M') %> -
-                  <%= @jam_session.ends_at.strftime('%H:%M') %>
-                </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="text-center">
+                <span class="far fa-calendar-alt mr-2"></span>
+                <span><%= @jam_session.starts_at.strftime('%d %B') %></span>
               </div>
             </div>
 
-
-            <div class="row">
-              <div class="col-12 py-2">
-                <h5>Information</h5>
-                <div class="py-2">
-                  <%= @jam_session.description %>
-                </div>
-                <p class="btn btn-primary btn-sm searchbtn mt-4">Join</p>
+            <div class="col-md-4 col-sm-6">
+              <div>
+                <span class="far fa-clock mr-2"></span>
+                <%= @jam_session.starts_at.strftime('%H:%M') %> -
+                <%= @jam_session.ends_at.strftime('%H:%M') %>
               </div>
             </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-12 py-2">
+              <h5>Information</h5>
+              <div class="py-2">
+                <%= @jam_session.description %>
+              </div>
+              <p class="btn btn-primary btn-sm searchbtn mt-4">Join</p>
+            </div>
+          </div>
         </div>
-
+  
         <div class="col-3 pt-4">
-          <% @jam_session.spots.each do |spot| %>
-            <div class="row">
-              <div class="col-6 py-2 d-flex justify-content-end">
-                <% if spot.participation %>
-                  <%= cl_image_tag spot.participation.user.photo.key, width: 80, height: 80, crop: :fill, class: "rounded-circle"  %>
-                <% else %>
-                  <img src="https://via.placeholder.com/80x80" class="rounded-circle">
-                <% end %>
-              </div>
-              <div class="col-6 d-flex align-items-center">
-                <%= cl_image_tag spot.instrument.photo.key, width: 50, height: 50, crop: :fill, class: "rounded-circle"  %>
-              </div>
+          <% @jam_session.spots.each do |spot|%>
+          <div class="row">
+            <div class="col-6 py-2 d-flex justify-content-end" id="spot_<%= spot.id %>">
+              <%= render 'participations/participation_row', spot: spot %>
             </div>
+            <div class="col-6 d-flex align-items-center">
+              <%= cl_image_tag spot.instrument.photo.key, width: 50, height: 50, crop: :fill, class: "rounded-circle"  %>
+            </div>
+          </div>
           <% end %>
         </div>
       </div>
 
       <div class="row jam-map">
         <div class="col-12 py-3">
-          <div
-            id="map"
-            style="width: 100%;
-            height: 280px;"
-            data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-          ></div>
+          <div id="map" style="width: 100%;
+            height: 280px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
         </div>
       </div>
     </div>
@@ -93,4 +85,3 @@
 
 
 </div> <!-- end of container -->
-
