@@ -17,7 +17,7 @@ instruments = [
     icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_bass_2122617_gblb9e.png',
   },
   {
-    name: 'Bass guitar',
+    name: 'Accoustic Bass guitar',
     description: 'Accoustic',
     icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_bass_2122617_gblb9e.png',
   },
@@ -57,12 +57,22 @@ instruments = [
     icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Flute_1928130_p4nlip.png',
   },
   {
-    name: 'Guitar',
+    name: 'Electric Guitar',
     description: 'Electric',
     icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Guitar_152262_vartmq.png',
   },
   {
-    name: 'Guitar',
+    name: 'Electric Guitar1',
+    description: 'Electric',
+    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Guitar_152262_vartmq.png',
+  },
+  {
+    name: 'Electric Guitar2',
+    description: 'Electric',
+    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Guitar_152262_vartmq.png',
+  },
+  {
+    name: 'Accoustic Guitar',
     description: 'Accoustic',
     icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Guitar_152262_vartmq.png',
   },
@@ -82,17 +92,17 @@ instruments = [
     icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583336748/icons-instrument/noun_music_instrument_2257463_us4jqr.png',
   },
   {
-    name: 'Piano',
+    name: 'Electric Piano',
     description: 'Electric',
     icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583336748/icons-instrument/noun_music_instrument_2257463_us4jqr.png'
   },
   {
-    name: 'Percussion',
+    name: 'Congas',
     description: 'Congas',
     icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325860/icons-instrument/noun_Conga_3035793_ot7mma.png',
   },
   {
-    name: 'Percussion',
+    name: 'Djembe',
     description: 'Djembe',
     icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325860/icons-instrument/noun_Djembe_1373758_cop9sw.png',
   },
@@ -102,12 +112,12 @@ instruments = [
     icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325860/icons-instrument/noun_Conga_3035793_ot7mma.png',
   },
   {
-    name: 'Saxophone',
+    name: 'Saxophone Alto',
     description: 'Alto',
     icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Saxophone_1627835_mu9wwk.png',
   },
   {
-    name: 'Saxophone',
+    name: 'Saxophone Soprano',
     description: 'Soprano',
     icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Saxophone_1627835_mu9wwk.png',
   },

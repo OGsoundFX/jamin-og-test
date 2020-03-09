@@ -6,8 +6,11 @@ Rails.application.routes.draw do
     resources :spots, only: [:show]
     resources :messages, only: [:create]
   end
+  resources :participations, only: [:create, :update]
 
   resources :profiles, only: [:show, :edit, :update]
+  resources :dashboards, only: [:index, :show]
+
 
   # namespace :user do
   #   root :to => "profiles#edit"
