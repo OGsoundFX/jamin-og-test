@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :jam_sessions, only: [:show, :index] do
     resources :spots, only: [:show]
+      resources :messages, only: [:create]
   end
 
   resources :profiles, only: [:show, :edit, :update]

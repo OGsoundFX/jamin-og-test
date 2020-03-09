@@ -5,6 +5,7 @@ class JamSession < ApplicationRecord
   has_many :spots
   has_many :instruments, through: :spots
   has_many :participations, through: :spots
+  has_many :messages
 
   validates :title, presence: true, length: { minimum: 3 }
   validates :description, presence: true, length: { minimum: 10, maximum: 100 }
