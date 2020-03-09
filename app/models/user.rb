@@ -5,7 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :user_instruments
   has_many :instruments, through: :user_instruments
+  has_many :messages, dependent: :destroy
   has_one_attached :photo
+
   # has_many :jam_sessions
   # has_many :participations
   # has_many :reviews
