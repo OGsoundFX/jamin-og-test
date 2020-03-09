@@ -17,7 +17,7 @@ jam_sessions = [
     starts_at: "March, 15th 2020, 15:00",
     ends_at: "March, 15th 2020, 17:00",
     user: user_1,
-    instruments: ['Bass Guitar', 'Guitar', 'Drums'],
+    instruments: ['Bass guitar', 'Electric Guitar', 'Drums'],
   },
   {
     title: "Trippin",
@@ -37,7 +37,7 @@ jam_sessions = [
     starts_at: "March, 29th 2020, 10:00",
     ends_at: "March, 29th 2020, 15:00",
     user: user_2,
-    instruments: ['Guitar', 'Synthesizer', 'Drums', 'Bass Guitar'],
+    instruments: ['Electric Guitar', 'Synthesizer', 'Drums', 'Bass guitar'],
   },
   {
     title: "Jazzy jazz",
@@ -47,7 +47,7 @@ jam_sessions = [
     starts_at: "March, 15th 2020, 12:00",
     ends_at: "March, 15th 2020, 15:00",
     user: user_3,
-    instruments: ['Saxophone', 'Oboe', 'Flute', 'Harmonica', 'Piano'],
+    instruments: ['Saxophone Alto', 'Oboe', 'Flute', 'Harmonica', 'Electric Piano'],
   },
   {
     title: "Another brick in the wall",
@@ -57,7 +57,7 @@ jam_sessions = [
     starts_at: "March, 15th 2020, 18:00",
     ends_at: "March, 15th 2020, 21:00",
     user: user_2,
-    instruments: ['Guitar', 'Synthesizer', 'Drums', 'Bass Guitar'],
+    instruments: ['Electric Guitar', 'Synthesizer', 'Drums', 'Bass guitar'],
   },
   {
     title: "Reggae Night",
@@ -67,7 +67,7 @@ jam_sessions = [
     starts_at: "January, 15th 2020, 18:00",
     ends_at: "January, 15th 2020, 21:00",
     user: user_2,
-    instruments: ['Guitar', 'Synthesizer', 'Drums', 'Bass Guitar'],
+    instruments: ['Accoustic Guitar', 'Synthesizer', 'Drums', 'Bass guitar'],
   },
   {
     title: "Head Bang!",
@@ -77,7 +77,7 @@ jam_sessions = [
     starts_at: "October, 20th 2019, 18:00",
     ends_at: "October, 20th 2019, 21:00",
     user: user_1,
-    instruments: ['Guitar', 'Guitar', 'Drums', 'Bass Guitar'],
+    instruments: ['Electric Guitar1', 'Electric Guitar2', 'Drums', 'Bass guitar'],
   },
 ]
 
@@ -98,7 +98,30 @@ puts "---- Created some JAMS ----"
 
 puts "---- Creating some PARTICIPATIONS ----"
 
-Participation.create(spot_id: 1, user_id: 2)
+
+
+Participation.create(spot_id: 1, user_id: 1)
+Participation.create(spot_id: 2, user_id: 2)
+Participation.create(spot_id: 3, user_id: 3)
+
+Participation.create(spot_id: 4, user_id: 1)
+Participation.create(spot_id: 5, user_id: 4)
+Participation.create(spot_id: 6, user_id: 5)
+Participation.create(spot_id: 7, user_id: 6)
+
+Participation.create(spot_id: 8, user_id: 2)
+
+Participation.create(spot_id: 12, user_id: 3)
+
+Participation.create(spot_id: 19, user_id: 2)
+
+Participation.create(spot_id: 23, user_id: 2)
+
+Participation.create(spot_id: 27, user_id: 1)
+Participation.create(spot_id: 28, user_id: 2)
+Participation.create(spot_id: 29, user_id: 6)
+
+puts "---- PARTICIPATIONS where created ----"
 
 # Instrument.where(name: ['Drums', 'Guitar']).each do |instrument|
 #   UserInstrument.create(instrument: instrument, user: user_1, level: "Beginner")

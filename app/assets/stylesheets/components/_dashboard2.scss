@@ -1,0 +1,17 @@
+.btn-dashboard {
+  color: black;
+}
+
+.btn-dashboard:hover {
+  text-decoration: none;
+  color: $hot_pink;
+}
+
+.no-btn {
+  text-decoration: underline;
+  text-decoration-color: $hot_pink;
+}
+
+.space-between {
+  margin: 0 30px 0 0;
+}
