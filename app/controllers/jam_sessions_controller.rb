@@ -22,6 +22,7 @@ class JamSessionsController < ApplicationController
 
   def show
     @jam_session = JamSession.find(params[:id])
+    @messages = Message.includes(messages: :user).find(params[:id])
     @markers =   [{
         lat: @jam_session.latitude,
         lng: @jam_session.longitude,
