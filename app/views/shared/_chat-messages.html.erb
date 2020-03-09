@@ -12,8 +12,18 @@
       <%= f.submit 'Send', class: "btn btn-primary btn-sm searchbtn" %>
     <% end %>
   </div>
-
 </div>
+<%= content_for :after_js do %>
+  <script>
+    App['chat_room_<%= @jam_session.id %>'] = App.cable.subscriptions.create({ channel: 'JamSessionsChannel',
+      jam_session_id: <%= @jam_session.id %> }, {
+        received: (data) => {
+          const messagesContainer = document.querySelector('.messages-list');
+          messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+        }
+      })
+  </script>
+<% end %>
 
 
 

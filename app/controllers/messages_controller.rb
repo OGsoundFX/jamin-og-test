@@ -5,6 +5,9 @@ class MessagesController < ApplicationController
     @message.jam_session = @jam_session
     @message.user = current_user
     if @message.save
+      ActionCable.server.broadcast("chat_room_#{@jam_session.id}", {
+        message_partial: @message.to_json
+      })
       respond_to do |format|
         format.html { redirect_to jam_session_path(@jam_session) }
         format.js
