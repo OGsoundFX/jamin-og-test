@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: [:show, :edit, :update]
+  resources :dashboards, only: [:index, :show]
+
 
   # namespace :user do
   #   root :to => "profiles#edit"

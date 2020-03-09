@@ -15,7 +15,7 @@
 }
 
 #past-jam-title-color {
-  margin: 0px 20px 20px 20px;
+  margin: 0px 20px 20px 40px;
   padding-top: 20px;
 }
 
@@ -29,4 +29,8 @@
   border-bottom: solid;
   border-color: $grey;
   border-bottom-width: 1px;
+}
+
+#no-jam-alignement {
+  margin-left: 20px;
 }
