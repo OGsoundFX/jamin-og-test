@@ -53,13 +53,13 @@
             <div class="row">
               <div class="col-6 py-2 d-flex justify-content-end">
                 <% if spot.participation %>
-                  <%= cl_image_tag spot.participation.user.photo.key, width: 80, height: 80, crop: :fill, class: "rounded-circle"  %>
+                  <%= cl_image_tag spot.participation.user.photo.key, width: 80, height: 80, crop: :fill, class: "avatar-show"  %>
                 <% else %>
-                  <img src="https://via.placeholder.com/80x80" class="rounded-circle">
+                  <img src="https://via.placeholder.com/80x80" class="avatar-show">
                 <% end %>
               </div>
               <div class="col-6 d-flex align-items-center">
-                <%= cl_image_tag spot.instrument.photo.key, width: 50, height: 50, crop: :fill, class: "rounded-circle"  %>
+                <%= cl_image_tag spot.instrument.photo.key, width: 80, height: 80, crop: :fill, class: "rounded-circle"  %>
               </div>
             </div>
           <% end %>
@@ -79,17 +79,9 @@
       </div>
     </div>
 
+    <%= render 'shared/chat-messages' %>
 
-
-
-
-    <div class="col-4 bg-white shadow">
-      <p>Messages</p>
-    </div>
   </div>
-
-
-
 
 
 </div> <!-- end of container -->

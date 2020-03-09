@@ -27,6 +27,7 @@ class JamSessionsController < ApplicationController
         lng: @jam_session.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { jam_session: @jam_session })
       }]
+    @messages = JamSession.includes(messages: :user).find(params[:id])
   end
 
 
