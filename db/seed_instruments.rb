@@ -146,6 +146,11 @@ instruments = [
     description: '',
     icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Violin_2387794_eusxo3.png',
   },
+  {
+    name: 'Vocals',
+    description: '',
+    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Violin_2387794_eusxo3.png',
+  },
 ]
 
 
