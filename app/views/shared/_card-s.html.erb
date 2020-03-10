@@ -1,16 +1,25 @@
 <div class="row">
   <% @jam_sessions.each do |jam_session| %>
-    <div class="col-6 mb-3">
-      <div class="background-w min-h">
-        <div class="row">
-          <div class="col-8 d-flex flex-column">
-            <h5 class="light"><%= jam_session.title %></h5>
-            <p class="subtitle text-secondary mb-1"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
-            <p class="subtitle text-secondary"><i class="far fa-calendar-alt mr-2"></i><%= jam_session.starts_at.strftime("%b %C")%> <!-- - <%= jam_session.ends_at.strftime("%I:%M %p") %> --> </p>
+    <div class="col-md-6 col-xs-12 mb-4">
+      <div class="background-w h-100">
 
-            <p class="flex-grow-1"><%= truncate(jam_session.description, length: 48) %></p>
+        <!-- text information on card -->
+        <div class="row h-100">
+          <div class="col-8">
+            <div class="h-100">
+              <div class="d-flex flex-column justify-content-between h-100">
+                <div>
+                  <h5 class="light"><%= jam_session.title %></h5>
+                  <p class="subtitle text-secondary mb-1"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
+                  <p class="subtitle text-secondary"><i class="far fa-calendar-alt mr-2"></i><%= jam_session.starts_at.strftime("%b %C")%> <!-- - <%= jam_session.ends_at.strftime("%I:%M %p") %> --> </p>
 
-
+                  <p><%= truncate(jam_session.description, length: 48) %></p>
+                </div>
+                <div>
+                  <%= link_to "See more", jam_session_path(jam_session), class: "btn-sm hot-pink" %>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- avatar and instrument icon -->
@@ -29,15 +38,15 @@
                   <!-- put avatar-unknown here -->
                   <% end %>
                 </div>
-                <div class="col-6 pl-0 mb-1">
+                <div class="col-6 pl-1 mb-1">
                   <%= cl_image_tag instrument.photo.key, width: 40 %>
                 </div>
               <% end %>
               <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
             </div>
           </div>
+
         </div>
-        <div><%= link_to "See more", jam_session_path(jam_session), class: "btn-sm hot-pink" %></div>
       </div>
     </div>
   <% end %>
