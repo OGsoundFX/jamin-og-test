@@ -62,15 +62,15 @@ and rock the world !!! I can't wait for my next jam sessions. Contact me directl
   first_name: "Elvira",
   last_name: "Metal",
   bio: "I love Heavy Metal and screaming into a mic but I also play classical music at the violin!",
-  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583845558/user-imgs/Elvira_Metal_e0nxke.jpg',
 },
   {
   email: "carolin@gmail.com",
   password: 123456,
-  first_name: "Caroline",
+  first_name: "Carolin",
   last_name: "Jane",
   bio: "I play Bass, Electric and Accoustic guitar, and I am looking forward to playing with you guys!",
-  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583845558/user-imgs/Caroline_Jane_teoevl.jpg',
 },
   {
   email: "marley@gmail.com",
@@ -78,7 +78,7 @@ and rock the world !!! I can't wait for my next jam sessions. Contact me directl
   first_name: "Bob",
   last_name: "Marley",
   bio: "Don't Gain The World & Lose Your Soul, Wisdom Is Better Than Silver Or Gold.",
-  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583845558/user-imgs/bobmarley_soru9y.jpg',
 },
   {
   email: "harry@gmail.com",
@@ -86,7 +86,7 @@ and rock the world !!! I can't wait for my next jam sessions. Contact me directl
   first_name: "Harry",
   last_name: "Potter",
   bio: "I love magic but also playing the bass!",
-  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583845557/user-imgs/Harry-Jones_kk8o2n.jpg',
 },
   {
   email: "hubert@gmail.com",
@@ -94,7 +94,7 @@ and rock the world !!! I can't wait for my next jam sessions. Contact me directl
   first_name: "Hubert",
   last_name: "Laws",
   bio: "I have been playing the flute for many years, I love jazz and Cuban music!",
-  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583845558/user-imgs/Hubert_Laws_igqo28.jpg',
 },
   {
   email: "munji@gmail.com",
@@ -102,7 +102,7 @@ and rock the world !!! I can't wait for my next jam sessions. Contact me directl
   first_name: "Munji",
   last_name: "Choi",
   bio: "I play the piano and the ukulele, I also occasionally sing",
-  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583845557/user-imgs/Minju_Choi_cek8qr.jpg',
 },
   {
   email: "lucie@gmail.com",
@@ -110,7 +110,7 @@ and rock the world !!! I can't wait for my next jam sessions. Contact me directl
   first_name: "Lucie",
   last_name: "Recadre",
   bio: "Hi, I'm a super nice girl and I love playing bass. Join my jam sessions!",
-  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583845558/user-imgs/Lucie-recadr%C3%A9e_ayf4rz.jpg',
 },
   {
   email: "sophie@gmail.com",
@@ -118,7 +118,7 @@ and rock the world !!! I can't wait for my next jam sessions. Contact me directl
   first_name: "Sophie",
   last_name: "Lapie",
   bio: "I am a huge fan of John Coltrane!",
-  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583845557/user-imgs/Sophie_Lapie_e5vovv.jpg',
 },
   {
   email: "malvina@gmail.com",
@@ -126,7 +126,7 @@ and rock the world !!! I can't wait for my next jam sessions. Contact me directl
   first_name: "Malvina",
   last_name: "Ivanov",
   bio: "I came from Russia to Berlin in 2015 and I love here. The music scene is just incredible!",
-  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583845557/user-imgs/Malvina_Ivanov_zc4bmq.jpg',
 },
 ]
 # all = Instrument.all

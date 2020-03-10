@@ -1,5 +1,7 @@
 <% if spot.participation %>
+  <%= link_to profile_path(spot.participation.user) do %>
     <%= cl_image_tag spot.participation.user.photo.key, width: 80, height: 80, crop: :fill, class: 'rounded-circle', size: '80x80' %>
+  <% end %>
 <% else  %>
     <%= link_to image_tag("https://via.placeholder.com/80x80", class: "rounded-circle"), participations_path(spot_id: spot, user_id: current_user), method: :post, remote: true %>
 
