@@ -16,22 +16,16 @@
 </div>
 <%= content_for :after_js do %>
   <script>
+    scrollLastMessageIntoView();
     App['chat_room_<%= @jam_session.id %>'] = App.cable.subscriptions.create({ channel: 'JamSessionsChannel',
       jam_session_id: <%= @jam_session.id %> }, {
         received: (data) => {
-          const messagesContainer = document.querySelector('.messages-list');
-          messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+          if (data.current_user_id !== <%= current_user.id %>) {
+            const messagesContainer = document.querySelector('.messages-list');
+            messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+            scrollLastMessageIntoView();
+          }
         }
       })
   </script>
 <% end %>
-
-
-
-
-
-
-<!--     <div class="form-group text-right ">
-      <textarea placeholder="Type your message here" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      <button type="submit" class="btn btn-primary btn-sm searchbtn mt-4">Send</button>
-    </div> -->
