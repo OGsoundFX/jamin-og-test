@@ -4,6 +4,13 @@ class JamSessionsController < ApplicationController
     @jam_sessions = JamSession.includes(:spots, :instruments)
     @jam_sessions = @jam_sessions.where(instruments: { id: jam_session_params[:instrument_id] }) if jam_session_params[:instrument_id].present?
     @jam_sessions = @jam_sessions.search_by_location(jam_session_params[:location]) if jam_session_params[:location].present?
+
+    # -------- access input from user ---------
+    @location_input = params["jam_session"]["location"]
+    @starts_at_input = params["jam_session"]["starts_at"]
+    @ends_at_input = params["jam_session"]["ends_at"]
+    @instrument_input = Instrument.find(params["jam_session"]["instrument_id"]).name if params["jam_session"]["instrument_id"].present?
+
     # access id of instruments
     @session_instruments_id = Instrument.all
 
