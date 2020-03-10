@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :edit, :update]
   resources :dashboards, only: [:index, :show]
 
-
+  mount ActionCable.server => "/cable"
   # namespace :user do
   #   root :to => "profiles#edit"
   # end
