@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :instruments, through: :user_instruments
   has_many :messages, dependent: :destroy
   has_one_attached :photo
-
+  has_many :reviews_written, class_name: "Review", foreign_key: :writer_id
+  has_many :reviews_received, class_name: "Review", foreign_key: :receiver_id
 
   def profile_picture
     if photo.attached?
@@ -16,5 +17,4 @@ class User < ApplicationRecord
       "avatar-unknown.png"
     end
   end
-
 end
