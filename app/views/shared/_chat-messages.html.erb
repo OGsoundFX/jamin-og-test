@@ -2,8 +2,11 @@
   <h4 class="text-center my-4">Messages</h4>
   <div class="messages-list border-bottom mb-4" style="overflow-x: scroll; height: 360px">
       <% @jam_session.messages.each do |message| %>
-          <%= render "messages/message", message: message, user_is_messages_author:
-          message.user == current_user %>
+        <% if message.user == current_user %>
+          <%= render 'messages/message', message: message, user_is_messages_author: true %>
+        <% else %>
+          <%= render 'messages/message', message: message, user_is_messages_author: false %>
+        <% end %>
       <% end %>
   </div>
 
