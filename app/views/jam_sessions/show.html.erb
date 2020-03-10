@@ -12,8 +12,8 @@
 
           <div class="row mb-4">
             <div class="col-md-5 col-sm-12">
-              <div class="d-flex align-items-center">
-                <span class="fas fa-map-marker-alt mr-2"></span>
+              <div class="d-flex align-items-start">
+                <span class="fas fa-map-marker-alt mr-2 mt-1"></span>
                 <span>
                   <%= @jam_session.location %>
                 </span>
@@ -34,12 +34,12 @@
                 <%= @jam_session.ends_at.strftime('%H:%M') %>
               </div>
             </div>
-          </div>
 
+          </div>
 
           <div class="row">
             <div class="col-12 py-2">
-              <h5>Information</h5>
+              <h5>Description</h5>
               <div class="py-2">
                 <%= @jam_session.description %>
               </div>
@@ -70,6 +70,7 @@
         </div>
       </div>
     </div>
+
 
     <%= render 'shared/chat-messages' %>
 
