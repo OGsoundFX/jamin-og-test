@@ -1,6 +1,7 @@
 class JamSessionsController < ApplicationController
   def index
     # @jam_sessions = JamSession.search_by_location(params[:query])
+
     @jam_sessions = JamSession.includes(:spots, :instruments)
     @jam_sessions = @jam_sessions.where(instruments: { id: jam_session_params[:instrument_id] }) if jam_session_params[:instrument_id].present?
     @jam_sessions = @jam_sessions.search_by_location(jam_session_params[:location]) if jam_session_params[:location].present?

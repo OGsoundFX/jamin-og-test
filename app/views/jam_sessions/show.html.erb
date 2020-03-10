@@ -1,80 +1,55 @@
-<div class="container-fluid mb-4">
-  <div class="row mt-4 mr-4">
-    <div class="col-md-7 col-sm-12 bg-white mx-md-5 mx-sm-0 shadow">
-      <div class="row jam-info">
-        <div class="col-md-9 col-sm-12">
-
-          <div class="row ">
-            <div class="col-12 pt-4">
-              <h3 class="font-weight-bold"><%= @jam_session.title %></h3>
-            </div>
-          </div>
-
-          <div class="row mb-4">
-            <div class="col-md-5 col-sm-12">
-              <div class="d-flex align-items-start">
-                <span class="fas fa-map-marker-alt mr-2 mt-1"></span>
-                <span>
-                  <%= @jam_session.location %>
-                </span>
-              </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-              <div class="text-center">
-                <span class="far fa-calendar-alt mr-2"></span>
-                <span><%= @jam_session.starts_at.strftime('%d %B') %></span>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-              <div>
-                <span class="far fa-clock mr-2"></span>
-                <%= @jam_session.starts_at.strftime('%H:%M') %> -
-                <%= @jam_session.ends_at.strftime('%H:%M') %>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="row">
-            <div class="col-12 py-2">
-              <h5>Description</h5>
-              <div class="py-2">
-                <%= @jam_session.description %>
-              </div>
-              <p class="btn btn-primary btn-sm searchbtn mt-4">Join</p>
-            </div>
-          </div>
+<div class="container pt-5 pb-5">
+  <div class="row">
+    <div class="col-8">
+      <div class="p-4 shadow" style="border-top: solid 7px #FFC108;">
+      <h3 class="font-weight-bold"><%= @jam_session.title %></h3>
+      <div class="d-flex justify-content-between">
+        <div class="d-flex align-items-start">
+          <span class="fas fa-map-marker-alt mr-2 mt-1 yellow"></span>
+          <span>
+            <%= @jam_session.location %>
+          </span>
         </div>
-
-        <div class="col-3 pt-4">
-          <% @jam_session.spots.each do |spot|%>
-          <div class="row">
-            <div class="col-6 py-2 d-flex justify-content-end" id="spot_<%= spot.id %>">
-              <%= render 'participations/participation_row', spot: spot %>
-            </div>
-            <div class="col-6 d-flex align-items-center">
-              <%= cl_image_tag spot.instrument.photo.key, width: 50, height: 50, crop: :fill, class: "rounded-circle"  %>
-            </div>
-          </div>
-          <% end %>
+        <div class="text-center">
+          <span class="far fa-calendar-alt mr-2 yellow"></span>
+          <span><%= @jam_session.starts_at.strftime('%d %B') %></span>
+        </div>
+        <div>
+          <span class="far fa-clock mr-2 yellow"></span>
+          <%= @jam_session.starts_at.strftime('%H:%M') %> -
+          <%= @jam_session.ends_at.strftime('%H:%M') %>
         </div>
       </div>
-
-      <div class="row jam-map">
-        <div class="col-12 py-3">
-          <div id="map" style="width: 100%;
+      <br>
+      <h5>Description</h5>
+      <div class="py-2" style="color: #919191;">
+        <%= @jam_session.description %>
+      </div>
+      <br>
+      <div class="d-flex card-session-show">
+        <p style="font-weight: bold; color: #6A6A6A;">
+        Participants
+        </p>
+        <% @jam_session.spots.each do |spot|%>
+            <div id="spot_<%= spot.id %>">
+               <%= render 'participations/participation_row', spot: spot %>
+               </div>
+        <% end %>
+      </div>
+      <br>
+      <div class="d-flex card-session-show">
+         <p style="font-weight: bold; color: #6A6A6A;">Available Instruments</p>
+        <% @jam_session.spots.each do |spot|%>
+             <%= cl_image_tag spot.instrument.photo.key, width: 50, height: 50, crop: :fill, class: "rounded-circle"  %>
+        <% end %>
+      </div>
+      <p class="btn btn-primary btn-sm searchbtn mt-4">Join</p>
+       <div id="map" style="width: 100%;
             height: 280px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
-        </div>
       </div>
     </div>
 
-
     <%= render 'shared/chat-messages' %>
-
   </div>
-
-
-</div> <!-- end of container -->
+</div>

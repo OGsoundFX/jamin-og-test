@@ -6,6 +6,8 @@ $dark_pink: #D31F4C; //(darker pink when hovering)
 $light_yellow: #FFEFBE; //(background body)
 $grey: #C4C4C4; //(anything that needs to be grey)
 $soft_blue: #9FBFFF;
+$yello: #FFC108;
+
 
 //border-radius
 
@@ -13,5 +15,8 @@ $border: 4px;
 
 //shadow (different than Figma)
 
-$shadow: 0px 0px 20px rgba(0,0,0,0.33);
+$shadow: 0 0 19px rgba(0, 0, 0, 0.11);
 
+.yellow {
+  color: $yello
+}
