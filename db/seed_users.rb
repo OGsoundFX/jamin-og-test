@@ -56,8 +56,80 @@ and rock the world !!! I can't wait for my next jam sessions. Contact me directl
     bio: "I love to sing, not only in the shower! I also like to play the guitar!",
     photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
   },
+  {
+  email: "elvira@gmail.com",
+  password: 123456,
+  first_name: "Elvira",
+  last_name: "Metal",
+  bio: "I love Heavy Metal and screaming into a mic but I also play classical music at the violin!",
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+},
+  {
+  email: "carolin@gmail.com",
+  password: 123456,
+  first_name: "Caroline",
+  last_name: "Jane",
+  bio: "I play Bass, Electric and Accoustic guitar, and I am looking forward to playing with you guys!",
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+},
+  {
+  email: "marley@gmail.com",
+  password: 123456,
+  first_name: "Bob",
+  last_name: "Marley",
+  bio: "Don't Gain The World & Lose Your Soul, Wisdom Is Better Than Silver Or Gold.",
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+},
+  {
+  email: "harry@gmail.com",
+  password: 123456,
+  first_name: "Harry",
+  last_name: "Potter",
+  bio: "I love magic but also playing the bass!",
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+},
+  {
+  email: "hubert@gmail.com",
+  password: 123456,
+  first_name: "Hubert",
+  last_name: "Laws",
+  bio: "I have been playing the flute for many years, I love jazz and Cuban music!",
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+},
+  {
+  email: "munji@gmail.com",
+  password: 123456,
+  first_name: "Munji",
+  last_name: "Choi",
+  bio: "I play the piano and the ukulele, I also occasionally sing",
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+},
+  {
+  email: "lucie@gmail.com",
+  password: 123456,
+  first_name: "Lucie",
+  last_name: "Recadre",
+  bio: "Hi, I'm a super nice girl and I love playing bass. Join my jam sessions!",
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+},
+  {
+  email: "sophie@gmail.com",
+  password: 123456,
+  first_name: "Sophie",
+  last_name: "Lapie",
+  bio: "I am a huge fan of John Coltrane!",
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+},
+  {
+  email: "malvina@gmail.com",
+  password: 123456,
+  first_name: "Malvina",
+  last_name: "Ivanov",
+  bio: "I came from Russia to Berlin in 2015 and I love here. The music scene is just incredible!",
+  photo_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583413973/user-imgs/user_6_oehmid.jpg',
+},
 ]
-all = Instrument.all
+# all = Instrument.all
 users.each do |user|
   photo_url = user[:photo_url]
   user.delete(:photo_url)
@@ -66,6 +138,8 @@ users.each do |user|
   usr.photo.attach(io: URI.open(photo_url), filename: 'photo.jpg')
   usr.save!
 end
+
+=begin
 User.all.each do |user|
   3.times do
     UserInstrument.create!(
@@ -76,4 +150,243 @@ User.all.each do |user|
     )
   end
 end
+=end
+
+UserInstrument.create(
+  user_id: 1,
+  instrument_id: 11,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 1,
+  instrument_id: 14,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 1,
+  instrument_id: 4,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
+UserInstrument.create(
+  user_id: 2,
+  instrument_id: 9,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 2,
+  instrument_id: 20,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 2,
+  instrument_id: 11,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
+UserInstrument.create(
+  user_id: 3,
+  instrument_id: 17,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 3,
+  instrument_id: 14,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
+UserInstrument.create(
+  user_id: 4,
+  instrument_id: 19,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 4,
+  instrument_id: 1,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 4,
+  instrument_id: 9,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
+UserInstrument.create(
+  user_id: 5,
+  instrument_id: 14,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 5,
+  instrument_id: 29,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
+UserInstrument.create(
+  user_id: 6,
+  instrument_id: 14,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 6,
+  instrument_id: 16,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 6,
+  instrument_id: 29,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
+UserInstrument.create(
+  user_id: 7,
+  instrument_id: 29,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 7,
+  instrument_id: 28,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
+UserInstrument.create(
+  user_id: 8,
+  instrument_id: 2,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 8,
+  instrument_id: 11,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 8,
+  instrument_id: 14,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
+UserInstrument.create(
+  user_id: 9,
+  instrument_id: 29,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 9,
+  instrument_id: 11,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
+UserInstrument.create(
+  user_id: 10,
+  instrument_id: 2,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
+UserInstrument.create(
+  user_id: 11,
+  instrument_id: 10,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 11,
+  instrument_id: 16,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 11,
+  instrument_id: 26,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
+UserInstrument.create(
+  user_id: 12,
+  instrument_id: 17,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 12,
+  instrument_id: 27,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 12,
+  instrument_id: 29,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
+UserInstrument.create(
+  user_id: 13,
+  instrument_id: 2,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 13,
+  instrument_id: 8,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
+UserInstrument.create(
+  user_id: 14,
+  instrument_id: 10,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 14,
+  instrument_id: 17,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 14,
+  instrument_id: 6,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
+UserInstrument.create(
+  user_id: 15,
+  instrument_id: 28,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+UserInstrument.create(
+  user_id: 15,
+  instrument_id: 5,
+  level: %w(Beginner Intermediate Expert).sample,
+  since: %w(2011 2012 2010 2014 2017 2018 2019 2015 2008 2016 2004 2006 2003 1999 2001).sample,
+)
+
 puts "-- Users are ready!"
