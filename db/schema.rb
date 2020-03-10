@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_110923) do
+ActiveRecord::Schema.define(version: 2020_03_10_120316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,12 +80,12 @@ ActiveRecord::Schema.define(version: 2020_03_10_110923) do
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.integer "rating"
-    t.bigint "jam_session_id"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["jam_session_id"], name: "index_reviews_on_jam_session_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.bigint "writer_id"
+    t.bigint "receiver_id"
+    t.index ["receiver_id"], name: "index_reviews_on_receiver_id"
+    t.index ["writer_id"], name: "index_reviews_on_writer_id"
   end
 
   create_table "spots", force: :cascade do |t|
@@ -129,8 +129,8 @@ ActiveRecord::Schema.define(version: 2020_03_10_110923) do
   add_foreign_key "messages", "users"
   add_foreign_key "participations", "spots"
   add_foreign_key "participations", "users"
-  add_foreign_key "reviews", "jam_sessions"
-  add_foreign_key "reviews", "users"
+  add_foreign_key "reviews", "users", column: "receiver_id"
+  add_foreign_key "reviews", "users", column: "writer_id"
   add_foreign_key "spots", "instruments"
   add_foreign_key "spots", "jam_sessions"
   add_foreign_key "user_instruments", "instruments"
