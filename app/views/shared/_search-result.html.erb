@@ -1,42 +1,59 @@
 <div class="col-lg-9 col-sm-12 mt-5 display-result">
-  <div class="row">
-    <%= simple_form_for :jam_session, url: jam_sessions_path, method: :get do |f| %>
+  <%= simple_form_for :jam_session, url: jam_sessions_path, method: :get do |f| %>
+  <div class="row align-items-center">
 
-      <div class="col-md-4 col-sm-6">
-        <p class="d-flex flex-fill align-items-center p-2 h-20 border-right">
+      <div class="col-md-4 col-sm-12 border-right">
+        <div class="d-flex align-items-center p-2 w-100">
           <span class="fas fa-search mr-2 text-secondary"></span>
-          <%= f.input :instrument_id, 
-              collection: Instrument.all,
-              required: false, 
-              wrapper: false,
-              selected: params[:instrument_id],
-              input_html: { class: 'border-0 mt-2 inline-block', style: 'width: auto' },
-              label: false
-          %>
-        </p>
+          <span class="flex-fill">
+            <%= f.input :instrument_id, 
+                        collection: Instrument.all,
+                        required: false, 
+                        wrapper: false,
+                        selected: params[:jam_session][:instrument_id],
+                        input_html: { class: 'border-0 inline-block outline-none', style: 'width: auto;' },
+                        label: false
+            %>
+          </span>
+        </div>
       </div>
 
-      <div class="col-md-3 col-sm-6">
-      <!--
-        <p class="search-result-text">
+      <div class="col-md-4 col-sm-12 border-right">
+        <div class="d-flex align-items-center p-2 w-100">
           <span class="fas fa-map-marker-alt mr-2 text-secondary"></span>
-          <%= f.input :location, required: false, value: @location_input, class: 'block', wrapper: false %>
-        </p>
-        -->
+          <span class="flex-fill">
+            <%= f.input :location, 
+                        required: false,
+                        wrapper: false,
+                        input_html: { class: 'inline-block outline-none', style: 'width: auto;', value: @location_input },
+                        label: false
+            %>
+          </span>
+        </div>
       </div>
 
-      <div class="col-md-6 col-sm-12">
-      <!--
-        <p class="search-result-text"><span class="far fa-calendar-alt mr-2 text-secondary"></span>
-          <%= f.input :starts_at, required: false, input_html: {class: "TimePicker"}, value: @starts_at_input, wrapper: false %>
-          <%= f.input :ends_at, as: :hidden, required: false, input_html: {class: "timePicker-end"}, value: @ends_at_input %>
+      <div class="col-md-4 col-sm-12">
+        <div class="d-flex align-items-center p-2 w-100">
+          
+          <span class="far fa-calendar-alt mr-2 text-secondary"></span>
+          <span class="flex-fill">
+            <%= f.input :starts_at, required: false, 
+                        input_html: {class: "form-control TimePicker border-0 inline-block outline-none", value: @starts_at_input}, 
+                        label: false,
+                        wrapper: false %>
 
-        </p>
-        -->
+            <%= f.input :ends_at, 
+                        as: :hidden, 
+                        required: false, 
+                        input_html: {class: "timePicker-end "}
+            %>
+          </span>
+        </div>
+
       </div>
 
-    <% end %>
   </div>
+    <% end %>
 
 </div>
 

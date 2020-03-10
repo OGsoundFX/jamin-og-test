@@ -22,12 +22,12 @@
       </div>
       <br>
       <h5>Description</h5>
-      <div class="py-2 light-gray">
+      <div class="py-2 light-grey">
         <%= @jam_session.description %>
       </div>
       <br>
       <div class="d-flex card-session-show">
-        <p style="font-weight: bold; color: #6A6A6A;">
+        <p class="bold-grey">
         Participants
         </p>
         <% @jam_session.spots.each do |spot|%>
@@ -38,7 +38,7 @@
       </div>
       <br>
       <div class="d-flex card-session-show">
-         <p style="font-weight: bold; color: #6A6A6A;">Available Instruments</p>
+         <p class="bold-grey">Available Instruments</p>
         <% @jam_session.spots.each do |spot|%>
              <%= cl_image_tag spot.instrument.photo.key, width: 50, height: 50, crop: :fill, class: "rounded-circle"  %>
         <% end %>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container remove-padding">
   <% if @user != current_user %>
   <div id="back-button-display">
     <%= link_to "", jam_sessions_path, class: "fas fa-arrow-left text-decoration-none text-black-50 view overlay" %>
@@ -23,7 +23,7 @@
 
       <div class="col-lg-3 col-sm-12 mt-4 mb-4 text-center">
         <%= cl_image_tag @user.photo.key, height: 400, width: 400, crop: :fill, class: "avatar-large" %>
-        <h4 class="text-nowrap" style="margin-top: 26px; margin-left: 15px;">
+        <h4 class="text-nowrap nowrap">
           <%= @user.first_name %> <%= @user.last_name %>
         </h4>
       </div>
