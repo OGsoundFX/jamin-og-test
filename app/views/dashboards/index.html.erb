@@ -54,7 +54,7 @@
                         <%= cl_image_tag instrument.photo.key, width: 50 %>
                       </div>
                       <!-- Button trigger modal -->
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#review-form-<%= spot.id %>">
+                      <button type="button" class="searchbtn" data-toggle="modal" data-target="#review-form-<%= spot.id %>">
                         Review
                       </button>
 
@@ -64,7 +64,7 @@
                           <div class="modal-content">
                             <div class="modal-header">
                               <h5 class="modal-title" id="exampleModalLabel">Write a review for  <strong><%= User.find(spot.participation.user_id).first_name %> <%= User.find(spot.participation.user_id).last_name %> </strong></h5>
-                              <button type="button" class="close searchbtn" data-dismiss="modal" aria-label="Close">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
