@@ -33,7 +33,7 @@
         <h4 id="about-me-color">About me</h4>
         <p><%= @user.bio %></p>
         <br>
-        <ul class="inline-list d-flex justify-content-between" style="padding: 0;">
+        <ul class="inline-list d-flex justify-content-between remove-padding">
           <% @user.user_instruments.first(3).each do |user_instrument| %>
             <li>
               <h6>
