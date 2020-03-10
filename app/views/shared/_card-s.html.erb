@@ -1,47 +1,46 @@
-<% @jam_sessions.each do |jam_session| %>
-  <div class="background-w">
-    <div class="row">
-      <div class="col-8">
-        <h5 class="light"><%= jam_session.title %></h5>
-
+<div class="row">
+  <% @jam_sessions.each do |jam_session| %>
+    <div class="col-6 mb-3">
+      <div class="background-w min-h">
         <div class="row">
-          <div class="col-6">
-            <p class="subtitle text-secondary"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
-          </div>
-          <div class="col-6">
+          <div class="col-8 d-flex flex-column">
+            <h5 class="light"><%= jam_session.title %></h5>
+            <p class="subtitle text-secondary mb-1"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
             <p class="subtitle text-secondary"><i class="far fa-calendar-alt mr-2"></i><%= jam_session.starts_at.strftime("%b %C")%> <!-- - <%= jam_session.ends_at.strftime("%I:%M %p") %> --> </p>
+
+            <p class="flex-grow-1"><%= truncate(jam_session.description, length: 48) %></p>
+
+
+          </div>
+
+          <!-- avatar and instrument icon -->
+          <div class="col-4 border-left">
+            <!-- @instruments.each do cl_image_tag -->
+            <div class="row">
+              <% jam_session.spots.first(4).each do |spot| %>
+                <% instrument = Instrument.find(spot.instrument_id) %>
+                <div class="col-6">
+                  <!-- <img src="https://via.placeholder.com/40x40" class="rounded-circle"> -->
+                  <% participation = Participation.find_by(spot_id: spot.id) %>
+                  <% if participation %>
+                  <% user = User.find(participation.user_id) %>
+                  <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
+                  <% else %>
+                  <!-- put avatar-unknown here -->
+                  <% end %>
+                </div>
+                <div class="col-6 pl-0 mb-1">
+                  <%= cl_image_tag instrument.photo.key, width: 40 %>
+                </div>
+              <% end %>
+              <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
+            </div>
           </div>
         </div>
-
-        <p><%= jam_session.description %></p>
-        <%= link_to "See more", jam_session_path(jam_session), class: "btn-sm hot-pink" %>
-      </div>
-
-      <!-- avatar and instrument icon -->
-      <div class="col-3 border-left">
-        <!-- @instruments.each do cl_image_tag -->
-        <div class="row">
-          <% jam_session.spots.first(4).each do |spot| %>
-            <% instrument = Instrument.find(spot.instrument_id) %>
-            <div class="col-6">
-              <!-- <img src="https://via.placeholder.com/40x40" class="rounded-circle"> -->
-              <% participation = Participation.find_by(spot_id: spot.id) %>
-              <% if participation %>
-              <% user = User.find(participation.user_id) %>
-              <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
-              <% end %>
-
-            </div>
-            <div class="col-6">
-              <%= cl_image_tag instrument.photo.key, width: 50 %>
-            </div>
-          <% end %>
-          <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
-        </div>
+        <div><%= link_to "See more", jam_session_path(jam_session), class: "btn-sm hot-pink" %></div>
       </div>
     </div>
-  </div>
-<% end %>
-
+  <% end %>
+</div>
 
 <!-- .strftime("%a, %b %C, %I:%M %p") -->
