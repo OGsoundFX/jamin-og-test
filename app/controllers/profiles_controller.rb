@@ -2,26 +2,26 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @instruments = UserInstrument.where(user_id: @user.id)
-    # @participation = Participation.find_by(user_id: @user.id)
-
-
-    # if @participation != nil
-    #   @spot = Spot.find_by(id: @participation.spot_id)
-    #   @jam_sessions = JamSession.where(id: @spot.jam_session_id)
-    # else
-    #   puts "no jam"
-    # end
-
-
     @participations = Participation.where(user_id: @user.id)
+    date = Time.now
 
     if @participations != nil
       @jam_sessions = []
+
       @participations. each do |participation|
         spot = Spot.find_by(id: participation.spot_id)
         @jam_sessions << JamSession.find_by(id: spot.jam_session_id)
-      end
 
+      end
+      @future_jam_sessions = []
+      @past_jam_sessions = []
+      @jam_sessions.each do |jam_session|
+        if jam_session.starts_at > date
+          @future_jam_sessions << jam_session
+        else
+          @past_jam_sessions << jam_session
+        end
+      end
     else
       puts "no jam"
     end
@@ -30,14 +30,26 @@ end
 
 =begin
 
-@participations. each do |participation|
-  spot = Spot.find_by(id: participation.spot_id)
-  @jam_sessions << JamSession.find_by(id: spot.jam_session_id)
-end
+      @future_jam_sessions = []
+      @past_jam_sessions = []
+      @participations. each do |participation|
+        spot = Spot.find_by(id: participation.spot_id)
+        @future_jam_sessions << JamSession.where( "starts_at > ?", date )
+        @past_jam_sessions << JamSession.where( "starts_at < ?", date )
+      end
 
-
-spot = Spot.find_by(jam_session_id: jam_session.id)
-
-cl_image_tag spot.instrument.photo.key
 
 =end
+
+
+=begin
+
+      @jam_sessions = []
+      @participations. each do |participation|
+        spot = Spot.find_by(id: participation.spot_id)
+        @jam_sessions << JamSession.find_by(id: spot.jam_session_id)
+      end
+
+
+=end
+

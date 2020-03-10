@@ -1,0 +1,2 @@
+document.querySelector("#spot_<%= (@participation.spot.id) %>").innerHTML =
+    "<%= escape_javascript(render partial: "participations/participation_row", locals: {spot: @participation.spot.reload}) %>"

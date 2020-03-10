@@ -8,6 +8,11 @@
 .hot-pink {
   color: $hot-pink;
   padding: 0;
+
+    &:hover {
+      text-decoration: none;
+      color: $dark_pink;
+    }
 }
 
 .min-h {

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_132427) do
+ActiveRecord::Schema.define(version: 2020_03_09_145438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(version: 2020_03_05_132427) do
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_jam_sessions_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "jam_session_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jam_session_id"], name: "index_messages_on_jam_session_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "participations", force: :cascade do |t|
@@ -104,6 +114,8 @@ ActiveRecord::Schema.define(version: 2020_03_05_132427) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "jam_sessions", "users"
+  add_foreign_key "messages", "jam_sessions"
+  add_foreign_key "messages", "users"
   add_foreign_key "participations", "spots"
   add_foreign_key "participations", "users"
   add_foreign_key "spots", "instruments"

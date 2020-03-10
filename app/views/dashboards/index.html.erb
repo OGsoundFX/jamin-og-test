@@ -1,0 +1,133 @@
+<br>
+<br>
+<div class="container inline-list d-flex justify-content-start pl-4 pb-4">
+  <h5><%= link_to "Profile", profile_path(current_user), class: "btn-dashboard" %></h5>
+  <div class="space-between"></div>
+  <h5 class="no-btn">Dashboard</h5>
+</div>
+
+<div class="container card-container">
+  <h5 id="past-jam-title-color"><strong>Past Jam Sessions</strong></h5>
+    <div class="passed-jams">
+      <% if @past_jam_sessions.count != 0 %>
+        <% @past_jam_sessions.first(3).each do |jam_session| %>
+        <% spot = Spot.find_by(jam_session_id: jam_session.id) %>
+          <div class="passed-jams-cards">
+            <div class="row">
+
+
+              <div class="col-8">
+                <h6><%= jam_session.title %> - <%= jam_session.genre %> - <%= cl_image_tag spot.instrument.photo.key, class: "icon" %></h6>
+
+                <div class="row">
+                  <div class="col-4">
+                    <p class="subtitle text-secondary"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
+                  </div>
+                  <div class="col-4">
+                    <p class="subtitle text-secondary"><i class="far fa-calendar-alt mr-2"></i><%= jam_session.starts_at.strftime("%b %C")%></p>
+                  </div>
+                </div>
+
+                <p><%= jam_session.description %></p>
+
+              </div>
+
+              <!-- avatar and instrument icon -->
+              <div class="col-3 border-left">
+                <!-- @instruments.each do cl_image_tag -->
+                  <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
+                <div class="row">
+                  <% jam_session.spots.first(4).each do |spot| %>
+                    <% instrument = Instrument.find(spot.instrument_id) %>
+                    <% participation = Participation.find_by(spot_id: spot.id) %>
+                    <% if participation %>
+                    <% user = User.find(participation.user_id) %>
+
+                      <div class="col-6 d-flex justify-content-center">
+                        <%= link_to profile_path(user) do %>
+                        <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
+                        <% end %>
+                      </div>
+                      <div class="col-6 d-flex justify-content-center">
+                        <%= cl_image_tag instrument.photo.key, width: 50 %>
+                      </div>
+
+                    <% else %>
+                    <% end %>
+                  <% end %>
+                  <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div id="no-jam-alignement">
+          <p><strong> No Jam Sessions yet </strong></p>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+<div class="container card-container">
+  <h5 id="past-jam-title-color"><strong>Future Jam Sessions</strong></h5>
+    <div class="passed-jams">
+      <% if @future_jam_sessions.count != 0 %>
+        <% @future_jam_sessions.first(3).each do |jam_session| %>
+        <% spot = Spot.find_by(jam_session_id: jam_session.id) %>
+          <div class="passed-jams-cards">
+            <div class="row">
+
+
+              <div class="col-8">
+                <h6><%= jam_session.title %> - <%= jam_session.genre %> - <%= cl_image_tag spot.instrument.photo.key, class: "icon" %></h6>
+
+                <div class="row">
+                  <div class="col-4">
+                    <p class="subtitle text-secondary"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
+                  </div>
+                  <div class="col-4">
+                    <p class="subtitle text-secondary"><i class="far fa-calendar-alt mr-2"></i><%= jam_session.starts_at.strftime("%b %C")%></p>
+                  </div>
+                </div>
+
+                <p><%= jam_session.description %></p>
+
+              </div>
+
+              <!-- avatar and instrument icon -->
+              <div class="col-3 border-left">
+                <!-- @instruments.each do cl_image_tag -->
+                  <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
+                <div class="row">
+                  <% jam_session.spots.first(4).each do |spot| %>
+                    <% instrument = Instrument.find(spot.instrument_id) %>
+                    <% participation = Participation.find_by(spot_id: spot.id) %>
+                    <% if participation %>
+                    <% user = User.find(participation.user_id) %>
+
+                      <div class="col-6 d-flex justify-content-center">
+                        <%= link_to profile_path(user) do %>
+                        <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
+                        <% end %>
+                      </div>
+                      <div class="col-6 d-flex justify-content-center">
+                        <%= cl_image_tag instrument.photo.key, width: 50 %>
+                      </div>
+
+                    <% else %>
+                    <% end %>
+                  <% end %>
+                  <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div id="no-jam-alignement">
+          <p><strong> No Jam Sessions yet </strong></p>
+        </div>
+      <% end %>
+    </div>
+</div>
