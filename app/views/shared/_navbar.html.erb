@@ -29,6 +29,7 @@
         </li>
 
       <% else %>
+      <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= image_path("avatar-unknown.png", class: "avatar") %>" />
         <li class="nav-item active">
           <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
         </li>
