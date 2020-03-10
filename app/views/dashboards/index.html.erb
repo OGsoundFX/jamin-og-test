@@ -17,7 +17,6 @@
           <div class="passed-jams-cards">
             <div class="row">
 
-
               <div class="col-8">
                 <h6><%= jam_session.title %> - <%= jam_session.genre %> - <%= cl_image_tag spot.instrument.photo.key, class: "icon" %></h6>
 
@@ -35,30 +34,56 @@
               </div>
 
               <!-- avatar and instrument icon -->
-              <div class="col-3 border-left">
+              <div class="col-4 border-left">
                 <!-- @instruments.each do cl_image_tag -->
                   <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
-                <div class="row">
                   <% jam_session.spots.first(4).each do |spot| %>
                     <% instrument = Instrument.find(spot.instrument_id) %>
                     <% participation = Participation.find_by(spot_id: spot.id) %>
                     <% if participation %>
                     <% user = User.find(participation.user_id) %>
 
-                      <div class="col-6 d-flex justify-content-center">
-                        <%= link_to profile_path(user) do %>
-                        <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
-                        <% end %>
-                      </div>
-                      <div class="col-6 d-flex justify-content-center">
-                        <%= cl_image_tag instrument.photo.key, width: 50 %>
+                      <div class="d-flex justify-content-around mb-3">
+                        <div>
+                          <%= link_to profile_path(user) do %>
+                          <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
+                          <% end %>
+                          <%= cl_image_tag instrument.photo.key, width: 50 %>
+                        </div>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="reviewbtn" data-toggle="modal" data-target="#review-form-<%= spot.id %>">
+                          Review
+                        </button>
                       </div>
 
-                    <% else %>
+
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="review-form-<%= spot.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Write a review for  <strong><%= User.find(spot.participation.user_id).first_name %> <%= User.find(spot.participation.user_id).last_name %> </strong></h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <%= simple_form_for [participation.user, Review.new] do |f| %>
+                                <%= f.input :rating, label_html: { class: 'regular' } %>
+                                <%= f.input :content, label_html: { class: 'regular' } %>
+                            </div>
+                            <div class="modal-footer">
+                              <%= f.submit class: "searchbtn" %>
+                              <% end %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     <% end %>
                   <% end %>
                   <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
-                </div>
               </div>
             </div>
           </div>
