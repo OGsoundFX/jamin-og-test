@@ -1,11 +1,12 @@
-<%= simple_form_for @jam_session do |f| %>
+<%= simple_form_for [@jam_session] do |f| %>
 <% f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :genre %>
-    <%= f.input :starts_at %>
-    <%= f.input :ends_at %>
-    <%= f.input :location %>
-    <%= f.submit 'create Session' %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= f.input :title %>
+<%= f.input :description %>
+<%= f.input :genre %>
+<%= f.input :starts_at, required: true, input_html: {class: "TimePicker"} %>
+<%= f.input :ends_at, required: true, input_html: {class: "timePicker-end"} %>
+<%= f.input :location %>
+<%= f.submit 'create Session' %>
+
 <% end %>
