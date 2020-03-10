@@ -1,14 +1,44 @@
 <div class="col-lg-9 col-sm-12 mt-5 display-result">
   <div class="row">
-    <div class="col-lg-3 col-sm-6">
-      <p class="search-result-text border-right"><span class="fas fa-search mr-2 text-secondary"></span><%= @instrument_input %></p>
-    </div>
-    <div class="col-lg-3 col-sm-6">
-      <p class="search-result-text"><span class="fas fa-map-marker-alt mr-2 text-secondary"></span><%= @location_input %></p>
-    </div>
-    <div class="col-lg-6 col-sm-12">
-      <p class="search-result-text"><span class="far fa-calendar-alt mr-2 text-secondary"></span><%= @starts_at_input %></p>
-    </div>
+    <%= simple_form_for :jam_session, url: jam_sessions_path, method: :get do |f| %>
+
+      <div class="col-md-4 col-sm-6">
+        <p class="d-flex flex-fill align-items-center p-2 h-20 border-right">
+          <span class="fas fa-search mr-2 text-secondary"></span>
+          <%= f.input :instrument_id, 
+              collection: Instrument.all,
+              required: false, 
+              wrapper: false,
+              selected: params[:instrument_id],
+              input_html: { class: 'border-0 mt-2 inline-block', style: 'width: auto' },
+              label: false
+          %>
+        </p>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+      <!--
+        <p class="search-result-text">
+          <span class="fas fa-map-marker-alt mr-2 text-secondary"></span>
+          <%= f.input :location, required: false, value: @location_input, class: 'block', wrapper: false %>
+        </p>
+        -->
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+      <!--
+        <p class="search-result-text"><span class="far fa-calendar-alt mr-2 text-secondary"></span>
+          <%= f.input :starts_at, required: false, input_html: {class: "TimePicker"}, value: @starts_at_input, wrapper: false %>
+          <%= f.input :ends_at, as: :hidden, required: false, input_html: {class: "timePicker-end"}, value: @ends_at_input %>
+
+        </p>
+        -->
+      </div>
+
+    <% end %>
   </div>
+
 </div>
+
+
 
