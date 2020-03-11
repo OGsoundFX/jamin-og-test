@@ -35,28 +35,38 @@ class JamSessionsController < ApplicationController
       {
         lat: jam_session.latitude,
         lng: jam_session.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { jam_session: jam_session })
+        infoWindow: render_to_string(partial: "info_window", locals: { jam_session: jam_session }),
       }
     end
   end
 
-
   def show
     @jam_session = JamSession.find(params[:id])
-    @markers =   [{
-        lat: @jam_session.latitude,
-        lng: @jam_session.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { jam_session: @jam_session })
-      }]
+    @markers = [{
+      lat: @jam_session.latitude,
+      lng: @jam_session.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { jam_session: @jam_session }),
+    }]
     @messages = JamSession.includes(messages: :user).find(params[:id])
   end
 
+  def new
+    @jam_session = JamSession.new
+  end
+
+  def create
+    @jam_session = JamSession.new(jam_session_params)
+    @jam_session.user = current_user
+    if @jam_session.save
+      redirect_to jam_session_path(@jam_session)
+    else
+      render "new"
+    end
+  end
 
   private
 
-
   def jam_session_params
-    params.require(:jam_session).permit(:title, :description, :genre, :starts_at, :ends_at, :location, :instrument_id)
+    params.require(:jam_session).permit(:title, :description, :genre, :starts_at, :ends_at, :location)
   end
-
 end
