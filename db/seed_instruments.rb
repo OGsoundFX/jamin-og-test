@@ -9,147 +9,147 @@ instruments = [
   {
     name: 'Accordion',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_accordion_172493_pwtlmo.png',
+    icon: 'accordion.png',
   },
   {
     name: 'Bass guitar',
     description: 'Electric',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_bass_2122617_gblb9e.png',
+    icon: 'bass.png',
   },
   {
     name: 'Accoustic Bass guitar',
     description: 'Accoustic',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_bass_2122617_gblb9e.png',
+    icon: 'guitar.png',
   },
   {
     name: 'Bongo',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_bongos_1602012_ga8hat.png',
+    icon: 'bongo.png',
   },
   {
     name: 'Cello',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Cello_415863_sc5bbx.png',
+    icon: 'cello.png',
   },
   {
     name: 'Clarinet',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Clarinet_3021845_scsjap.png',
+    icon: 'clarinet.png',
   },
   {
     name: 'Didgeridoo',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Didgeridoo_3023392_is5opi.png',
+    icon: 'didgeridoo.png',
   },
   {
     name: 'Double bass',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583330820/icons-instrument/noun_double_bass_1601948_qpzg9h.png',
+    icon: 'double-bass.png',
   },
   {
     name: 'Drums',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Drum_1181834_kcnk6r.png',
+    icon: 'drums.png',
   },
   {
     name: 'Flute',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Flute_1928130_p4nlip.png',
+    icon: 'flute.png',
   },
   {
     name: 'Electric Guitar',
     description: 'Electric',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Guitar_152262_vartmq.png',
+    icon: 'electric-guitar.png',
   },
   {
     name: 'Electric Guitar1',
     description: 'Electric',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Guitar_152262_vartmq.png',
+    icon: 'electric-guitar.png',
   },
   {
     name: 'Electric Guitar2',
     description: 'Electric',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Guitar_152262_vartmq.png',
+    icon: 'electric-guitar.png',
   },
   {
     name: 'Accoustic Guitar',
     description: 'Accoustic',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Guitar_152262_vartmq.png',
+    icon: 'acoustic-guitar.png',
   },
   {
     name: 'Harmonica',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Harmonica_2895838_etu9m0.png',
+    icon: 'harmonica.png',
   },
   {
     name: 'Oboe',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325860/icons-instrument/noun_oboe_737111_ecyoqe.png',
+    icon: 'oboe.png',
   },
   {
     name: 'Piano',
     description: 'Accoustic',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583336748/icons-instrument/noun_music_instrument_2257463_us4jqr.png',
+    icon: 'piano.png',
   },
   {
     name: 'Electric Piano',
     description: 'Electric',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583336748/icons-instrument/noun_music_instrument_2257463_us4jqr.png'
+    icon: 'piano.png'
   },
   {
     name: 'Congas',
     description: 'Congas',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325860/icons-instrument/noun_Conga_3035793_ot7mma.png',
+    icon: 'congas.png',
   },
   {
     name: 'Djembe',
     description: 'Djembe',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325860/icons-instrument/noun_Djembe_1373758_cop9sw.png',
+    icon: 'djembe.png',
   },
   {
     name: 'Percussion',
     description: 'Other',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325860/icons-instrument/noun_Conga_3035793_ot7mma.png',
+    icon: 'drums.png',
   },
   {
     name: 'Saxophone Alto',
     description: 'Alto',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Saxophone_1627835_mu9wwk.png',
+    icon: 'saxophone.png',
   },
   {
     name: 'Saxophone Soprano',
     description: 'Soprano',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Saxophone_1627835_mu9wwk.png',
+    icon: 'saxophone.png',
   },
   {
     name: 'Steeldrum',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_bongos_1602012_ga8hat.png',
+    icon: 'drums.png',
   },
   {
     name: 'Synthesizer',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583336748/icons-instrument/noun_music_instrument_2257463_us4jqr.png'
+    icon: 'piano.png'
   },
   {
     name: 'Trumpet',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583331348/icons-instrument/noun_Trumpet_1595190_squdec.png',
+    icon: 'trumpet.png',
   },
   {
     name: 'Ukulele',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_ukulele_644053_gs8iyj.png',
+    icon: 'ukulele.png',
   },
   {
     name: 'Violin',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Violin_2387794_eusxo3.png',
+    icon: 'violin.png',
   },
   {
     name: 'Vocals',
     description: '',
-    icon_url: 'https://res.cloudinary.com/dqbzzl00v/image/upload/v1583325859/icons-instrument/noun_Violin_2387794_eusxo3.png',
+    icon: 'microphone.png',
   },
 ]
 
@@ -157,10 +157,7 @@ instruments = [
 puts "-- Generating instruments"
 
 instruments.each do |instrument|
-  icon_url = instrument[:icon_url]
-  instrument.delete(:icon_url)
   inst = Instrument.new(instrument)
-  inst.photo.attach(io: URI.open(icon_url), filename: 'icon.png', content_type: "image/png")
   inst.save!
 end
 
