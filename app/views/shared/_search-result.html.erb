@@ -6,11 +6,10 @@
           <div class="d-flex align-items-center p-2 w-100">
             <span class="fas fa-search mr-2 text-secondary"></span>
             <span class="flex-fill">
-              <%= f.input :instrument_id, 
+              <%= f.input :instrument_id,
                           collection: Instrument.all,
-                          required: false, 
+                          required: false,
                           wrapper: false,
-                          selected: params[:jam_session][:instrument_id],
                           input_html: { class: 'border-0 bold', style: 'width: auto;' },
                           label: false
               %>
@@ -22,7 +21,7 @@
           <div class="d-flex align-items-center p-2 w-100">
             <span class="fas fa-map-marker-alt mr-2 text-secondary"></span>
             <span class="flex-fill">
-              <%= f.input :location, 
+              <%= f.input :location,
                           required: false,
                           wrapper: false,
                           input_html: { class: 'border-0 border-bottom bold', style: 'width: auto;', value: @location_input },
@@ -34,18 +33,18 @@
 
         <div class="col-md-4 col-sm-12">
           <div class="d-flex align-items-center p-2 w-100">
-            
+
             <span class="far fa-calendar-alt mr-2 text-secondary"></span>
             <span class="flex-fill">
-              <%= f.input :starts_at, required: false, 
-                          input_html: {class: "TimePicker border-0 border-bottom bg-white", value: @starts_at_input}, 
+              <%= f.input :starts_at, required: false,
+                          input_html: {class: "TimePicker border-0 border-bottom bg-white", value: @starts_at_input},
                           label: false,
                           wrapper: false %>
 
 
-                <%= f.input :ends_at, 
-                            as: :hidden, 
-                            required: false, 
+                <%= f.input :ends_at,
+                            as: :hidden,
+                            required: false,
                             wrapper: false,
                             label: false,
                             input_html: {class: "timePicker-end"}
@@ -56,7 +55,7 @@
         </div>
 
     </div>
-    
+
     <%= f.submit :send, class: 'd-none' %>
     <% end %>
 

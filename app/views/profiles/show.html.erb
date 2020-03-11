@@ -1,15 +1,15 @@
 <div class="container remove-padding">
   <% if @user != current_user %>
   <div id="back-button-display">
-    <%= link_to "", jam_sessions_path, class: "fas fa-arrow-left text-decoration-none text-black-50 view overlay" %>
+    <%= link_to "", "javascript:history.back(-1)", class: "fas fa-arrow-left text-decoration-none text-black-50 view overlay" %>
   </div>
   <div class="mb-4">
-    <h5>Profile</h5>
+
   </div>
   <% else %>
     <div class="mt-5"></div>
     <div class="inline-list d-flex justify-content-start pb-4">
-      <h5 class="no-btn">Profile</h5>
+      <!-- <h5 class="no-btn">Profile</h5> -->
       <div class="space-between"></div>
       <h5><%= link_to "Dashboard", dashboards_path(current_user), class: "btn-dashboard" %></h5>
     </div>
