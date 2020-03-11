@@ -32,9 +32,9 @@
         </p>
 
         <% @jam_session.spots.each do |spot|%>
-            <div id="spot_<%= spot.id %>">
-               <%= render 'participations/participation_row', spot: spot %>
-               </div>
+          <div id="spot_<%= spot.id %>">
+             <%= render 'participations/participation_row', spot: spot %>
+         </div>
         <% end %>
       </div>
       <br>

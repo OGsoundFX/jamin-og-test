@@ -1,5 +1,0 @@
-<% if current_user.photo.attached? %>
-  <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path current_user.photo.key, height: 40, width: 40, crop: :fill %>" />
-<% else %>
-  <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= image_path("avatar-unknown.png") %>" />
-<% end %>

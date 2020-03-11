@@ -1,5 +1,5 @@
-<% if current_user.photo.attached? %>
-  <img class="avatar" src="<%= cl_image_path current_user.photo.key, height: 40, width: 40, crop: :fill %>" />
+<% if user.photo.attached? %>
+  <%= cl_image_tag user.photo.key, height: height, width: width, crop: :fill, class: css_class %>
 <% else %>
-  <img class="avatar" src="<%= image_path("avatar-unknown.png") %>" />
+  <%= image_tag "avatar-unknown.png", class: css_class, width: width, height: height  %>
 <% end %>
