@@ -1,0 +1,33 @@
+.border-yellow {
+  border-top: solid 7px #FFC108;
+}
+
+.bold-grey {
+  font-weight: bold;
+  color: #6A6A6A;
+}
+
+
+a.join-session-icon {
+  img {
+    transition: all .4s;
+  }
+
+  &:hover img {
+    transform: scale(1.3);
+  }
+}
+
+#join-session {
+  display: none;
+  position: fixed; 
+  background: rgba(0,0,0,0.8); 
+  height: 100%; 
+  z-index: 100; 
+  top: 0; 
+  width: 100%
+}
+
+#join-session:target {
+  display: block;
+}

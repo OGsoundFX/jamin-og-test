@@ -28,11 +28,11 @@ class ParticipationsController < ApplicationController
 
     respond_to do |format|
       if @participation.save
-        format.html { redirect_to @participation, notice: "Participation was successfully created." }
+        format.html { redirect_to @participation.spot.jam_session, notice: "Participation was successfully created." }
         format.json { render :show, status: :created, location: @participation }
         format.js
       else
-        format.html { render :new }
+        format.html { redirect_to @participation.spot.jam_session }
         format.json { render json: @participation.errors, status: :unprocessable_entity }
       end
     end
