@@ -1,0 +1,5 @@
+<% if current_user.photo.attached? %>
+  <img class="avatar" src="<%= cl_image_path current_user.photo.key, height: 40, width: 40, crop: :fill %>" />
+<% else %>
+  <img class="avatar" src="<%= image_path("avatar-unknown.png") %>" />
+<% end %>
