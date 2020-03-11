@@ -1,4 +1,5 @@
 .background-w {
+  border: solid 1px #e2e2e2;
   background-color: white;
   box-shadow: $shadow;
   border-radius: $border;
@@ -17,4 +18,16 @@
 
 .min-h {
   min-height: 240px;
+}
+
+.card-session-show {
+  img {
+    margin-right: -10px;
+   width: 60px;
+    height: 60px;
+  }
+  p {
+    line-height: 62px;
+    margin-right: 16px;
+  }
 }

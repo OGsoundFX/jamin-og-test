@@ -4,6 +4,10 @@
 
   box-shadow: $shadow;
   border-radius: $border;
+
+  input:focus, select:focus {
+    outline: 0 !important;
+  }
 }
 
 @media (min-width: 1200px) {
