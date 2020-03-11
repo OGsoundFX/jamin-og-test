@@ -1,36 +1,63 @@
 <div class="col-4 bg-white shadow">
-  <h4 class="text-center my-4" style="font-size: 25px;">
-  Messages
-  </h4>
-  <div class="messages-list border-bottom mb-4" style="overflow-x: scroll; height: 360px">
-      <% @jam_session.messages.each do |message| %>
-        <% if message.user == current_user %>
-          <%= render 'messages/message', message: message, user_is_messages_author: true %>
-        <% else %>
-          <%= render 'messages/message', message: message, user_is_messages_author: false %>
-        <% end %>
-      <% end %>
-  </div>
+  <% if @jam_session.user_in_jam_session?(current_user) %>
 
-  <div class="messages-input">
-    <%= simple_form_for([@jam_session, Message.new], remote: true, method: :post )do |f| %>
-      <%= f.input :content, label: false %>
-      <%= f.submit 'Send', class: "btn btn-primary btn-sm searchbtn" %>
+    <h4 class="text-center my-4" style="font-size: 25px;">
+    Messages
+    </h4>
+    <div class="messages-list border-bottom mb-4" style="overflow-x: scroll; height: 360px">
+        <% @jam_session.messages.each do |message| %>
+          <% if message.user == current_user %>
+            <%= render 'messages/message', message: message, user_is_messages_author: true %>
+          <% else %>
+            <%= render 'messages/message', message: message, user_is_messages_author: false %>
+          <% end %>
+        <% end %>
+    </div>
+
+    <div class="messages-input">
+      <%= simple_form_for([@jam_session, Message.new], remote: true, method: :post )do |f| %>
+        <%= f.input :content, label: false %>
+        <%= f.submit 'Send', class: "btn btn-primary btn-sm searchbtn" %>
+      <% end %>
+    </div>
+  
+    <%= content_for :after_js do %>
+      <script>
+        scrollLastMessageIntoView();
+        App['chat_room_<%= @jam_session.id %>'] = App.cable.subscriptions.create({ channel: 'JamSessionsChannel',
+          jam_session_id: <%= @jam_session.id %> }, {
+            received: (data) => {
+              if (data.current_user_id !== <%= current_user.id %>) {
+                const messagesContainer = document.querySelector('.messages-list');
+                messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+                scrollLastMessageIntoView();
+              }
+            }
+          })
+      </script>
     <% end %>
-  </div>
+  
+  <% else %>
+    <div class="blurred h-100 w-100">
+      <h6 class="p-4">Want to chat? Join the Jam!</h6>
+      <div style="filter: blur(.2em)">
+        <div class="row bg-light p-2 m-2">
+          You are trying to remove the blur, don't you? Nothing to see here. <%= image_tag "avatar-unknown.png", size: "40x40" %>
+        </div>
+
+        <div class="row bg-light p-2 m-2 text-right">
+          You are trying to remove the blur, don't you? Nothing to see here. <%= image_tag "avatar-unknown.png", size: "40x40" %>
+        </div>
+
+        <div class="row bg-light p-2 m-2">
+          You are trying to remove the blur, don't you? Nothing to see here. <%= image_tag "avatar-unknown.png", size: "40x40" %>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
 </div>
-<%= content_for :after_js do %>
-  <script>
-    scrollLastMessageIntoView();
-    App['chat_room_<%= @jam_session.id %>'] = App.cable.subscriptions.create({ channel: 'JamSessionsChannel',
-      jam_session_id: <%= @jam_session.id %> }, {
-        received: (data) => {
-          if (data.current_user_id !== <%= current_user.id %>) {
-            const messagesContainer = document.querySelector('.messages-list');
-            messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
-            scrollLastMessageIntoView();
-          }
-        }
-      })
-  </script>
-<% end %>
+
+
+
+
