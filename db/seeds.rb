@@ -79,6 +79,16 @@ jam_sessions = [
     user: user_1,
     instruments: ['Electric Guitar1', 'Electric Guitar2', 'Drums', 'Bass guitar'],
   },
+  {
+    title: "Rolling stone jam!",
+    description: "Let's play some old tunes from the 70s",
+    location: "Alexander platz, Berlin",
+    genre: "Rock",
+    starts_at: "July, 20th 2019, 18:00",
+    ends_at: "July, 20th 2019, 21:00",
+    user: user_1,
+    instruments: ['Electric Guitar1', 'Electric Guitar2', 'Drums', 'Bass guitar'],
+  },
 ]
 
 
@@ -134,6 +144,11 @@ Participation.create(spot_id: 24, user_id: 13)
 Participation.create(spot_id: 25, user_id: 2)
 Participation.create(spot_id: 26, user_id: 8)
 Participation.create(spot_id: 27, user_id: 1)
+
+Participation.create(spot_id: 28, user_id: 1)
+Participation.create(spot_id: 29, user_id: 8)
+Participation.create(spot_id: 30, user_id: 2)
+Participation.create(spot_id: 31, user_id: 13)
 
 puts "---- PARTICIPATIONS where created ----"
 
