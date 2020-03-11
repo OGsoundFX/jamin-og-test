@@ -12,7 +12,7 @@
         </div>
 
       <% if @jam_session.user == current_user %>
-        <%= link_to "Add spot", new_jam_session_spot_path(@jam_session, @spot) %> 
+        <%= link_to "Add spot", new_jam_session_spot_path(@jam_session, @spot) %>
       <% end %>
 
         <div class="text-center">
@@ -46,7 +46,7 @@
       <div class="d-flex card-session-show">
          <p class="bold-grey">Available Instruments</p>
         <% @jam_session.spots.each do |spot|%>
-             <%= cl_image_tag spot.instrument.photo.key, width: 50, height: 50, crop: :fill, class: "rounded-circle"  %>
+             <%= image_tag spot.instrument.icon, width: 50, height: 50, crop: :fill, class: "rounded-circle"  %>
         <% end %>
       </div>
 
@@ -82,7 +82,7 @@
       <div class="d-flex justify-content-around mt-3">
         <% @jam_session.available_spots.each do |spot|%>
           <%= link_to participations_path(spot_id: spot, user_id: current_user), method: :post, class: 'join-session-icon' do %>
-            <%= cl_image_tag spot.instrument.photo.key, width: 80, height: 80, crop: :fill, class: "rounded-circle border shadow p-3"  %>
+            <%= image_tag spot.instrument.icon, width: 80, height: 80, crop: :fill, class: "rounded-circle border shadow p-3"  %>
           <% end %>
         <% end %>
       </div>

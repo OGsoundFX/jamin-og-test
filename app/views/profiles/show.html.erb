@@ -37,7 +37,7 @@
           <% @user.user_instruments.first(3).each do |user_instrument| %>
             <li>
               <h6>
-                <%= cl_image_tag user_instrument.instrument.photo.key, class: "icon" %> - <%= user_instrument.level %>
+                <%= image_tag user_instrument.instrument.icon, class: "icon" %> - <%= user_instrument.level %>
                 <% user_instrument.instrument.name %>
               </h6>
             </li>
