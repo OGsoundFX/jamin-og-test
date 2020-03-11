@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
   def show
+
     @user = User.find(params[:id])
+    @reviews = Review.where(receiver_id: @user.id)
     @instruments = UserInstrument.where(user_id: @user.id)
     @participations = Participation.where(user_id: @user.id)
     date = Time.now
@@ -26,6 +28,7 @@ class ProfilesController < ApplicationController
       puts "no jam"
     end
   end
+
 end
 
 =begin
