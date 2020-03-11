@@ -9,7 +9,7 @@
 </div>
 
 <div class="container card-container">
-  <h5 id="past-jam-title-color"><strong>Past Jam Sessions</strong></h5>
+  <h3 id="past-jam-title-color">Past Jam Sessions</h3>
     <div class="passed-jams">
       <% if @past_jam_sessions.count != 0 %>
         <% @past_jam_sessions.first(3).each do |jam_session| %>
@@ -53,7 +53,7 @@
 
                         <!-- Button trigger modal -->
                         <button type="button" class="reviewbtn" data-toggle="modal" data-target="#review-form-<%= spot.id %>">
-                          Review
+                          Write a review
                         </button>
                       </div>
 
