@@ -1,0 +1,6 @@
+<%= simple_form_for [@jam_session, @spot] do |f| %>
+     <%= select_tag 'instruments' ,
+    options_for_select( Instrument.all.map { |instrument| [instrument.name, instrument.id]})
+    %> 
+    <%= f.submit "Submit" %>
+<% end %>

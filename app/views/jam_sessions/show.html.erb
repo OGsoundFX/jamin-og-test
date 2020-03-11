@@ -10,6 +10,11 @@
             <%= @jam_session.location %>
           </span>
         </div>
+
+      <% if @jam_session.user == current_user %>
+        <%= link_to "Add spot", new_jam_session_spot_path(@jam_session, @spot) %> 
+      <% end %>
+
         <div class="text-center">
           <span class="far fa-calendar-alt mr-2 yellow"></span>
           <span><%= @jam_session.starts_at.strftime('%d %B') %></span>

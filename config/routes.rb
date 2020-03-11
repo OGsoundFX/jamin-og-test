@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :jam_sessions, only: [:show, :index] do
-    resources :spots, only: [:show]
-      resources :messages, only: [:create]
+  resources :jam_sessions, only: [:show, :index, :new, :create] do
+    resources :spots, only: [:show, :create, :new]
+    resources :messages, only: [:create]
   end
   resources :participations, only: [:create, :update]
 
