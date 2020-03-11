@@ -1,9 +1,15 @@
 <div class="container">
+    <h3 style="text-align: center; margin-top: 50px; font-weight: lighter; font-size: 45px;">
+      We found <%= pluralize(@jam_sessions.size, 'jam session') %> for you
+    </h3>
+  <div class="row mx-3 mb-5">
+    <%= render 'shared/search-result' %>
+  </div>
   <div class="row">
-    <div class="col-6">
-      <%= render 'shared/card-s' %>
+    <div class="col-lg-8 col-sm-12">
+        <%= render 'shared/card-s' %>
     </div>
-    <div class="col-6 mapbox-container">
+    <div class="col-lg-4 pr-0">
       <div
         id="map"
         style="height: 100vh; position: sticky; top: 0px; border-radius: 6px; "
@@ -13,5 +19,3 @@
     </div>
   </div>
 </div>
-
-

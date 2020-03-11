@@ -11,7 +11,7 @@ user_3 = User.find_by(email:'lara@lara.com')
 jam_sessions = [
   {
     title: "Rock semester",
-    description: "School is out",
+    description: "School is out, it's time to rock everyday and every night!",
     location: "Rosenthaler Str. 4, 10119 Berlin",
     genre: "Rock",
     starts_at: "March, 15th 2020, 15:00",
@@ -21,7 +21,7 @@ jam_sessions = [
   },
   {
     title: "Trippin",
-    description: "Let us get together and experiment!",
+    description: "Let us get together and experiment! John Coltrane, Miles Davis, Keith Jarret are my inspiration!",
     location: "Torstr. 109, 10119 Berlin",
     genre: "Jazz",
     starts_at: "March, 27th 2020, 14:00",
@@ -100,26 +100,40 @@ puts "---- Creating some PARTICIPATIONS ----"
 
 
 
-Participation.create(spot_id: 1, user_id: 1)
-Participation.create(spot_id: 2, user_id: 2)
-Participation.create(spot_id: 3, user_id: 3)
+Participation.create(spot_id: 1, user_id: 8)
+# Participation.create(spot_id: 2, user_id: 2)
+# Participation.create(spot_id: 3, user_id: 1)
 
-Participation.create(spot_id: 4, user_id: 1)
-Participation.create(spot_id: 5, user_id: 4)
-Participation.create(spot_id: 6, user_id: 5)
-Participation.create(spot_id: 7, user_id: 6)
+Participation.create(spot_id: 4, user_id: 11)
+# Participation.create(spot_id: 5, user_id: 4)
+Participation.create(spot_id: 6, user_id: 12)
 
-Participation.create(spot_id: 8, user_id: 2)
+Participation.create(spot_id: 7, user_id: 13)
+# Participation.create(spot_id: 8, user_id: 4)
+# Participation.create(spot_id: 9, user_id: 2)
+# Participation.create(spot_id: 10, user_id: 2)
 
-Participation.create(spot_id: 12, user_id: 3)
+Participation.create(spot_id: 11, user_id: 14)
+# Participation.create(spot_id: 12, user_id: 14)
+#cParticipation.create(spot_id: 13, user_id: 6)
+Participation.create(spot_id: 14, user_id: 3)
+# Participation.create(spot_id: 15, user_id: 14)
 
-Participation.create(spot_id: 19, user_id: 2)
+Participation.create(spot_id: 16, user_id: 10)
+# Participation.create(spot_id: 17, user_id: 4)
+Participation.create(spot_id: 18, user_id: 2)
+# Participation.create(spot_id: 19, user_id: 10)
 
-Participation.create(spot_id: 23, user_id: 2)
 
+Participation.create(spot_id: 20, user_id: 9)
+Participation.create(spot_id: 21, user_id: 4)
+Participation.create(spot_id: 22, user_id: 5)
+Participation.create(spot_id: 23, user_id: 3)
+
+Participation.create(spot_id: 24, user_id: 13)
+Participation.create(spot_id: 25, user_id: 2)
+Participation.create(spot_id: 26, user_id: 8)
 Participation.create(spot_id: 27, user_id: 1)
-Participation.create(spot_id: 28, user_id: 2)
-Participation.create(spot_id: 29, user_id: 6)
 
 puts "---- PARTICIPATIONS where created ----"
 

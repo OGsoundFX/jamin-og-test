@@ -24,4 +24,14 @@ class JamSession < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }, # <-- now `superman batm` will return something!
                   }
+
+  # https://stackoverflow.com/questions/19168490/rails-how-to-find-with-no-associated-records
+  def available_spots
+    spots.includes(:participation).where(participations: { spot: nil })
+  end
+
+
+  def user_in_jam_session?(user)
+    participants.include?(user)
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_145438) do
+ActiveRecord::Schema.define(version: 2020_03_10_120316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(version: 2020_03_09_145438) do
     t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "writer_id"
+    t.bigint "receiver_id"
+    t.index ["receiver_id"], name: "index_reviews_on_receiver_id"
+    t.index ["writer_id"], name: "index_reviews_on_writer_id"
+  end
+
   create_table "spots", force: :cascade do |t|
     t.bigint "jam_session_id"
     t.bigint "instrument_id"
@@ -118,6 +129,8 @@ ActiveRecord::Schema.define(version: 2020_03_09_145438) do
   add_foreign_key "messages", "users"
   add_foreign_key "participations", "spots"
   add_foreign_key "participations", "users"
+  add_foreign_key "reviews", "users", column: "receiver_id"
+  add_foreign_key "reviews", "users", column: "writer_id"
   add_foreign_key "spots", "instruments"
   add_foreign_key "spots", "jam_sessions"
   add_foreign_key "user_instruments", "instruments"

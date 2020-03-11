@@ -1,0 +1,27 @@
+.display-result {
+  margin: 2rem auto;
+  background: white;
+
+  box-shadow: $shadow;
+  border-radius: $border;
+
+  input:focus, select:focus {
+    outline: 0 !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .search-result-text {
+    padding: 8px;
+    margin: 10px;
+  }
+}
+
+
+@media (min-width: 576px) {
+  .search-result-text {
+    padding: 8px;
+    margin: 10px;
+  }
+}
+
