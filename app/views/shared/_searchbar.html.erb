@@ -4,10 +4,10 @@
 
   <div class="row">
     <div class="col-md-6 col-sm-12">
-      <%= f.input :starts_at, required: false, input_html: {class: "TimePicker"} %>
+      <%= f.input :starts_at, required: false, input_html: {class: "TimePicker"}, :label => "When are you available?" %>
     </div>
     <div class="col-md-6 col-sm-12">
-      <%= f.input :ends_at, required: false, input_html: {class: "timePicker-end"} %>
+      <%= f.input :ends_at, required: false, input_html: {class: "timePicker-end"}, :label => '&nbsp;'.html_safe %>
     </div>
   </div>
 
