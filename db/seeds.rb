@@ -77,7 +77,7 @@ jam_sessions = [
     starts_at: "October, 20th 2019, 18:00",
     ends_at: "October, 20th 2019, 21:00",
     user: user_1,
-    instruments: ['Electric Guitar1', 'Electric Guitar2', 'Drums', 'Bass guitar'],
+    instruments: ['Electric Guitar', 'Synthesizer', 'Drums', 'Bass guitar'],
   },
   {
     title: "Rolling stone jam!",
@@ -90,9 +90,9 @@ jam_sessions = [
     instruments: ['Electric Guitar', 'Synthesizer', 'Drums', 'Bass guitar'],
   },
   {
-    title: "Houdy Cowboy",
-    description: "Let's play some old tunes from the 70s",
-    location: "Alexander platz, Berlin",
+    title: "Howdy Cowboy",
+    description: "I want to play some classic country music, are you in? Let's dess up as cowboys and girls and play some good old tunes!",
+    location: "Treptower park, Berlin",
     genre: "Rock",
     starts_at: "March, 16th 2020, 15:00",
     ends_at: "March, 16th 2020, 18:00",
