@@ -1,7 +1,7 @@
 <!-- REVIEWS -->
 
 <div class="container card-container w-75">
-  <h5 id="past-jam-title-color"><strong>Reviews</strong></h5>
+  <h5 id="past-jam-title-color2"><strong>Reviews</strong></h5>
 
 
     <% if @reviews.any? %>
@@ -10,6 +10,9 @@
 
         <% @reviews.first(3).each do |review| %>
           <li>
+            <br>
+            <% writer = User.find(review.writer_id) %>
+            <p><%= render "shared/user_avatar", user: writer, width: 40, height: 40, crop: :fill, css_class: 'avatar' %><strong><%= writer.first_name %> <%= writer.last_name %></strong> </p>
             <div class="inline-list d-flex justify-content-left">
               <% review.rating.times do %>
               <i class="fas fa-star text-warning pr-1"></i>
@@ -20,8 +23,6 @@
             </div>
               <div class="mt-2 mb-2">
                 <p> <%= review.content %> </p>
-                <% writer = User.find(review.writer_id) %>
-                <p><%= render "shared/user_avatar", user: writer, width: 40, height: 40, crop: :fill, css_class: 'avatar' %><strong>By: <%= writer.first_name %> <%= writer.last_name %></strong> </p>
               </div>
           </li>
         <% end %>
