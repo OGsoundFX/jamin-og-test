@@ -61,7 +61,7 @@ jam_sessions = [
   },
   {
     title: "Reggae Night",
-    description: "Let's make some musik and get high!",
+    description: "Let's make some musik and get high! Every day and every night!",
     location: "Goerlitzer park, Berlin",
     genre: "Reggae",
     starts_at: "January, 15th 2020, 18:00",
@@ -91,7 +91,7 @@ jam_sessions = [
   },
   {
     title: "Howdy Cowboy",
-    description: "Let's dess up as cowboys and girls and play some good old tunes!",
+    description: "Let's dess up as cowboys and girls and play some good old tunes! I can't get no, Satisfaction!",
     location: "Treptower park, Berlin",
     genre: "Rock",
     starts_at: "March, 16th 2020, 15:00",

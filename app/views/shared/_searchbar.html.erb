@@ -7,10 +7,10 @@
       When are you available?
     </div>
     <div class="col-md-6 col-sm-12">
-      <%= f.input :starts_at, required: false, input_html: {class: "TimePicker"}, :label => false %>
+      <%= f.input :starts_at, required: false, input_html: {class: "TimePicker"}, :label => false, :placeholder => 'from' %>
     </div>
     <div class="col-md-6 col-sm-12">
-      <%= f.input :ends_at, required: false, input_html: {class: "timePicker-end"}, :label => false %>
+      <%= f.input :ends_at, required: false, input_html: {class: "timePicker-end"}, :label => false, :placeholder => 'to' %>
     </div>
   </div>
 
