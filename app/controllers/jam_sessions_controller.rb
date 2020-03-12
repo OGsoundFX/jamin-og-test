@@ -22,25 +22,9 @@ class JamSessionsController < ApplicationController
     # @starts_at_input = params["jam_session"]["starts_at"]
     # @ends_at_input = params["jam_session"]["ends_at"]
     # @instrument_input = Instrument.find(params["jam_session"]["instrument_id"]).name if params["jam_session"]["instrument_id"].present?
-
-    # -------- access input from user ---------
-    # @location_input = params["jam_session"]["location"]
-    # @starts_at_input = params["jam_session"]["starts_ast"]
-    # @ends_at_input = params["jam_session"]["ends_at"]
-    # @instrument_input = Instrument.find(params["jam_session"]["instrument_id"]).name if params["jam_session"]["instrument_id"].present?
+    geocode(@jam_sessions)
     # access id of instruments
     @session_instruments_id = Instrument.all
-
-    # # ------ mapbox --------
-    @jam_sessions = @jam_sessions.geocoded #returns jam_sessions with coordinates
-
-    @markers = @jam_sessions.map do |jam_session|
-      {
-        lat: jam_session.latitude,
-        lng: jam_session.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { jam_session: jam_session }),
-      }
-    end
   end
 
   def show
@@ -68,6 +52,21 @@ class JamSessionsController < ApplicationController
   end
 
   private
+
+  def geocode(jam_sessions)
+    @jam_sessions = @jam_sessions.geocoded #returns jam_sessions with coordinates
+
+    @markers = @jam_sessions.map do |jam_session|
+      {
+        lat: jam_session.latitude,
+        lng: jam_session.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { jam_session: jam_session }),
+        image_url: helpers.asset_url("custom_marker.png"),
+      }
+    end
+
+
+  end
 
   def jam_session_params
     params.permit(jam_session: [:title, :description, :genre, :starts_at, :ends_at, :location, :instrument_id])
