@@ -10,20 +10,24 @@
 
 <!---------- future jam session ---------->
 <div class="container">
+  <br>
+  <br>
+  <h4 class="mb-4">Future Jam Session</h4>
   <div class="row">
     <% if @future_jam_sessions.count != 0 %>
       <% @future_jam_sessions.first(3).each do |jam_session| %>
-        <div class="col-md-6 col-xs-12 mb-4">
+        <div class="col-md-5 col-xs-12 mb-4">
           <div class="background-w h-100 border-yellow">
             <div class="row h-100">
               <div class="col-12">
                 <div class="h-100">
                   <div class="d-flex flex-column justify-content-between h-100">
                     <% spot = Spot.find_by(jam_session_id: jam_session.id) %>
-                    <h5><%= jam_session.title %> - <%= jam_session.genre %> - <%= cl_image_tag spot.instrument.photo.key, class: "icon" %></h5>
+                    <h5 class="regular"><%= jam_session.title %> - <%= jam_session.genre %> <% cl_image_tag spot.instrument.photo.key, class: "icon" %></h5>
+
 
                     <!-- location, time and description -->
-                    <p class="subtitle text-secondary"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
+                    <p class="subtitle text-secondary mb-1"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
                     <p class="subtitle text-secondary"><i class="far fa-calendar-alt mr-2"></i><%= jam_session.starts_at.strftime("%b %C")%></p>
                     <p><%= jam_session.description %></p>
 
@@ -42,6 +46,7 @@
                         <% else %>
                         <% end %>
                       <% end %>
+                      <%= link_to "See more", jam_session_path(jam_session), class: "btn-sm big-button" %>
                       <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
                     </div>
                   </div>
@@ -62,23 +67,26 @@
 <!-- past jam session -->
 
 <div class="container">
+  <br>
+  <br>
+  <h4 class="mb-4">Past Jam Session</h4>
   <div class="row">
     <% if @past_jam_sessions.count != 0 %>
       <% @past_jam_sessions.first(3).each do |jam_session| %>
-        <div class="col-md-6 col-xs-12 mb-4">
-          <div class="background-w h-100">
+        <div class="col-md-5 col-xs-12 mb-4">
+          <div class="background-grey h-100">
             <div class="row h-100">
               <div class="col-12">
                 <div class="h-100">
                   <div class="d-flex flex-column justify-content-between h-100">
                     <% spot = Spot.find_by(jam_session_id: jam_session.id) %>
-                    <h5><%= jam_session.title %> - <%= jam_session.genre %> - <%= cl_image_tag spot.instrument.photo.key, class: "icon" %></h5>
+                    <h5 class="regular"><%= jam_session.title %> - <%= jam_session.genre %>  <% cl_image_tag spot.instrument.photo.key, class: "icon" %></h5>
 
-                    <div class="d-flex">
-                        <p class="subtitle text-secondary"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
 
-                        <p class="subtitle text-secondary ml-3"><i class="far fa-calendar-alt mr-2"></i><%= jam_session.starts_at.strftime("%b %C")%></p>
-                    </div>
+                    <p class="subtitle text-secondary mb-1"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
+
+                    <p class="subtitle text-secondary"><i class="far fa-calendar-alt mr-2"></i><%= jam_session.starts_at.strftime("%b %C")%></p>
+
                     <p><%= jam_session.description %></p>
 
 

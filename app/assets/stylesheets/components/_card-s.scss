@@ -6,6 +6,17 @@
   padding: 1em;
 }
 
+.background-grey {
+  border: solid 1px #e2e2e2;
+  background-color: rgba(196,196,196,0.5);
+  box-shadow: $shadow;
+  border-radius: $border;
+  padding: 1em;
+  &:hover {
+    background-color: rgba(196,196,196,0.3);
+  }
+}
+
 .hot-pink {
   color: $hot-pink;
   padding: 0;
