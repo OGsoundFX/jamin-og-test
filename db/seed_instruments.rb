@@ -62,16 +62,6 @@ instruments = [
     icon: 'electric-guitar.png',
   },
   {
-    name: 'Electric Guitar1',
-    description: 'Electric',
-    icon: 'electric-guitar.png',
-  },
-  {
-    name: 'Electric Guitar2',
-    description: 'Electric',
-    icon: 'electric-guitar.png',
-  },
-  {
     name: 'Accoustic Guitar',
     description: 'Accoustic',
     icon: 'acoustic-guitar.png',
