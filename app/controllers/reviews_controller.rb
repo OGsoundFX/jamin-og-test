@@ -11,11 +11,9 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(reviews_params)
     @writer = current_user
-    @receiver = User.find(params["user_id"])
     @review.writer = @writer
-    @review.receiver = @receiver
     if @review.save
-      redirect_to profile_path(@receiver)
+      redirect_to profile_path(reviews_params[:receiver_id])
     else
       render "dashboards/index"
     end
@@ -24,6 +22,6 @@ class ReviewsController < ApplicationController
   private
 
   def reviews_params
-    params.require(:review).permit(:rating,:content)
+    params.require(:review).permit(:rating, :content, :receiver_id)
   end
 end

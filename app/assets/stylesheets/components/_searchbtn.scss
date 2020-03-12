@@ -12,6 +12,7 @@
       color: $hot_pink;
       border: 1px solid $hot_pink;
       border-radius: 4px;
+      transition-duration: 500ms;
     }
 }
 
@@ -26,28 +27,33 @@
   display: block;
   width: 100%;
 
-
   &:hover {
       border: solid 1px #e91f62;
       background-color: $hot_pink;
       text-decoration: none;
       color: white;
+      transition-duration: 500ms;
     }
 }
 
 .reviewbtn {
+  margin: 24px 0px 0px 0px;
+  padding: 10px;
   color: $hot_pink;
-  background-color: transparent;;
+  background-color: transparent;
   border-radius: 4px;
-  border: 1px solid transparent;
+  border: 1px solid $hot_pink;
   padding: 3px 6px;
+  width: 100%;
   // width: 80px;
 
   &:hover {
       // background-color: white;
-      color: $hot_pink;
+      color: white;
       border: 1px solid $hot_pink;
+      background-color: $hot_pink;
       border-radius: 4px;
+      transition-duration: 500ms;
     }
 }
 
