@@ -13,7 +13,7 @@
                   <p class="subtitle text-secondary mb-1"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
                   <p class="subtitle text-secondary"><i class="far fa-calendar-alt mr-2"></i><%= jam_session.starts_at.strftime("%b %d")%> <!-- - <%#= jam_session.ends_at.strftime("%I:%M %p") %> --> </p>
 
-                  <p><%= truncate(jam_session.description, length: 48) %></p>
+                  <p><%= truncate(jam_session.description, length: 65) %></p>
                   <br>
                   <div class="row images-index">
                     <% jam_session.spots.first(4).each do |spot| %>
@@ -23,10 +23,10 @@
                         <% participation = Participation.find_by(spot_id: spot.id) %>
                         <% if participation %>
                           <% user = User.find(participation.user_id) %>
-                          <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
+                          <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle mr-1" %>
                         <% else %>
                         <!-- put avatar-unknown here -->
-                          <img src="<%= image_path("avatar-unknown.png") %>" class="rounded-circle" width="40" height="40" >
+                          <img src="<%= image_path("avatar-unknown.png") %>" class="rounded-circle mr-1" width="40" height="40" >
                         <% end %>
 
                     <% end %>
