@@ -27,18 +27,18 @@
       <% end %>
       </div>
       <br>
-      <h5>Description</h5>
-      <div class="py-2 light-grey">
+      <h5 class="mt-3">Description</h5>
+      <div class="py-2 light-grey mb-3">
         <%= @jam_session.description %>
       </div>
       <br>
       <div class="d-flex card-session-show">
-        <p class="bold-grey">
+        <p class="bold-grey mb-0">
         Participants
         </p>
 
         <% @jam_session.spots.each do |spot|%>
-          <div id="spot_<%= spot.id %>">
+          <div class="mr-3"> <!-- id="spot_<% spot.id %>"> -->
              <%= render 'participations/participation_row', spot: spot %>
          </div>
         <% end %>
