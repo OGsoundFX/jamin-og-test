@@ -8,154 +8,147 @@
   </div>
 </div>
 
-<div class="container card-container">
-  <h3 id="past-jam-title-color">Past Jam Sessions</h3>
-    <div class="passed-jams">
-      <% if @past_jam_sessions.count != 0 %>
-        <% @past_jam_sessions.first(3).each do |jam_session| %>
-        <% spot = Spot.find_by(jam_session_id: jam_session.id) %>
-          <div class="passed-jams-cards">
-            <div class="row">
-              <div class="col-8">
-                <h6><%= jam_session.title %> - <%= jam_session.genre %> - <%= image_tag spot.instrument.icon, class: "icon" %></h6>
 
-                <div class="d-flex">
-                    <p class="subtitle text-secondary"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
+<!---------- future jam session ---------->
+<div class="container">
+  <br>
+  <br>
+  <h4 class="mb-4">Future Jam Session</h4>
+  <div class="row">
+    <% if @future_jam_sessions.count != 0 %>
+      <% @future_jam_sessions.first(3).each do |jam_session| %>
+        <div class="col-md-5 col-xs-12 mb-4">
+          <div class="background-w h-100 border-yellow">
+            <div class="row h-100">
+              <div class="col-12">
+                <div class="h-100">
+                  <div class="d-flex flex-column justify-content-between h-100">
+                    <% spot = Spot.find_by(jam_session_id: jam_session.id) %>
+                    <h5 class="regular"><%= jam_session.title %> - <%= jam_session.genre %></h5>
 
-                    <p class="subtitle text-secondary ml-3"><i class="far fa-calendar-alt mr-2"></i><%= jam_session.starts_at.strftime("%b %C")%></p>
 
-                </div>
+                    <!-- location, time and description -->
+                    <p class="subtitle text-secondary mb-1"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
+                    <p class="subtitle text-secondary"><i class="far fa-calendar-alt mr-2"></i><%= jam_session.starts_at.strftime("%b %C")%></p>
+                    <p><%= jam_session.description %></p>
 
-                <p><%= jam_session.description %></p>
+                    <!-- avatar and instrument icon -->
 
-              </div>
-
-              <!-- avatar and instrument icon -->
-              <div class="col-4">
-                <!-- @instruments.each do cl_image_tag -->
-                  <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
-                  <% jam_session.spots.first(4).each do |spot| %>
-                    <% instrument = Instrument.find(spot.instrument_id) %>
-                    <% participation = Participation.find_by(spot_id: spot.id) %>
-                    <% if participation %>
-                    <% user = User.find(participation.user_id) %>
-
-                      <div class="d-flex justify-content-around mb-3">
-                        <div>
+                    <div class="images-index">
+                      <% jam_session.spots.first(4).each do |spot| %>
+                        <% instrument = Instrument.find(spot.instrument_id) %>
+                        <% participation = Participation.find_by(spot_id: spot.id) %>
+                        <% if participation %>
+                          <% user = User.find(participation.user_id) %>
                           <%= link_to profile_path(user) do %>
                           <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
                           <% end %>
-                          <%= image_tag instrument.icon, class: "icon" %>
-                        </div>
 
-                        <!-- Button trigger modal -->
-
-                        <% if user != current_user %>
-                        <button type="button" class="reviewbtn" data-toggle="modal" data-target="#review-form-<%= spot.id %>">
-                          Write a review
-                        </button>
+                           <!-- cl_image_tag instrument.photo.key, width: 50  -->
                         <% else %>
-                        <button type="button" class="reviewbtn invisible" data-toggle="modal" data-target="#review-form-<%= spot.id %>">
-                          Write a review
-                        </button>
                         <% end %>
-                      </div>
-
-
-
-                      <!-- Modal -->
-                      <div class="modal fade" id="review-form-<%= spot.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Write a review for  <strong><%= User.find(spot.participation.user_id).first_name %> <%= User.find(spot.participation.user_id).last_name %> </strong></h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <%= simple_form_for [participation.user, Review.new] do |f| %>
-                                <%= f.input :rating, label_html: { class: 'regular' } %>
-                                <%= f.input :content, label_html: { class: 'regular' } %>
-                            </div>
-                            <div class="modal-footer">
-                              <%= f.submit class: "searchbtn" %>
-                              <% end %>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    <% end %>
-                  <% end %>
-                  <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
+                      <% end %>
+                      <%= link_to "See more", jam_session_path(jam_session), class: "btn-sm big-button" %>
+                      <!--  cl_image_tag @guitar.photo.key, height: 300, width: 50, crop: :fill  -->
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        <% end %>
-      <% else %>
-        <div id="no-jam-alignement">
-          <p><strong> No Jam Sessions yet </strong></p>
         </div>
       <% end %>
-    </div>
+      <% else %>
+        <p>No Jam Sessions yet</p>
+    <% end %>
+  </div>
 </div>
 
-<div class="container card-container">
-  <h5 id="past-jam-title-color"><strong>Future Jam Sessions</strong></h5>
-    <div class="passed-jams">
-      <% if @future_jam_sessions.count != 0 %>
-        <% @future_jam_sessions.first(3).each do |jam_session| %>
-        <% spot = Spot.find_by(jam_session_id: jam_session.id) %>
-          <div class="passed-jams-cards">
-            <div class="row">
 
 
-              <div class="col-8">
-                <h6><%= jam_session.title %> - <%= jam_session.genre %> - <%= cl_image_tag spot.instrument.icon, class: "icon" %></h6>
 
-                <div class="row">
-                  <div class="col-4">
-                    <p class="subtitle text-secondary"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
-                  </div>
-                  <div class="col-4">
+<!-- past jam session -->
+
+<div class="container">
+  <br>
+  <br>
+  <h4 class="mb-4">Past Jam Session</h4>
+  <div class="row">
+    <% if @past_jam_sessions.count != 0 %>
+      <% @past_jam_sessions.first(3).each do |jam_session| %>
+        <div class="col-md-5 col-xs-12 mb-4">
+          <div class="background-grey h-100">
+            <div class="row h-100">
+              <div class="col-12">
+                <div class="h-100">
+                  <div class="d-flex flex-column justify-content-between h-100">
+                    <% spot = Spot.find_by(jam_session_id: jam_session.id) %>
+                    <h5 class="regular"><%= jam_session.title %> - <%= jam_session.genre %> </h5>
+
+
+                    <p class="subtitle text-secondary mb-1"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
+
                     <p class="subtitle text-secondary"><i class="far fa-calendar-alt mr-2"></i><%= jam_session.starts_at.strftime("%b %C")%></p>
-                  </div>
-                </div>
 
-                <p><%= jam_session.description %></p>
+                    <p><%= jam_session.description %></p>
 
-              </div>
-
-              <!-- avatar and instrument icon -->
-              <div class="col-3 border-left">
-                <div class="row">
-                  <% jam_session.spots.first(4).each do |spot| %>
-                    <% instrument = Instrument.find(spot.instrument_id) %>
-                    <% participation = Participation.find_by(spot_id: spot.id) %>
-                    <% if participation %>
-                    <% user = User.find(participation.user_id) %>
-
-                      <div class="col-6 d-flex justify-content-center">
-                        <%= link_to profile_path(user) do %>
-                        <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
+                    <!-- avatar and instrument icon -->
+                    <div class="images-index ">
+                      <% jam_session.spots.first(4).each do |spot| %>
+                        <% instrument = Instrument.find(spot.instrument_id) %>
+                        <% participation = Participation.find_by(spot_id: spot.id) %>
+                        <% if participation %>
+                          <% user = User.find(participation.user_id) %>
+                          <%= link_to profile_path(user) do %>
+                          <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
+                          <% end %>
+                          <!-- user's instrument icon -->
+                          <!-- cl_image_tag instrument.photo.key, width: 50 -->
                         <% end %>
-                      </div>
-                      <div class="col-6 d-flex justify-content-center">
-                        <%= cl_image_tag instrument.photo.key, width: 50 %>
-                      </div>
-
-                    <% else %>
-                    <% end %>
-                  <% end %>
+                      <% end %>
+                      <!-- review button to open modal -->
+                      <button type="button" class="reviewbtn p-2" data-toggle="modal" data-target="#review-form-<%= jam_session.id %>">
+                        Review
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
-      <% else %>
-        <div id="no-jam-alignement">
-          <p><strong> No Jam Sessions yet </strong></p>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="review-form-<%= jam_session.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Write a review for <strong><%= jam_session.title %></strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <%= simple_form_for Review.new do |f| %>
+                  <%= f.association :receiver, collection: jam_session.participants, label_method: :full_name, value_method: :id %>
+                  <%= f.input :rating, label_html: { class: 'regular' } %>
+                  <%= f.input :content, label_html: { class: 'regular' } %>
+              </div>
+              <div class="modal-footer">
+                <%= f.submit class: "searchbtn" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
       <% end %>
-    </div>
+    <% else %>
+        <p>No Jam Sessions yet</p>
+    <% end %>
+  </div>
+  <br>
+  <br>
 </div>
+
+
+

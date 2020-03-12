@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :edit, :update]
   resources :dashboards, only: [:index, :show]
 
-  resources :users, only: [] do
-    resources :reviews, only: [:create]
-  end
+
+  resources :reviews, only: [:create]
+
 
   mount ActionCable.server => "/cable"
 
