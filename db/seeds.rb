@@ -91,7 +91,7 @@ jam_sessions = [
   },
   {
     title: "Howdy Cowboy",
-    description: "I want to play some classic country music, are you in? Let's dess up as cowboys and girls and play some good old tunes!",
+    description: "Let's dess up as cowboys and girls and play some good old tunes!",
     location: "Treptower park, Berlin",
     genre: "Rock",
     starts_at: "March, 16th 2020, 15:00",
