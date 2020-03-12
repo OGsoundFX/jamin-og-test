@@ -1,5 +1,5 @@
 meta_product_name: "Jamin"
 meta_title: "Jamin - Find your jam session. It's easy!"
 meta_description: "We help you find a jam session in your city!"
-meta_image: "pablo-friendship.png" # should exist in `app/assets/images/`
+meta_image: "ogimage.png" # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
