@@ -1,0 +1,41 @@
+<!-- REVIEWS -->
+
+<div class="container card-container w-50">
+  <h5 id="past-jam-title-color"><strong>Reviews</strong></h5>
+
+
+    <% if @reviews.any? %>
+      <ul>
+
+
+        <% @reviews.first(3).each do |review| %>
+          <li>
+            <div class="inline-list d-flex justify-content-left">
+              <% review.rating.times do %>
+              <i class="fas fa-star text-warning pr-1"></i>
+              <% end %>
+              <% (5 - review.rating).times do %>
+              <i class="far fa-star text-warning pr-1"></i>
+              <% end %>
+            </div>
+              <div class="mt-2 mb-2">
+                <p> <%= review.content %> </p>
+                <% writer = User.find(review.writer_id) %>
+                <p><%= render "shared/user_avatar", user: writer, width: 40, height: 40, crop: :fill, css_class: 'avatar' %><strong>By: <%= writer.first_name %> <%= writer.last_name %></strong> </p>
+              </div>
+          </li>
+        <% end %>
+
+      </ul>
+
+
+    <% else %>
+      <ul>
+        <li>
+          <p><strong> No reviews yet </strong></p>
+        </li>
+      </ul>
+    <% end %>
+
+
+</div>

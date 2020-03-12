@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
   # Save the review and if successful redirect to where you want
   def index
     @receiver = User.find(params["user_id"])
-    @reviews = Review.where(receiver_id: @receiver.id)
+    @reviews = current_user.reviews_received
   end
 
   def create

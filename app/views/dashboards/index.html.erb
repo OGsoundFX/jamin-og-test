@@ -8,6 +8,7 @@
   </div>
 </div>
 
+
 <!---------- future jam session ---------->
 <div class="container">
   <br>
@@ -42,6 +43,7 @@
                           <%= link_to profile_path(user) do %>
                           <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
                           <% end %>
+
                            <!-- cl_image_tag instrument.photo.key, width: 50  -->
                         <% else %>
                         <% end %>
@@ -61,6 +63,7 @@
     <% end %>
   </div>
 </div>
+
 
 
 
@@ -89,7 +92,6 @@
 
                     <p><%= jam_session.description %></p>
 
-
                     <!-- avatar and instrument icon -->
                     <div class="images-index ">
                       <% jam_session.spots.first(4).each do |spot| %>
@@ -109,8 +111,6 @@
                         Review
                       </button>
                     </div>
-
-
                   </div>
                 </div>
               </div>

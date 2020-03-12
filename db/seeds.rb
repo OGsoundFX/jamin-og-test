@@ -77,7 +77,7 @@ jam_sessions = [
     starts_at: "October, 20th 2019, 18:00",
     ends_at: "October, 20th 2019, 21:00",
     user: user_1,
-    instruments: ['Electric Guitar1', 'Electric Guitar2', 'Drums', 'Bass guitar'],
+    instruments: ['Electric Guitar', 'Synthesizer', 'Drums', 'Bass guitar'],
   },
   {
     title: "Rolling stone jam!",
@@ -87,7 +87,17 @@ jam_sessions = [
     starts_at: "July, 20th 2019, 18:00",
     ends_at: "July, 20th 2019, 21:00",
     user: user_1,
-    instruments: ['Electric Guitar1', 'Electric Guitar2', 'Drums', 'Bass guitar'],
+    instruments: ['Electric Guitar', 'Synthesizer', 'Drums', 'Bass guitar'],
+  },
+  {
+    title: "Howdy Cowboy",
+    description: "Let's dess up as cowboys and girls and play some good old tunes!",
+    location: "Treptower park, Berlin",
+    genre: "Rock",
+    starts_at: "March, 16th 2020, 15:00",
+    ends_at: "March, 16th 2020, 18:00",
+    user: user_3,
+    instruments: ['Accoustic Guitar', 'Bass guitar', 'Drums', 'Vocals'],
   },
 ]
 
@@ -150,8 +160,26 @@ Participation.create(spot_id: 29, user_id: 8)
 Participation.create(spot_id: 30, user_id: 2)
 Participation.create(spot_id: 31, user_id: 13)
 
+Participation.create(spot_id: 32, user_id: 6)
+# Participation.create(spot_id: 33, user_id: 6)
+# Participation.create(spot_id: 34, user_id: 6)
+# Participation.create(spot_id: 35, user_id: 6)
+
 puts "---- PARTICIPATIONS where created ----"
 
+
+puts "---- Creating some PARTICIPATIONS ----"
+
+Review.create(content: "Bob is a very good guitare player and he is a neat guy. I will definitely jam with him again !", rating: 5, writer_id: 5, receiver_id: 1)
+Review.create(content: "Good musician but came in late !", rating: 4, writer_id: 3, receiver_id: 1)
+
+Review.create(content: "Lucie Rocks at the bass, wow I was impressezd with her skills!", rating: 5, writer_id: 6, receiver_id: 13)
+Review.create(content: "Very good musican, Lucie is a very kind person, I highly recommand joining her jams sessions!", rating: 4, writer_id: 11, receiver_id: 13)
+
+Review.create(content: "Bob Marley... I've heard this name before... anyway, good singer, good guitarist but was smoking joints the whole time!", rating: 2, writer_id: 10, receiver_id: 9)
+
+
+puts "---- PARTICIPATIONS where created ----"
 # Instrument.where(name: ['Drums', 'Guitar']).each do |instrument|
 #   UserInstrument.create(instrument: instrument, user: user_1, level: "Beginner")
 # end
