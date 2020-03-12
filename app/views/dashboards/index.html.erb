@@ -17,7 +17,7 @@
           <div class="passed-jams-cards">
             <div class="row">
               <div class="col-8">
-                <h6><%= jam_session.title %> - <%= jam_session.genre %> - <%= cl_image_tag spot.instrument.icon, class: "icon" %></h6>
+                <h6><%= jam_session.title %> - <%= jam_session.genre %> - <%= image_tag spot.instrument.icon, class: "icon" %></h6>
 
                 <div class="d-flex">
                     <p class="subtitle text-secondary"><span class="fas fa-map-marker-alt mr-2"></span><%= jam_session.location %></p>
@@ -45,7 +45,7 @@
                           <%= link_to profile_path(user) do %>
                           <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle" %>
                           <% end %>
-                          <%= cl_image_tag instrument.photo.key, width: 50 %>
+                          <%= image_tag instrument.icon, class: "icon" %>
                         </div>
 
                         <!-- Button trigger modal -->
