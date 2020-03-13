@@ -33,6 +33,7 @@ class JamSessionsController < ApplicationController
       lat: @jam_session.latitude,
       lng: @jam_session.longitude,
       infoWindow: render_to_string(partial: "info_window", locals: { jam_session: @jam_session }),
+      image_url: helpers.asset_url("custom_marker.png"),
     }]
     @messages = JamSession.includes(messages: :user).find(params[:id])
   end
