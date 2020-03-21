@@ -1,6 +1,7 @@
 <%= simple_form_for :jam_session, url: jam_sessions_path, method: :get do |f| %>
   <%= f.input :instrument_id, collection: Instrument.all, required: false %>
   <%= f.input :location, required: false %>
+  <%= f.input :genre, required: false %>
 
   <div class="row">
     <div class="col-12 mb-2">

@@ -3,8 +3,10 @@ class JamSessionsController < ApplicationController
     # @jam_sessions = JamSession.search_by_location(params[:query])
 
     @jam_sessions = JamSession.includes(:spots, :instruments)
-    @jam_sessions = @jam_sessions.where(instruments: { id: jam_session_params[:instrument_id] }) if jam_session_params[:instrument_id].present?
-    @jam_sessions = @jam_sessions.search_by_location(jam_session_params[:location]) if jam_session_params[:location].present?
+    # @jam_sessions = @jam_sessions.where(instruments: { id: jam_session_params[:instrument_id] }) if jam_session_params[:instrument_id].present?
+    @jam_sessions = @jam_sessions.where(instruments: { id: params["jam_session"]["instrument_id"] }) if params["jam_session"]["instrument_id"].present?
+    @jam_sessions = @jam_sessions.where(genre: params["jam_session"]["genre"]) if params["jam_session"]["genre"].present?
+    @jam_sessions = @jam_sessions.search_by_location(params["jam_session"]["location"]) if params["jam_session"]["location"].present?
 
 
     if params[:jam_session] && params[:jam_session][:starts_at]
