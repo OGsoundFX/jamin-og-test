@@ -8,6 +8,15 @@
   border-radius: 50%;
   object-fit: fill;
 }
+.avatar-border {
+  border-style: solid;
+  border-radius: 50%;
+  border-color: $hot_pink;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: fill;
+}
 .avatar-large {
   width: 200px;
   height: 200px;

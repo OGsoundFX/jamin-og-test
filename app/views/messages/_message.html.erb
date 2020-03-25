@@ -1,6 +1,10 @@
 <div class="message row px-3 mb-3">
   <div class="message <%= "right" if user_is_messages_author %>" >
-    <%= cl_image_tag message.user.photo.key, width: 42, height: 42, crop: :fill, class: "rounded-circle border border-secondary" %>
+    <% if message.user.photo.attached? %>
+      <%= cl_image_tag message.user.photo.key, width: 42, height: 42, crop: :fill, class: "rounded-circle border border-secondary" %>
+    <% else %>
+      <img src="<%= image_path("favicon.png") %>" class="rounded-circle mr-1" width="40" height="40" >
+    <% end %>
     <div class="message-content d-inline"><%= message.content %></div>
   </div>
 </div>
