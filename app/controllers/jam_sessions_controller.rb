@@ -72,6 +72,6 @@ class JamSessionsController < ApplicationController
   end
 
   def jam_session_params
-    params.permit(jam_session: [:title, :description, :genre, :starts_at, :ends_at, :location, :instrument_id])
+    params.require(:jam_session).permit(:title, :description, :genre, :starts_at, :ends_at, :location, :instrument_id)
   end
 end

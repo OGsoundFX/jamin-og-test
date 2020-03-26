@@ -7,60 +7,66 @@
   <div class="row">
     <div class="col-8">
       <div class="p-4 shadow border-yellow">
-      <h3 class="font-weight-bold"><%= @jam_session.title %></h3>
-      <div class="d-flex justify-content-between">
-        <div class="d-flex align-items-start">
-          <!-- here -->
-          <span class="fas fa-map-marker-alt mr-2 mt-1 yellow"></span>
-          <span>
-            <%= @jam_session.location %>
-          </span>
-          <span class="far fa-calendar-alt mr-2 yellow ml-3"></span>
-          <span><%= @jam_session.starts_at.strftime('%d %B') %></span>
-          <span class="far fa-clock mr-2 yellow ml-3"></span>
-          <%= @jam_session.starts_at.strftime('%H:%M') %> -
-          <%= @jam_session.ends_at.strftime('%H:%M') %>
+        <div class="d-flex justify-content-between">
+          <h3 class="font-weight-bold"><%= @jam_session.title %></h3>
+          <% if @jam_session.user == current_user %>
+            <% if @jam_session.spots == [] %>
+              <h5><%= link_to "YOUR instrument", new_jam_session_spot_path(@jam_session, @spot), class: "btn-sm big-button mt-2" %></h5>
+            <% else %>
+              <h5><%= link_to "Add another instrument", new_jam_session_spot_path(@jam_session, @spot), class: "btn-sm big-button mt-2" %></h5>
+            <% end %>
+          <% end %>
         </div>
+        <div class="d-flex justify-content-between">
+          <div class="d-flex align-items-start">
+            <span class="fas fa-map-marker-alt mr-2 mt-1 yellow"></span>
+            <span>
+              <%= @jam_session.location %>
+            </span>
+            <span class="far fa-calendar-alt mr-2 yellow ml-3"></span>
+            <span><%= @jam_session.starts_at.strftime('%d %B') %></span>
+            <span class="far fa-clock mr-2 yellow ml-3"></span>
+            <%= @jam_session.starts_at.strftime('%H:%M') %> -
+            <%= @jam_session.ends_at.strftime('%H:%M') %>
+          </div>
 
-      <% if @jam_session.user == current_user %>
-        <% link_to "Add spot", new_jam_session_spot_path(@jam_session, @spot) %>
-      <% end %>
-      </div>
-      <br>
-      <h5 class="mt-3">Description</h5>
-      <div class="py-2 light-grey mb-3">
-        <%= @jam_session.description %>
-      </div>
-      <br>
-      <div class="d-flex card-session-show">
-        <p class="bold-grey mb-0">
-        Participants
-        </p>
 
-        <% @jam_session.spots.each do |spot|%>
-          <div class="mr-3"> <!-- id="spot_<% spot.id %>"> -->
-             <%= render 'participations/participation_row', spot: spot %>
-         </div>
-        <% end %>
-      </div>
-      <br>
-      <div class="d-flex justify-content-between card-session-show mb-3">
-        <div class="d-flex" >
-          <p class="bold-grey">Available Instruments</p>
+        </div>
+        <br>
+        <h5 class="mt-3">Description</h5>
+        <div class="py-2 light-grey mb-3">
+          <%= @jam_session.description %>
+        </div>
+        <br>
+        <div class="d-flex card-session-show">
+          <p class="bold-grey mb-0">
+          Participants
+          </p>
+
           <% @jam_session.spots.each do |spot|%>
-               <%= image_tag spot.instrument.icon, width: 50, height: 50, crop: :fill, class: "rounded-circle"  %>
+            <div class="mr-3"> <!-- id="spot_<% spot.id %>"> -->
+               <%= render 'participations/participation_row', spot: spot %>
+           </div>
           <% end %>
         </div>
-        <div>
-          <% unless @jam_session.user_in_jam_session?(current_user) %>
-            <a class="btn btn-primary btn-sm searchbtn" href="#join-session">Join</a>
-          <% end %>
+        <br>
+        <div class="d-flex justify-content-between card-session-show mb-3">
+          <div class="d-flex" >
+            <p class="bold-grey">Available Instruments</p>
+            <% @jam_session.spots.each do |spot|%>
+                 <%= image_tag spot.instrument.icon, width: 50, height: 50, crop: :fill, class: "rounded-circle"  %>
+            <% end %>
+          </div>
+          <div>
+            <% unless @jam_session.user == current_user %>
+              <a class="btn btn-primary btn-sm searchbtn" href="#join-session">Join</a>
+            <% end %>
+          </div>
         </div>
-      </div>
 
 
 
-       <div id="map" style="width: 100%;
+        <div id="map" style="width: 100%;
           height: 280px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>

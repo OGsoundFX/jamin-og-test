@@ -23,7 +23,20 @@
                         <% participation = Participation.find_by(spot_id: spot.id) %>
                         <% if participation %>
                           <% user = User.find(participation.user_id) %>
-                          <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle mr-1" %>
+                          <% if participation.user_id == participation.spot.jam_session.user_id %>
+                            <% if participation.user.photo.attached? %>
+                              <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "avatar-border mr-1" %>
+                            <% else %>
+                                <img src="<%= image_path("favicon.png") %>" class="avatar-border mr-1" width="40" height="40" >
+                            <% end %>
+                          <% else %>
+                            <% if participation.user.photo.attached? %>
+                              <%= cl_image_tag participation.user.photo.key, width: 40, height: 40, crop: :fill, class: "rounded-circle mr-1" %>
+                            <% else %>
+                              <img src="<%= image_path("favicon.png") %>" class="rounded-circle mr-1" width="40" height="40" >
+                            <% end %>
+                          <% end %>
+
                         <% else %>
                         <!-- put avatar-unknown here -->
                           <img src="<%= image_path("avatar-unknown.png") %>" class="rounded-circle mr-1" width="40" height="40" >

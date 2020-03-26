@@ -1,6 +1,10 @@
 <% if spot.participation %>
   <%= link_to profile_path(spot.participation.user) do %>
-    <%= render "shared/user_avatar", user: spot.participation.user, width: 80, height: 80, css_class: 'rounded-circle' %>
+    <% if spot.participation.user_id == @jam_session.user_id %>
+      <%= render "shared/user_avatar", user: spot.participation.user, width: 80, height: 80, css_class: 'avatar-border' %>
+    <% else %>
+      <%= render "shared/user_avatar", user: spot.participation.user, width: 80, height: 80, css_class: 'rounded-circle' %>
+    <% end %>
   <% end %>
 <% else  %>
   <%= link_to image_tag("avatar-unknown.png", size: "80x80", class: "rounded-circle"), participations_path(spot_id: spot, user_id: current_user), method: :post, remote: true %>

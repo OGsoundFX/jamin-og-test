@@ -2,10 +2,10 @@ class JamSession < ApplicationRecord
   include PgSearch::Model
 
   belongs_to :user
-  has_many :spots
+  has_many :spots, dependent: :destroy
   has_many :instruments, through: :spots
   has_many :participations, through: :spots
-  has_many :messages
+  has_many :messages, dependent: :destroy
   has_many :participants, through: :participations, source: :user
 
   validates :title, presence: true, length: { minimum: 3 }
