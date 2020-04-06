@@ -1,3 +1,21 @@
+.instrbtn{
+    color: white;
+    background-color: $hot_pink;
+    border-radius: 4px;
+    border: 1px solid white;
+    // padding: 10px;
+    width: 177px;
+    margin-top: 1em;
+
+    &:hover {
+      background-color: white;
+      color: $hot_pink;
+      border: 1px solid $hot_pink;
+      border-radius: 4px;
+      transition-duration: 500ms;
+    }
+}
+
 .searchbtn{
     color: white;
     background-color: $hot_pink;
