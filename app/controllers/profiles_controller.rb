@@ -29,30 +29,10 @@ class ProfilesController < ApplicationController
     end
   end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :bio, :photo)
+  end
+
 end
-
-=begin
-
-      @future_jam_sessions = []
-      @past_jam_sessions = []
-      @participations. each do |participation|
-        spot = Spot.find_by(id: participation.spot_id)
-        @future_jam_sessions << JamSession.where( "starts_at > ?", date )
-        @past_jam_sessions << JamSession.where( "starts_at < ?", date )
-      end
-
-
-=end
-
-
-=begin
-
-      @jam_sessions = []
-      @participations. each do |participation|
-        spot = Spot.find_by(id: participation.spot_id)
-        @jam_sessions << JamSession.find_by(id: spot.jam_session_id)
-      end
-
-
-=end
-
