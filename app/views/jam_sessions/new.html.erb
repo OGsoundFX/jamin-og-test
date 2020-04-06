@@ -14,8 +14,11 @@
           <%= f.input :title %>
           <%= f.input :description %>
           <%= f.input :genre, collection: music_genre %>
-          <%= f.input :starts_at, required: true, input_html: {class: "TimePicker"} %>
-          <%= f.input :ends_at, required: true, input_html: {class: "timePicker-end"} %>
+          <div class="row justify-content-center align-items-center mt-3">
+            <%= f.input :starts_at, as: :string, required: true, input_html: {class: "datepicker"} %>
+            <%= f.input :starts_at, as: :time, :minute_step => 15, required: true %>
+            <%= f.input :ends_at, as: :time, :minute_step => 15, required: true %>
+          </div>
           <%= f.input :location %>
         </div>
 

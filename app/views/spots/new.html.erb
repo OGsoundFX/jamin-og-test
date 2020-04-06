@@ -1,6 +1,14 @@
-<%= simple_form_for [@jam_session, @spot] do |f| %>
-     <%= select_tag 'instruments' ,
-    options_for_select( Instrument.all.map { |instrument| [instrument.name, instrument.id]})
-    %> 
-    <%= f.submit "Submit" %>
-<% end %>
+<div class="container h-100">
+  <div class="row justify-content-center align-items-center mt-3">
+    <div class="col col-6">
+      <h2 style="margin-bottom: 16px;">Choose instrument</h2>
+      <%= simple_form_for [@jam_session, @spot] do |f| %>
+           <%= select_tag 'instruments' ,
+          options_for_select( Instrument.all.map { |instrument| [instrument.name, instrument.id]}) %>
+        <div class="d-flex justify-content-start mt-1">
+          <%= f.submit "Ready!", class: 'instrbtn' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
