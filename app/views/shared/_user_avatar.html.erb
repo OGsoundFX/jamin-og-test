@@ -1,5 +1,5 @@
 <% if user.photo.attached? %>
-  <%= cl_image_tag @user.photo.key, height: height, width: width, crop: :fill, class: css_class %>
+  <%= cl_image_tag user.photo.key, height: height, width: width, crop: :fill, class: css_class %>
 <% else %>
   <%= image_tag "logo.png", class: css_class, width: width, height: height  %>
 <% end %>

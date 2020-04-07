@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
     if @participations != nil
       @jam_sessions = []
 
-      @participations. each do |participation|
+      @participations.each do |participation|
         spot = Spot.find_by(id: participation.spot_id)
         @jam_sessions << JamSession.find_by(id: spot.jam_session_id)
 
