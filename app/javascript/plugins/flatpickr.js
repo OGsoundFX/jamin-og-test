@@ -1,9 +1,8 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css"; // Note this is important!
 import minMaxTimePlugin from "flatpickr/dist/plugins/minMaxTimePlugin";
+
 flatpickr(".datepicker", {
-  // allowInput: true,
-  minDate: "today",
 });
 
 flatpickr(".TimePicker", {

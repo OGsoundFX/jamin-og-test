@@ -9,6 +9,8 @@ class SpotsController < ApplicationController
     @instrument = Instrument.find(spot_params[:instruments])
     @spot = Spot.new(jam_session: @jam_session, instrument: @instrument)
     if @spot.save
+      @participation = Participation.new(spot_id: @spot.id, user: current_user)
+      @participation.save
       redirect_to jam_session_path(@jam_session)
     else
       render "new"
