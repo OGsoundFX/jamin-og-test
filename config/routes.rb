@@ -16,8 +16,4 @@ Rails.application.routes.draw do
 
 
   mount ActionCable.server => "/cable"
-
-  # namespace :user do
-  #   root :to => "profiles#edit"
-  # end
 end

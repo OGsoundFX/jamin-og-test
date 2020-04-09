@@ -14,6 +14,7 @@ class JamSession < ApplicationRecord
   validates :starts_at, presence: true
   validates :ends_at, presence: true
   validates :location, presence: true
+  validate :end_after_start
 
   geocoded_by :location
 
@@ -34,4 +35,12 @@ class JamSession < ApplicationRecord
   def user_in_jam_session?(user)
     participants.include?(user)
   end
+
+  private
+
+  def end_after_start
+    if ends_at.strftime("%H:%M").to_i < starts_at.strftime("%H:%M").to_i
+      errors.add(:ends_at, "must be after the starting time")
+    end
+   end
 end
