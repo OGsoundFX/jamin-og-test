@@ -17,7 +17,7 @@
           <div class="row justify-content-center align-items-center mt-3">
             <%= f.input :starts_at, as: :time, :minute_step => 15, required: true %>
             <%= f.input :ends_at, as: :time, :minute_step => 15, required: true %>
-            <%= f.input :starts_at, as: :date, required: true %>
+            <%= f.input :starts_at, as: :date, required: true, label: "What day?" %>
           </div>
           <%= f.input :location %>
         </div>
