@@ -39,8 +39,8 @@ class JamSession < ApplicationRecord
   private
 
   def end_after_start
-    if ends_at.strftime("%H:%M").to_i < starts_at.strftime("%H:%M").to_i
-      errors.add(:ends_at, "must be after the starting time")
+    if ends_at < starts_at
+      errors.add(:ends_at, "must be after start time")
     end
    end
 end
