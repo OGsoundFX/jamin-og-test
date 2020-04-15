@@ -47,6 +47,15 @@ class JamSessionsController < ApplicationController
   def create
     @jam_session = JamSession.new(jam_session_params)
     @jam_session.user = current_user
+    year = params["jam_session"]["date"][0..3].to_i
+    month = params["jam_session"]["date"][5..6].to_i
+    day = params["jam_session"]["date"][8..9].to_i
+    start_hour = (params["jam_session"]["starts_at(4i)"].to_i + 2)
+    start_minutes = params["jam_session"]["starts_at(5i)"].to_i
+    end_hour = (params["jam_session"]["ends_at(4i)"].to_i + 2)
+    end_minutes = params["jam_session"]["ends_at(5i)"].to_i
+    @jam_session.starts_at = Time.new(year, month, day, start_hour, start_minutes)
+    @jam_session.ends_at = Time.new(year, month, day, end_hour, end_minutes)
     if @jam_session.save
       redirect_to jam_session_path(@jam_session)
     else
