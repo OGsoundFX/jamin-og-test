@@ -131,7 +131,7 @@
               <div class="modal-body">
                 <%= simple_form_for Review.new do |f| %>
                   <%= f.association :receiver, collection: jam_session.participants, label_method: :full_name, value_method: :id %>
-                  <%= f.input :rating, label_html: { class: 'regular' } %>
+                  <%= f.input :rating, collection: 0..5, label_html: { class: 'regular' } %>
                   <%= f.input :content, label_html: { class: 'regular' } %>
               </div>
               <div class="modal-footer">
