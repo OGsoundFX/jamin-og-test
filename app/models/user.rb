@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :reviews_written, class_name: "Review", foreign_key: :writer_id
   has_many :reviews_received, class_name: "Review", foreign_key: :receiver_id
   has_many :jam_sessions, dependent: :destroy
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   def profile_picture
     if photo.attached?
