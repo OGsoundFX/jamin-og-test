@@ -118,47 +118,47 @@ puts "---- Created some JAMS ----"
 
 puts "---- Creating some PARTICIPATIONS ----"
 
-Participation.create(spot_id: 1, user_id: 8)
+Participation.create(spot_id: Spot.first.id.to_i, user_id: User.first.id.to_i + 8)
 # Participation.create(spot_id: 2, user_id: 2)
 # Participation.create(spot_id: 3, user_id: 1)
 
-Participation.create(spot_id: 4, user_id: 11)
+Participation.create(spot_id: Spot.first.id.to_i + 3, user_id: User.first.id.to_i + 11)
 # Participation.create(spot_id: 5, user_id: 4)
-Participation.create(spot_id: 6, user_id: 12)
+Participation.create(spot_id: Spot.first.id.to_i + 5, user_id: User.first.id.to_i + 12)
 
-Participation.create(spot_id: 7, user_id: 13)
+Participation.create(spot_id: Spot.first.id.to_i + 6, user_id: User.first.id.to_i + 6)
 # Participation.create(spot_id: 8, user_id: 4)
 # Participation.create(spot_id: 9, user_id: 2)
 # Participation.create(spot_id: 10, user_id: 2)
 
-Participation.create(spot_id: 11, user_id: 14)
+Participation.create(spot_id: Spot.first.id.to_i + 10, user_id: User.first.id.to_i + 11)
 # Participation.create(spot_id: 12, user_id: 14)
 #cParticipation.create(spot_id: 13, user_id: 6)
-Participation.create(spot_id: 14, user_id: 3)
+Participation.create(spot_id: 1Spot.first.id.to_i + 11, user_id: User.first.id.to_i + 3)
 # Participation.create(spot_id: 15, user_id: 14)
 
-Participation.create(spot_id: 16, user_id: 10)
+Participation.create(spot_id: Spot.first.id.to_i + 13, user_id: User.first.id.to_i + 10)
 # Participation.create(spot_id: 17, user_id: 4)
-Participation.create(spot_id: 18, user_id: 2)
+Participation.create(spot_id: Spot.first.id.to_i + 17, user_id: User.first.id.to_i + 2)
 # Participation.create(spot_id: 19, user_id: 10)
 
 
-Participation.create(spot_id: 20, user_id: 9)
-Participation.create(spot_id: 21, user_id: 4)
-Participation.create(spot_id: 22, user_id: 5)
-Participation.create(spot_id: 23, user_id: 3)
+Participation.create(spot_id: Spot.first.id.to_i + 19, user_id: User.first.id.to_i + 9)
+Participation.create(spot_id: Spot.first.id.to_i + 20, user_id: User.first.id.to_i + 4)
+Participation.create(spot_id: Spot.first.id.to_i + 21, user_id: User.first.id.to_i + 5)
+Participation.create(spot_id: Spot.first.id.to_i + 22, user_id: User.first.id.to_i + 3)
 
-Participation.create(spot_id: 24, user_id: 13)
-Participation.create(spot_id: 25, user_id: 2)
-Participation.create(spot_id: 26, user_id: 8)
-Participation.create(spot_id: 27, user_id: 1)
+Participation.create(spot_id: Spot.first.id.to_i + 23, user_id: User.first.id.to_i + 6)
+Participation.create(spot_id: Spot.first.id.to_i + 24, user_id: User.first.id.to_i + 2)
+Participation.create(spot_id: Spot.first.id.to_i + 25, user_id: User.first.id.to_i + 8)
+Participation.create(spot_id: Spot.first.id.to_i + 26, user_id: User.first.id.to_i + 1)
 
-Participation.create(spot_id: 28, user_id: 1)
-Participation.create(spot_id: 29, user_id: 8)
-Participation.create(spot_id: 30, user_id: 2)
-Participation.create(spot_id: 31, user_id: 13)
+Participation.create(spot_id: Spot.first.id.to_i + 27, user_id: User.first.id.to_i + 1)
+Participation.create(spot_id: Spot.first.id.to_i + 28, user_id: User.first.id.to_i + 8)
+Participation.create(spot_id: Spot.first.id.to_i + 29, user_id: User.first.id.to_i + 2)
+Participation.create(spot_id: Spot.first.id.to_i + 30, user_id: User.first.id.to_i + 7)
 
-Participation.create(spot_id: 32, user_id: 6)
+Participation.create(spot_id: Spot.first.id.to_i + 31, user_id: User.first.id.to_i + 6)
 # Participation.create(spot_id: 33, user_id: 6)
 # Participation.create(spot_id: 34, user_id: 6)
 # Participation.create(spot_id: 35, user_id: 6)
@@ -169,12 +169,12 @@ puts "---- PARTICIPATIONS where created ----"
 puts "---- Creating some PARTICIPATIONS ----"
 
 Review.create(content: "Bob is a very good guitare player and he is a neat guy. I will definitely jam with him again !", rating: 5, writer_id: 5, receiver_id: 1)
-Review.create(content: "Good musician but came in late !", rating: 4, writer_id: 3, receiver_id: 1)
+Review.create(content: "Good musician but came in late !", rating: 4, writer_id: User.first.id.to_i + 3, receiver_id: User.first.id.to_i + 1)
 
-Review.create(content: "Lucie Rocks at the bass, wow I was impressezd with her skills!", rating: 5, writer_id: 6, receiver_id: 13)
-Review.create(content: "Very good musican, Lucie is a very kind person, I highly recommand joining her jams sessions!", rating: 4, writer_id: 11, receiver_id: 13)
+Review.create(content: "Lucie Rocks at the bass, wow I was impressezd with her skills!", rating: 5, writer_id: User.first.id.to_i + 6, receiver_id: User.first.id.to_i + 13)
+Review.create(content: "Very good musican, Lucie is a very kind person, I highly recommand joining her jams sessions!", rating: 4, writer_id: User.first.id.to_i + 11, receiver_id: User.first.id.to_i + 13)
 
-Review.create(content: "Bob Marley... I've heard this name before... anyway, good singer, good guitarist but was smoking joints the whole time!", rating: 2, writer_id: 10, receiver_id: 9)
+Review.create(content: "Bob Marley... I've heard this name before... anyway, good singer, good guitarist but was smoking joints the whole time!", rating: 2, writer_id: User.first.id.to_i + 10, receiver_id: User.first.id.to_i + 9)
 
 
 puts "---- PARTICIPATIONS where created ----"
