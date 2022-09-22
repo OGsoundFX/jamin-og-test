@@ -118,7 +118,7 @@ puts "---- Created some JAMS ----"
 
 puts "---- Creating some PARTICIPATIONS ----"
 
-
+Participation.destroy_all
 
 Participation.create(spot_id: 1, user_id: 8)
 # Participation.create(spot_id: 2, user_id: 2)
