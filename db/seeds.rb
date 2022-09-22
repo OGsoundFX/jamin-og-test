@@ -134,7 +134,7 @@ Participation.create(spot_id: Spot.first.id.to_i + 6, user_id: User.first.id.to_
 Participation.create(spot_id: Spot.first.id.to_i + 10, user_id: User.first.id.to_i + 11)
 # Participation.create(spot_id: 12, user_id: 14)
 #cParticipation.create(spot_id: 13, user_id: 6)
-Participation.create(spot_id: 1Spot.first.id.to_i + 11, user_id: User.first.id.to_i + 3)
+Participation.create(spot_id: Spot.first.id.to_i + 11, user_id: User.first.id.to_i + 3)
 # Participation.create(spot_id: 15, user_id: 14)
 
 Participation.create(spot_id: Spot.first.id.to_i + 13, user_id: User.first.id.to_i + 10)
