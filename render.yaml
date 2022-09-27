@@ -1,5 +1,5 @@
 databases:
-  - name: mysite-free
+  - name: mysite
     databaseName: mysite-free
     user: mysite
     plan: free
